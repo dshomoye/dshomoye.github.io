@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: `Kyle Mathews`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    title: `Damola's blog`,
+    author: `Adedamola Shomoye`,
+    description: `Posts, long forms, short forms, etc on everything about everything, that matters (to me).`,
+    siteUrl: `https://dshomoye.github.io`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `dhamoh_6`,
     },
   },
   plugins: [
@@ -31,6 +31,7 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 590,
+              sizeByPixelDensity: true,
             },
           },
           {
@@ -51,8 +52,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Dshomoye's blog`,
+        short_name: `dshomoye`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
@@ -69,6 +70,6 @@ module.exports = {
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
   ],
 }
