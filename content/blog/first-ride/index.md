@@ -1,7 +1,8 @@
 ---
 title: Taking a ride to the wild west
 date: "2020-01-27"
-description: "Taking a ride to the wild west"
+description: "My journey to sunny southern california"
+galleryImagePath: 'test/path'
 ---
 
 The title is _wildly_ misleading (teehee), this wasn't really my first time on the west coast. It's actually the third.

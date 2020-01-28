@@ -28,6 +28,12 @@ class BlogPostTemplate extends React.Component {
             >
               {post.frontmatter.title}
             </h1>
+            <h2
+              style={{
+                fontSize: '19px',
+                color: 'gray',
+              }}
+            >{post.frontmatter.description}</h2>
             <p
               style={{
                 ...scale(-1 / 5),
@@ -39,6 +45,7 @@ class BlogPostTemplate extends React.Component {
             </p>
           </header>
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
+          <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits"></img>
           <hr
             style={{
               marginBottom: rhythm(1),
