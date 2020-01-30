@@ -1,6 +1,9 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import rehypeReact from "rehype-react"
 
+import Imagebox from "../components/image-box"
+import Photoswipe from "../components/photo-swipe"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -11,6 +14,12 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
+    console.log("sources ", post.frontmatter.galleryImageSources)
+
+    const renderAst = new rehypeReact({
+      createElement: React.createElement,
+      components: { "image-box": Imagebox },
+    }).Compiler
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -30,10 +39,12 @@ class BlogPostTemplate extends React.Component {
             </h1>
             <h2
               style={{
-                fontSize: '19px',
-                color: 'gray',
+                fontSize: "19px",
+                color: "gray",
               }}
-            >{post.frontmatter.description}</h2>
+            >
+              {post.frontmatter.description}
+            </h2>
             <p
               style={{
                 ...scale(-1 / 5),
@@ -44,7 +55,7 @@ class BlogPostTemplate extends React.Component {
               {post.frontmatter.date}
             </p>
           </header>
-          <section dangerouslySetInnerHTML={{ __html: post.html }} />
+          <section>{renderAst(post.htmlAst)}</section>
           {/* <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits"></img> */}
           <hr
             style={{
@@ -55,7 +66,10 @@ class BlogPostTemplate extends React.Component {
             <Bio />
           </footer>
         </article>
-
+        <Photoswipe
+          sources={post.frontmatter.galleryImageSources}
+          name={post.frontmatter.title}
+        />
         <nav>
           <ul
             style={{
@@ -99,11 +113,12 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
-      html
+      htmlAst
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        galleryImageSources
       }
     }
   }
