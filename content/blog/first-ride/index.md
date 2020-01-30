@@ -15,3 +15,5 @@ Here's the very first picture I took, after getting off the FlyAway bus that goe
 
 Ok, not a great view, unfortunately, that's the awkward perspective I had to work with. 
 This hardly represents what people think of when they go to LA, but I just wanted to know what life is like for regular LA people. What does it really mean, to live in LA. That's why I took the bus. Because, at the end of the day, one of the things we end up doing a majority of our life, outside of actual work, is commuting to work.
+---
+From there, I walked to China Town, I was quite excited, I'm a fan of themed neighborhoods (if that's these towns are).

@@ -45,7 +45,7 @@ class BlogPostTemplate extends React.Component {
             </p>
           </header>
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
-          <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits"></img>
+          {/* <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits"></img> */}
           <hr
             style={{
               marginBottom: rhythm(1),

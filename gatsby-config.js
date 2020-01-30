@@ -11,7 +11,7 @@ module.exports = {
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
-      options: {
+        options: {
         path: `${__dirname}/content/blog`,
         name: `blog`,
       },
@@ -31,7 +31,7 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 590,
-              sizeByPixelDensity: true,
+              linkImagesToOriginal: false,
             },
           },
           {
