@@ -1,3 +1,12 @@
+const sourceS3 = {
+  resolve: 'gatsby-source-s3-image',
+  options: {
+    bucketName: 'dshomoye',
+    domain: "nyc3.digitaloceanspaces.com", // [optional] Not necessary to define for AWS S3; defaults to `s3.amazonaws.com`
+    protocol: 'https', // [optional] Default to `https`.
+  },
+}
+
 module.exports = {
   siteMetadata: {
     title: `Damola's blog`,
@@ -9,6 +18,7 @@ module.exports = {
     },
   },
   plugins: [
+    sourceS3,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
