@@ -12,27 +12,6 @@ const Photoswipe = ({ name, sources }) => {
   const [isOpen, setOpen] = useState(false)
   const [index, setIndex] = useState(0)
   const bc = useRef(null)
-  const data = useStaticQuery(graphql`
-  query carouselImageQuery {
-    allS3ImageAsset(filter: {Key: {regex: "images/"}}) {
-      nodes {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
-        }
-        Key
-      }
-    }
-    }`
-  )
-
-  const images = sources.map(source => {
-    return { src: source }
-  })
-
-  const fluidData = data.allS3ImageAsset.nodes.filter(imgData => sources.includes(imgData.Key))
-
   const showImage = e => {
     try {
       setIndex(Number(e.data))
@@ -49,6 +28,24 @@ const Photoswipe = ({ name, sources }) => {
       bc.current.close()
     }
   })
+  
+  const data = useStaticQuery(graphql`
+  query carouselImageQuery {
+    allS3ImageAsset(filter: {Key: {regex: "images/"}}) {
+      nodes {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+        Key
+      }
+    }
+  }`
+  )
+  if (!sources) return null
+
+  const fluidData = data.allS3ImageAsset.nodes.filter(imgData => sources.includes(imgData.Key))
 
   return (
     <ModalGateway>

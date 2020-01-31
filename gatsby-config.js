@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const sourceS3 = {
   resolve: 'gatsby-source-s3-image',
   options: {
