@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useRef } from "react"
 import Carousel, { Modal, ModalGateway } from "react-images"
-import Img from "gatsby-image"
-import { useStaticQuery, graphql } from "gatsby"
 
 
 const customView = ({...props}) => {
-  return <Img fluid={props.data.childImageSharp.fluid} />
+  return <img data-src={props.data.src} className="lazyload" />
 }
+
+const bucketRoot = "https://dshomoye.nyc3.digitaloceanspaces.com"
 
 const Photoswipe = ({ name, sources }) => {
   const [isOpen, setOpen] = useState(false)
@@ -28,24 +28,10 @@ const Photoswipe = ({ name, sources }) => {
       bc.current.close()
     }
   })
-  
-  const data = useStaticQuery(graphql`
-  query carouselImageQuery {
-    allS3ImageAsset(filter: {Key: {regex: "images/"}}) {
-      nodes {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
-        }
-        Key
-      }
-    }
-  }`
-  )
+
   if (!sources) return null
 
-  const fluidData = data.allS3ImageAsset.nodes.filter(imgData => sources.includes(imgData.Key))
+  console.log('sources ', sources)
 
   return (
     <ModalGateway>
@@ -53,7 +39,7 @@ const Photoswipe = ({ name, sources }) => {
         <Modal onClose={() => setOpen(false)}>
           <Carousel
             components={{ View: customView }}
-            views={fluidData} 
+            views={sources.map(s => ({ src: `${bucketRoot}/${s}` }))} 
             currentIndex={index} 
           />
         </Modal>
