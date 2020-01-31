@@ -6,13 +6,16 @@ const Imagebox = ({ name, index, src }) => {
   const bc = useRef(null)
   const data = useStaticQuery(graphql`
   query ImageQuery {
-      s3ImageAsset(Key: {eq: "images/end_of_the_trail.jpg"}) {
+    allS3ImageAsset(filter: {Key: {regex: "images/"}}) {
+      nodes {
         childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid
           }
         }
+        Key
       }
+    }
     }`
   )
 
@@ -23,16 +26,18 @@ const Imagebox = ({ name, index, src }) => {
     }
   })
 
-  console.log('data, ', data)
+  const imageData = data.allS3ImageAsset.nodes.find(im => im.Key === src)
+
 
   const showlightbox = () => {
-    console.log("sending show cmd, index is", index)
     if (bc.current) bc.current.postMessage(index)
   }
 
+  if (!imageData) return null
+
   return (
     <span onClick={showlightbox}>
-      <Img fluid={data.s3ImageAsset.childImageSharp.fluid} />
+      <Img fluid={imageData.childImageSharp.fluid} />
     </span>
   )
 }

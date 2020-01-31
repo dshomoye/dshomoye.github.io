@@ -3,9 +3,8 @@ title: Taking a ride to the wild west
 date: "2020-01-27"
 description: "My journey to sunny southern california"
 galleryImageSources:
-  - "https://picsum.photos/200/300"
-  - "https://picsum.photos/500/700"
-  - "https://picsum.photos/700/500"
+  - "images/grand_park.jpg"
+  - "images/end_of_the_trail.jpg"
 ---
 
 The title is _wildly_ misleading (teehee), this wasn't really my first time on the west coast. It's actually the third.
@@ -15,12 +14,17 @@ Then, in November of 2018, I went to San Francisco, that trip ended up being mor
 Here's the very first picture I took, after getting off the FlyAway bus that goes from LAX to Union Station.
 
 <!-- ![Union Station](./union-station.jpg) -->
+ _undergoing  repairs!_
 
-<image-box name="Taking a ride to the wild west" index=0 src="https://picsum.photos/200/300"></image-box>
+---
 
 Ok, not a great view, unfortunately, that's the awkward perspective I had to work with.
 This hardly represents what people think of when they go to LA, but I just wanted to know what life is like for regular LA people. What does it really mean, to live in LA. That's why I took the bus. Because, at the end of the day, one of the things we end up doing a majority of our life, outside of actual work, is commuting to work.
 
 ---
+Now, here's actually on my _last day_! Well, no need to be dramatic, I was there for 2 days, and this was on my second day. 
+I did the whole Santa Monica pier tour, no plans, no route, just following the crowd and whatever looked shiny. Like this sign below. Its iconic, apparently 😕.
+
+<image-box name="Taking a ride to the wild west" index=0 src="images/end_of_the_trail.jpg"></image-box>
 
 From there, I walked to China Town, I was quite excited, I'm a fan of themed neighborhoods (if that's these towns are).

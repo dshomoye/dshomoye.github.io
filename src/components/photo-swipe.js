@@ -1,19 +1,41 @@
 import React, { useEffect, useState, useRef } from "react"
 import Carousel, { Modal, ModalGateway } from "react-images"
+import Img from "gatsby-image"
+import { useStaticQuery, graphql } from "gatsby"
+
+
+const customView = ({...props}) => {
+  return <Img fluid={props.data.childImageSharp.fluid} />
+}
 
 const Photoswipe = ({ name, sources }) => {
   const [isOpen, setOpen] = useState(false)
   const [index, setIndex] = useState(0)
   const bc = useRef(null)
+  const data = useStaticQuery(graphql`
+  query carouselImageQuery {
+    allS3ImageAsset(filter: {Key: {regex: "images/"}}) {
+      nodes {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+        Key
+      }
+    }
+    }`
+  )
 
   const images = sources.map(source => {
     return { src: source }
   })
 
+  const fluidData = data.allS3ImageAsset.nodes.filter(imgData => sources.includes(imgData.Key))
+
   const showImage = e => {
     try {
       setIndex(Number(e.data))
-      console.log("showing light box, val passed: ", e)
       setOpen(true)
     } catch (e) {
       console.error(e)
@@ -32,7 +54,11 @@ const Photoswipe = ({ name, sources }) => {
     <ModalGateway>
       {isOpen ? (
         <Modal onClose={() => setOpen(false)}>
-          <Carousel views={images} currentIndex={index} />
+          <Carousel
+            components={{ View: customView }}
+            views={fluidData} 
+            currentIndex={index} 
+          />
         </Modal>
       ) : null}
     </ModalGateway>
