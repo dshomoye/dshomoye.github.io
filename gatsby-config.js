@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
   siteMetadata: {
     title: `Damola's blog`,
@@ -11,7 +13,7 @@ module.exports = {
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
-        options: {
+      options: {
         path: `${__dirname}/content/blog`,
         name: `blog`,
       },
@@ -27,6 +29,7 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          "gatsby-remark-component",
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -58,7 +61,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/stormtrooper-icon.png`,
       },
     },
     `gatsby-plugin-react-helmet`,
