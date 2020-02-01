@@ -29,7 +29,7 @@ gallerySources:
     type: "image"
   -
     name: "Alfa Clip"
-    src: "images/first-ride/alfa_video.webm"
+    src: "images/first-ride/alfa_video.mp4"
     type: "video"
 
 ---
@@ -74,7 +74,7 @@ Speaking of getting better, I decided to just started walking through the rest o
 Yes, yes, I saw a blacked out SUV, walked closer, and saw a Quadrifoglio Giulia im glorious red being covered by a camera attached to the SUV.
 I was so excited! I mean, this is the same car I have, well, the plebian version, and I'm getting to see the promotional footage for it being shot. People are gawking over it. It made me feel like I owned something *special*.
 <media-box name="The shooting an Alfa Romeo promo video" index=4 src="images/first-ride/alfa_commercial.jpg"></media-box>
-<media-box name="The shooting an Alfa Romeo promo video" index=6 src="images/first-ride/alfa_video.webm" type=video></media-box>
+<media-box name="The shooting an Alfa Romeo promo video" index=6 src="images/first-ride/alfa_video.mp4" type=video></media-box>
 <!-- alfa picture (and video?) -->
 
 Once that was done, I kept walking, and walking till I reached Little Tokyo, surely, this, I'd heard a lot about, much more than China Town. Now it's, well, *little*, but it certainly wasn't lacking in scenery. There's literally shops lined up the entire place. Every time I saw a show that looked cool ahead, I'd start walking towards it, by the time I'm aware of what I'm doing I'm already inside another store that got more of my attention. I don't think that's how attention works but it was certainly very eye catching. Lots of gifts shops, artisan shops, endless eating options ice cream, pastries, the works. I ended up almost not getting anything because I actually walked to the end of Little Tokyo without even realizing it. I did another walk through and this time I stopped at a coffee shop (Cafe Dulce) to get hot chocolate and donuts. I usually end up in these situations. A build-up to an underwhelming ending.
