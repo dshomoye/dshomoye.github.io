@@ -2,8 +2,8 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import rehypeReact from "rehype-react"
 
-import Imagebox from "../components/image-box"
-import Photoswipe from "../components/photo-swipe"
+import MediaBox from "../components/MediaBox"
+import Photoswipe from "../components/PhotoSwipe"
 import GalleryContainer from "../components/GalleryContainer"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -16,7 +16,7 @@ class BlogPostTemplate extends React.Component {
     this.state = { galleryIndex: 0, galleryModalIsOpen: false};
   }
 
-  setAndOpenGallery = (index) => {
+  setAndOpenGallery = (index) =>  {
     this.setState({
       galleryIndex: index,
       galleryModalIsOpen: true
@@ -37,7 +37,7 @@ class BlogPostTemplate extends React.Component {
 
     const renderAst = new rehypeReact({
       createElement: React.createElement,
-      components: { "image-box": Imagebox },
+      components: { "media-box": MediaBox },
     }).Compiler
 
     return (
