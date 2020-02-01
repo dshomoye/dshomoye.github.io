@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 import rehypeReact from "rehype-react"
 
 import MediaBox from "../components/MediaBox"
-import Photoswipe from "../components/PhotoSwipe"
+import PhotoSwipe from "../components/PhotoSwipe"
 import GalleryContainer from "../components/GalleryContainer"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -86,8 +86,8 @@ class BlogPostTemplate extends React.Component {
               <Bio />
             </footer>
           </article>
-          <Photoswipe
-            sources={post.frontmatter.galleryImageSources}
+          <PhotoSwipe
+            sources={post.frontmatter.gallerySources}
             name={post.frontmatter.title}
             index={this.state.galleryIndex}
             isOpen={this.state.galleryModalIsOpen}
@@ -142,7 +142,11 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
-        galleryImageSources
+        gallerySources {
+          name
+          src
+          type
+        }
       }
     }
   }

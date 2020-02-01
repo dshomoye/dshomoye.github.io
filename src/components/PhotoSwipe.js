@@ -1,17 +1,28 @@
 import React from "react"
 import Carousel, { Modal, ModalGateway } from "react-images"
 
-
-const customView = ({...props}) => {
-  return <img data-src={props.data.src} className="lazyload" alt={props.data.src}/>
-}
-
 const bucketRoot = "https://dshomoye.nyc3.digitaloceanspaces.com"
 
-const Photoswipe = ({ index, isOpen, closeModal, name, sources }) => {
+const customView = ({...props}) => {
+  const src = `${bucketRoot}/${props.data.src}`
+  const media = props.data.type === 'video' ? 
+    <video data-src={src} className="lazyload" alt={props.data.name} controls/> :
+    <img data-src={src} className="lazyload" alt={props.data.name}/>
+  return media
+}
+
+
+/**
+ * sources: [{
+ *  name: str
+ *  src: str
+ *  type: "video"|"image"
+ * }]
+ * @param {*} param0 
+ */
+const PhotoSwipe = ({ index, isOpen, closeModal, sources }) => {
   if (!sources) return null
 
-  console.log('sources ', sources)
 
   return (
     <ModalGateway>
@@ -19,7 +30,7 @@ const Photoswipe = ({ index, isOpen, closeModal, name, sources }) => {
         <Modal onClose={() => closeModal(false)}>
           <Carousel
             components={{ View: customView }}
-            views={sources.map(s => ({ src: `${bucketRoot}/${s}` }))} 
+            views={sources} 
             currentIndex={index} 
           />
         </Modal>
@@ -28,4 +39,4 @@ const Photoswipe = ({ index, isOpen, closeModal, name, sources }) => {
   )
 }
 
-export default Photoswipe
+export default PhotoSwipe
