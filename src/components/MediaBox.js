@@ -14,7 +14,7 @@ const MediaBox = ({ name, index, src, type }) => {
 
   const mediaSrc = `${bucketRoot}/${src}`
   const media = type === "video" ? 
-          <video data-src={mediaSrc} className="lazyload" width='680px' controls muted/> :
+          <video data-src={mediaSrc} className="lazyload" width="100%" controls muted/> :
           <img data-src={mediaSrc} className="lazyload" alt={name}/>
 
   return (
