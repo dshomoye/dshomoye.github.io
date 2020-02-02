@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 import rehypeReact from "rehype-react"
 
 import MediaBox from "../components/MediaBox"
-import PhotoSwipe from "../components/PhotoSwipe"
+import MediaSwipe from "../components/MediaSwipe"
 import GalleryContainer from "../components/GalleryContainer"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -86,7 +86,7 @@ class BlogPostTemplate extends React.Component {
               <Bio />
             </footer>
           </article>
-          <PhotoSwipe
+          <MediaSwipe
             sources={post.frontmatter.gallerySources}
             name={post.frontmatter.title}
             index={this.state.galleryIndex}

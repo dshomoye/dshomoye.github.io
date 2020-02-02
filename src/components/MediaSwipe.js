@@ -20,7 +20,7 @@ const customView = ({...props}) => {
  * }]
  * @param {*} param0 
  */
-const PhotoSwipe = ({ index, isOpen, closeModal, sources }) => {
+const MediaSwipe = ({ index, isOpen, closeModal, sources }) => {
   if (!sources) return null
 
 
@@ -39,4 +39,4 @@ const PhotoSwipe = ({ index, isOpen, closeModal, sources }) => {
   )
 }
 
-export default PhotoSwipe
+export default MediaSwipe
