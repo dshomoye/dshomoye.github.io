@@ -23,7 +23,7 @@ const GalleryContainer = ({ children, setGalleryIndex, closeModal }) => {
     }
   }
 
-  const [state, dispatch] = useReducer(reducer, null)
+  const [, dispatch] = useReducer(reducer, null)
 
   return (
     <DispatchContext.Provider value={dispatch}>

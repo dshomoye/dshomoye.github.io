@@ -6,7 +6,9 @@ const bucketRoot = "https://dshomoye.nyc3.digitaloceanspaces.com"
 const customView = ({...props}) => {
   const src = `${bucketRoot}/${props.data.src}`
   const media = props.data.type === 'video' ? 
-    <video data-src={src} className="lazyload" alt={props.data.name} width="100%" controls/> :
+    (<video data-src={src} className="lazyload" alt={props.data.name} width="100%" controls>
+      <track src={`${bucketRoot}/images/first-ride/video.vtt`} default kind="captions" srclang="en"/>
+    </video>) :
     <img data-src={src} className="lazyload" alt={props.data.name}/>
   return media
 }

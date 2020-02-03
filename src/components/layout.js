@@ -1,7 +1,33 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
 
 import { rhythm, scale } from "../utils/typography"
+
+const CNJoke = () => {
+  const [joke, setJoke ] = useState(null);
+
+  useEffect(() => {
+    const getJoke = async () => {
+      try {
+        const response = await fetch('https://api.icndb.com/jokes/random')
+        const data = await response.json()
+        setJoke(data.value.joke)
+      } catch (e) {
+        console.log("Unable to fetch joke from api ", e)
+      }
+    }
+    getJoke()
+  }, [])
+
+  if(!joke) return null
+  return (
+    <>
+      <hr/>
+      <p style={{fontSize: 'small'}}>{joke}</p>
+    </>
+    )
+
+}
 
 class Layout extends React.Component {
   render() {
@@ -62,6 +88,7 @@ class Layout extends React.Component {
       >
         <header>{header}</header>
         <main>{children}</main>
+        <CNJoke/>
         <footer>© {new Date().getFullYear()} dshomoye.</footer>
       </div>
     )
