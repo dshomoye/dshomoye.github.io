@@ -15,3 +15,7 @@ img {
 body {
     background-color: #f5f5f5;
 }
+
+html {
+    scroll-behavior: smooth !important;
+}
