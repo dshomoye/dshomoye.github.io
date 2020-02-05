@@ -35,6 +35,8 @@
     "react-images": "^1.1.0-beta.3",
     "react-typography": "^0.16.19",
     "rehype-react": "^4.0.1",
+    "scroll-behavior-polyfill": "^2.0.13",
+    "smoothscroll-polyfill": "^0.4.4",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75",
     "typography": "^0.16.19",

@@ -19,7 +19,7 @@ const MediaBox = ({ name, index, src, type }) => {
 
   return (
     <a onClick={showlightbox} href={mediaSrc}>
-      <figure>
+      <figure className="media-contianer">
         {media}
         <figcaption>{name}</figcaption>
       </figure>
