@@ -57,10 +57,7 @@ const Bio = () => {
         Written by <strong>{author}</strong> <em>tech</em>nically{" "}
         <em>enthusiast</em>ic.
         {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow me on Twitter
-        </a>{" "}
-        or not.
+        If you wish to follow me, just bookmark my site! And check back for new updates.
       </p>
     </div>
   )
