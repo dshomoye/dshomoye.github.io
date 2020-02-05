@@ -41,7 +41,7 @@ Then, in November of 2018, I went to San Francisco, that trip ended up being mor
 
 Here's the very first picture I took, after getting off the FlyAway bus that goes from LAX to Union Station.
 
-<media-box name="After getting of the bus at Union Station" index=0 src="images/first-ride/union_station.jpg"></media-box>
+<media-box name="After getting off the bus at Union Station" index=0 src="images/first-ride/union_station.jpg"></media-box>
 
 
 Ok, not a great view, unfortunately, that's the awkward perspective I had to work with.
