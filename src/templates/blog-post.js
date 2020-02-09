@@ -17,10 +17,12 @@ class BlogPostTemplate extends React.Component {
   }
 
   setAndOpenGallery = (index) =>  {
-    this.setState({
-      galleryIndex: index,
-      galleryModalIsOpen: true
-    })
+    if(index){
+      this.setState({
+        galleryIndex: index,
+        galleryModalIsOpen: true
+      })
+    }
   }
 
   closeGalleryModal = () => {

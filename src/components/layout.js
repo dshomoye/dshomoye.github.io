@@ -3,15 +3,18 @@ import { Link } from "gatsby"
 
 import { rhythm, scale } from "../utils/typography"
 
-const CNJoke = () => {
-  const [joke, setJoke ] = useState(null);
+const QuoteBlock = () => {
+  const [quote, setQuote] = useState(null)
 
   useEffect(() => {
     const getJoke = async () => {
       try {
-        const response = await fetch('https://api.icndb.com/jokes/random')
-        const data = await response.json()
-        setJoke(data.value.joke)
+        const quoteResponse = await fetch('https://quote-garden.herokuapp.com/quotes/random')
+        const quoteData = await quoteResponse.json()
+        setQuote({
+          author: quoteData.quoteAuthor,
+          text: quoteData.quoteText
+        })
       } catch (e) {
         console.log("Unable to fetch joke from api ", e)
       }
@@ -19,11 +22,11 @@ const CNJoke = () => {
     getJoke()
   }, [])
 
-  if(!joke) return null
+  if(!quote) return null
   return (
     <>
       <hr/>
-      <p style={{fontSize: 'small'}}>{joke}</p>
+  <p style={{fontSize: 'small'}}><strong>{quote.author}:</strong> {quote.text}</p>
     </>
     )
 
@@ -88,7 +91,7 @@ class Layout extends React.Component {
       >
         <header>{header}</header>
         <main>{children}</main>
-        <CNJoke/>
+        <QuoteBlock/>
         <footer>© {new Date().getFullYear()} dshomoye.</footer>
       </div>
     )

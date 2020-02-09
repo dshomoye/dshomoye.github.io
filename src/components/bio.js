@@ -32,7 +32,7 @@ const Bio = () => {
     }
   `)
 
-  const { author, social } = data.site.siteMetadata
+  const { author } = data.site.siteMetadata
   return (
     <div
       style={{
@@ -54,8 +54,8 @@ const Bio = () => {
         }}
       />
       <p>
-        Written by <strong>{author}</strong> <em>tech</em>nically{" "}
-        <em>enthusiast</em>ic.
+        Written by <strong>{author}</strong> <em>(tech)</em>nically{" "}
+        <em>(enthusiast)</em>ic.
         {` `}
         If you wish to follow me, just bookmark my site! And check back for new updates.
       </p>

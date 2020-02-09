@@ -11,6 +11,14 @@ figure {
     box-shadow: 0px -16px 25px -29px rgba(0,0,0,0.75);
 }
 
+.styled-media {
+    border-style: solid;
+    border-width: 1px;
+    border-color: gray;
+    border-radius: 5px;
+    padding: 0;
+}
+
 img {
     margin: 0;
 }
@@ -21,4 +29,8 @@ body {
 
 html {
     scroll-behavior: smooth !important;
+}
+
+a {
+    text-shadow: none !important;
 }
