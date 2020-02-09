@@ -1,7 +1,6 @@
 import React from "react"
 import Carousel, { Modal, ModalGateway } from "react-images"
-
-const bucketRoot = "https://dshomoye.nyc3.digitaloceanspaces.com"
+import { bucketRoot } from "../utils/constants"
 
 const customView = ({...props}) => {
   const src = `${bucketRoot}/${props.data.src}`

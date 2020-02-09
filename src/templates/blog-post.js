@@ -70,15 +70,12 @@ class BlogPostTemplate extends React.Component {
               <p
                 style={{
                   ...scale(-1 / 5),
-                  display: `block`,
-                  marginBottom: rhythm(1),
                 }}
               >
-                {post.frontmatter.date}
+                {post.frontmatter.date}  | {post.timeToRead} min. read
               </p>
             </header>
             <section>{renderAst(post.htmlAst)}</section>
-            {/* <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits"></img> */}
             <hr
               style={{
                 marginBottom: rhythm(1),
@@ -150,6 +147,7 @@ export const pageQuery = graphql`
           type
         }
       }
+      timeToRead
     }
   }
 `

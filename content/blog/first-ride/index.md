@@ -31,6 +31,7 @@ gallerySources:
     name: "Alfa Clip"
     src: "images/first-ride/alfa_video.mp4"
     type: "video"
+bannerImage: "images/first-ride/santa_monica_beach.jpg"
 
 ---
 

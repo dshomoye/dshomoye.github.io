@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 
 import { DispatchContext, actionTypes } from "./GalleryContainer"
 
-const bucketRoot = "https://dshomoye.nyc3.digitaloceanspaces.com"
+import { bucketRoot } from "../utils/constants"
 
 const MediaBox = ({ name, index, src, type }) => {
   const dispath = useContext(DispatchContext)
