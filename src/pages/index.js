@@ -20,7 +20,7 @@ class BlogIndex extends React.Component {
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
-            <article key={node.fields.slug}>
+            <article key={node.fields.slug} className="home-article">
               <header>
                 <h3
                   style={{
@@ -40,7 +40,6 @@ class BlogIndex extends React.Component {
                   <div
                   style={{
                     minHeight: rhythm(8),
-                    minWidth: rhythm(15),
                     backgroundImage: `url('${bucketRoot}/${node.frontmatter.bannerImage}')`,
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",

@@ -5,33 +5,33 @@ description: "My journey to sunny southern california"
 gallerySources:
   -
     name: "Union station"
-    src: "images/first-ride/union_station.jpg"
+    src: "media/first-ride/union_station.jpg"
     type: "image"
   -
     name: "The Broad"
-    src: "images/first-ride/the_broad.jpg"
+    src: "media/first-ride/the_broad.jpg"
     type: "image"
   -
     name: "Disney Hall"
-    src: "images/first-ride/disney_hall.jpg"
+    src: "media/first-ride/disney_hall.jpg"
     type: "image"
   -
     name: "Grand Park"
-    src: "images/first-ride/grand_park.jpg"
+    src: "media/first-ride/grand_park.jpg"
     type: "image"
   -
     name: "Alfa Commercial Photo"
-    src: "images/first-ride/alfa_commercial.jpg"
+    src: "media/first-ride/alfa_commercial.jpg"
     type: "image"
   -
     name: "Santa Monica Beach"
-    src: "images/first-ride/santa_monica_beach.jpg"
+    src: "media/first-ride/santa_monica_beach.jpg"
     type: "image"
   -
     name: "Alfa Clip"
-    src: "images/first-ride/alfa_video.mp4"
+    src: "media/first-ride/alfa_video.mp4"
     type: "video"
-bannerImage: "images/first-ride/santa_monica_beach.jpg"
+bannerImage: "media/first-ride/santa_monica_beach.jpg"
 
 ---
 
@@ -42,7 +42,7 @@ Then, in November of 2018, I went to San Francisco, that trip ended up being mor
 
 Here's the very first picture I took, after getting off the FlyAway bus that goes from LAX to Union Station.
 
-<media-box name="After getting off the bus at Union Station" index=0 src="images/first-ride/union_station.jpg"></media-box>
+<media-box name="After getting off the bus at Union Station" index=0 src="media/first-ride/union_station.jpg"></media-box>
 
 
 Ok, not a great view, unfortunately, that's the awkward perspective I had to work with.
@@ -55,14 +55,14 @@ China town was underwhelming. I've gone to China town in DC and New York. I had 
 #### The Broad
 
 This museum showed up in just about every "Top things to do in LA" list. It is a majestic structure. I didn't get the best perspective, but here's the best shot I got of it. I didn't bother trying to go inside. There was a line and I figured it probably isn't free (turns out, it is). 
-<media-box name="The broad Museum" index=1 src="images/first-ride/the_broad.jpg"></media-box>
+<media-box name="The broad Museum" index=1 src="media/first-ride/the_broad.jpg"></media-box>
 
 Thankfully, right on the next block stood the **Walt Disney Concert Hall**.
 And of course, I got a picture of it. 
-<media-box name="Disney Hall" index=2 src="images/first-ride/disney_hall.jpg"></media-box>
+<media-box name="Disney Hall" index=2 src="media/first-ride/disney_hall.jpg"></media-box>
 
 Two blocks away, was **Grand Park**. The park, was not grand. But it was there. And the pictures didn't lie. I just expected... more. Alright there's a theme of unmet expectations but the trip gets better, I promise.
-<media-box name="Grand Park" index=3 src="images/first-ride/grand_park.jpg"></media-box>
+<media-box name="Grand Park" index=3 src="media/first-ride/grand_park.jpg"></media-box>
 
 Speaking of getting better, I decided to just started walking through the rest of downtown LA and I stumbled upon the commercial shooting of an...
 
@@ -70,8 +70,8 @@ Speaking of getting better, I decided to just started walking through the rest o
 #### Alfa Romeo Giulia
 Yes, yes, I saw a blacked out SUV, walked closer, and saw a Quadrifoglio Giulia im glorious red being covered by a camera attached to the SUV.
 I was so excited! I mean, this is the same car I have, well, the plebian version, and I'm getting to see the promotional footage for it being shot. People are gawking over it. It made me feel like I owned something *special*.
-<media-box name="The shooting of an Alfa Romeo promo video" index=4 src="images/first-ride/alfa_commercial.jpg"></media-box>
-<media-box name="The shooting of an Alfa Romeo promo video" src="images/first-ride/alfa_video.mp4" type=video></media-box>
+<media-box name="The shooting of an Alfa Romeo promo video" index=4 src="media/first-ride/alfa_commercial.jpg"></media-box>
+<media-box name="The shooting of an Alfa Romeo promo video" src="media/first-ride/alfa_video.mp4" type=video></media-box>
 
 
 Once that was done, I kept walking, and walking till I reached Little Tokyo, surely, this, I'd heard a lot about, much more than China Town. Now it's, well, *little*, but it certainly wasn't lacking in scenery. There's literally shops lined up the entire place. Every time I saw a show that looked cool ahead, I'd start walking towards it, by the time I'm aware of what I'm doing I'm already inside another store that got more of my attention. I don't think that's how attention works but it was certainly very eye catching. Lots of gifts shops, artisan shops, endless eating options ice cream, pastries, the works. I ended up almost not getting anything because I actually walked to the end of Little Tokyo without even realizing it. I did another walk through and this time I stopped at a coffee shop (Cafe Dulce) to get hot chocolate and donuts. I usually end up in these situations. A build-up to an underwhelming ending.
@@ -87,7 +87,7 @@ I went to Santa Monica and met up with a friend. We grabbed lunch at Misfit. It'
 Really good restaurants like Kazunori which I went to the after, on Monday. Literally the best hand rolls I've ever had. The next day was a lot more fun. Spent the entire time in downtown Santa Monica, went to Sidecar Doughnuts, Kazunori, and the oh-so-awesome SUGARFISH. Really one of the best Sashimi and unagi I've ever had. I also spent a couple hours going along the Santa Monica Pier which I walked to from downtown. It's absolutely beautiful. A refreshing contrast from what you get from a city downtown in New York for sure. 
 This is a really good illustration of what I got to gawk upon.
 
-<media-box name="View of the Santa Monica Beach" index=5 src="images/first-ride/santa_monica_beach.jpg"></media-box>
+<media-box name="View of the Santa Monica Beach" index=5 src="media/first-ride/santa_monica_beach.jpg"></media-box>
 
 
 #### Closing
