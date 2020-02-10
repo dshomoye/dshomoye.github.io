@@ -17,7 +17,8 @@ class BlogPostTemplate extends React.Component {
   }
 
   setAndOpenGallery = (index) =>  {
-    if(index){
+    console.log('index set is ', index)
+    if(index !== null){
       this.setState({
         galleryIndex: index,
         galleryModalIsOpen: true
