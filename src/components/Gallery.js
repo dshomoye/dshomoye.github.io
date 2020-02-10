@@ -27,14 +27,15 @@ const getmediaArray = (media) => {
  * } prop 
  */
 const Gallery = ({ media, width }) => {
+  const maxWidth = width ? width : 2 
   const mediaArray = getmediaArray(media)
   if (!mediaArray) return null
   const boxes = []
-  const equalBoxes = ~~(mediaArray.length / width) // int division
-  const remainingBoxes = mediaArray.length % width
+  const equalBoxes = ~~(mediaArray.length / maxWidth) // int division
+  const remainingBoxes = mediaArray.length % maxWidth
   for (let index = 0; index < mediaArray.length; index++) {
     const mediaElement = mediaArray[index]
-    const boxWidth = index <= equalBoxes * width ? width : remainingBoxes
+    const boxWidth = index <= equalBoxes * maxWidth ? maxWidth : remainingBoxes
     boxes.push(
       <Box width={1/boxWidth}>
         <MediaBox {...mediaElement} />

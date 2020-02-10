@@ -46,6 +46,8 @@ class BlogPostTemplate extends React.Component {
       },
     }).Compiler
 
+    const lastUpdated = post.frontmatter.lastUpdated ? `Last updated: ${post.frontmatter.lastUpdated }`: null
+
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
@@ -78,8 +80,10 @@ class BlogPostTemplate extends React.Component {
               >
                 {post.frontmatter.date}  | {post.timeToRead} min. read
               </p>
+              
             </header>
             <section>{renderAst(post.htmlAst)}</section>
+            <p style={{...scale(-0.7)}}>{lastUpdated}</p>
             <hr
               style={{
                 marginBottom: rhythm(1),
@@ -150,6 +154,7 @@ export const pageQuery = graphql`
           src
           type
         }
+        lastUpdated(formatString: "MMMM DD, YYYY")
       }
       timeToRead
     }

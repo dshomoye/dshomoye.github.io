@@ -2,6 +2,20 @@
 title: "Road trip to the South."
 date: "2020-02-09"
 description: "I venture to the deep south"
+gallerySources:
+  -
+    name: "Bamboo Trees"
+    src: "media/atl-trip/bamboo_trees.jpg"
+    type: "image"
+  -
+    name: "A view of the Chattahoochee"
+    src: "media/atl-trip/chattahoochee_river.jpg"
+    type: "image"
+  -
+    name: "Totally not lost"
+    src: "media/atl-trip/me_on_the_river.jpg"
+    type: "image"
+lastUpdated: "2020-02-09"
 ---
 
 ## Heading south, down south.
@@ -16,15 +30,12 @@ And that was my first day
 
 #### Palisades Park
 Although I technically spent 3 days in Atlanta, the core of everything I did was in a day, on my second day. 
-Our first stop was Palisades park. Well, I *found out* it was Palisades park. My tour guide was nice enough to keep things mysterious (and very much interesting for me). I’m a fan of hiking and since I hadn’t hiked a new trail in a long time. I was pretty excited. Of course, there’s also the fact that this is a completely new climate region so the environment is actually noticeably different. There were bamboo trees! I haven’t seen those since Nigeria. <image -bamboo-tree/>
-Then, there was the **Chattahoochee** river.  We got a pretty good view of the river. <2 river pictures>
+Our first stop was Palisades park. Well, I *found out* it was Palisades park. My tour guide was nice enough to keep things mysterious (and very much interesting for me). I’m a fan of hiking and since I hadn’t hiked a new trail in a long time. I was pretty excited. Of course, there’s also the fact that this is a completely new climate region so the environment is actually noticeably different. There were bamboo trees! I haven’t seen those since Nigeria. 
+<media-box src="media/atl-trip/bamboo_trees.jpg" name="Bamboo Trees" index=0></media-box>
+Then, there was the **Chattahoochee** river.  We got a pretty good view of the river. 
+<media-box src="media/atl-trip/chattahoochee_river.jpg" name="A view of the Chattahooche river" index=1></media-box>
+<media-box src="media/atl-trip/me_on_the_river.jpg" name="A man on the river" index=2></media-box>
 I find it hard to narrate the experience, it being a hike. But the sounds (or lack of it) was just so serene. It really sums up my affinity for hiking. A chance to escape the endless noise of time we live in. The calming sound of a flowing stream of water? Now, *that’s* therapy. It’s like having the *Calm* app, except its all around you, not on your phone (I should add, I think the phone is probably not the appropriate medium for such things but maybe I’ll save that for another post).  It was a great experience. Now that I’ve failed to convey what the feeling of being in the calm of nature brings, maybe these pictures below will do a better job. 
-<image fallen-tree />
-2 X <images of chattahoochee river>
-<2 park pictures>
 Oh, I also took pictures and got some footage with my new drone! It’s my second time flying it. And my first location was Burke Lake Park, VA. Here’s a picture I took with my wonderful guide, unintentionally obfuscated to protect *everyone’s* privacy. 
-<image/>
 And here’s cut-down footage of the river from the drone.
-<video />
-
 
