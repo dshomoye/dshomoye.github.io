@@ -4,7 +4,6 @@ import rehypeReact from "rehype-react"
 
 import MediaBox from "../components/MediaBox"
 import MediaSwipe from "../components/MediaSwipe"
-import Gallery from "../components/Gallery"
 import GalleryContainer from "../components/GalleryContainer"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -41,8 +40,7 @@ class BlogPostTemplate extends React.Component {
     const renderAst = new rehypeReact({
       createElement: React.createElement,
       components: { 
-        "media-box": MediaBox, 
-        "gallery": Gallery 
+        "media-box": MediaBox
       },
     }).Compiler
 
