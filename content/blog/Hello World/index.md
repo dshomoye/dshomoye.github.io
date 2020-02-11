@@ -9,4 +9,3 @@ Which reminds me, I should have posts on _my_ experience living in 2020 without 
 
 But here we go, I'm building this on `gatsby` because, I have come to really appreciate writing UI, but particularly in `React`. I hope it doesn't end being so restrictive that I will have to migrate. I doubt it, at least to start. I mean, I don't even have a proper image hosting set up yet. I don't want to front load all the word and end up not releasing anything so this will go live. **WILL**.
 And then we'll take it from there.
-This [file](/doesn't-exist.no)

@@ -38,5 +38,6 @@ Then, there was the **Chattahoochee** river.  We got a pretty good view of the r
 I find it hard to narrate the experience, it being a hike. But the sounds (or lack of it) was just so serene. It really sums up my affinity for hiking. A chance to escape the endless noise of time we live in. The calming sound of a flowing stream of water? Now, *that’s* therapy. It’s like having the *Calm* app, except its all around you, not on your phone (I should add, I think the phone is probably not the appropriate medium for such things but maybe I’ll save that for another post).  It was a great experience. Now that I’ve failed to convey what the feeling of being in the calm of nature brings, maybe these pictures below will do a better job. 
 Oh, I also took pictures and got some footage with my new drone! It’s my second time flying it. And my first location was Burke Lake Park, VA. Here’s a picture I took with my wonderful guide, unintentionally obfuscated to protect *everyone’s* privacy. 
 And here’s cut-down footage of the river from the drone.
+
 ... to be continued
 
