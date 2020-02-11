@@ -20,6 +20,7 @@ class BlogIndex extends React.Component {
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
+            <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
             <article key={node.fields.slug} className="home-article">
               <header>
                 <h3
@@ -27,16 +28,13 @@ class BlogIndex extends React.Component {
                     marginBottom: rhythm(1 / 4),
                   }}
                 >
-                  <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                    {title}
-                  </Link>
+                  {title}
                 </h3>
                 <small>{node.frontmatter.date}</small>
               </header>
               <section>
                 {
                   node.frontmatter.bannerImage ? 
-                  <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
                   <div
                   style={{
                     minHeight: rhythm(8),
@@ -47,9 +45,7 @@ class BlogIndex extends React.Component {
                     borderRadius: 9,
                     marginBottom: rhythm(0.5),
                     marginTop: rhythm(0.5)
-                  }}/>
-                  </Link> : 
-                  null
+                  }}/> : null
                 }
                 <p
                   dangerouslySetInnerHTML={{
@@ -58,6 +54,7 @@ class BlogIndex extends React.Component {
                 />
               </section>
             </article>
+            </Link>
           )
         })}
       </Layout>
