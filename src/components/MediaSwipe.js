@@ -9,7 +9,7 @@ const customView = ({...props}) => {
   }
   const src = `${bucketRoot}/${props.data.src}`
   const media = props.data.type === 'video' ? 
-    (<video data-src={src} className="lazyload" alt={props.data.name} width="100%" crossOrigin="anonymous" autoPlay muted controls>
+    (<video data-src={src} className="lazyload" alt={props.data.caption} width="100%" crossOrigin="anonymous" autoPlay muted controls>
       <track src={`${bucketRoot}/media/first-ride/video.vtt`} default kind="captions" srcLang="en"/>
     </video>) :
     <TransformWrapper
@@ -18,7 +18,7 @@ const customView = ({...props}) => {
       doubleClick={{mode: "reset"}}
     >
       <TransformComponent>
-        <img data-src={src} className="lazyload" alt={props.data.name}/>
+        <img data-src={src} className="lazyload" alt={props.data.caption}/>
       </TransformComponent>
     </TransformWrapper>
   return media
@@ -27,7 +27,7 @@ const customView = ({...props}) => {
 
 /**
  * sources: [{
- *  name: str
+ *  caption: str
  *  src: str
  *  type: "video"|"image"
  * }]

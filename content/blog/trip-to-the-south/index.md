@@ -4,43 +4,43 @@ date: "2020-02-09"
 description: "I venture to the deep south"
 gallerySources:
   -
-    name: "Fancy Building things"
+    caption: "Fancy Building things"
     src: "media/atl-trip/from_airbnb_room.jpg"
     type: "image"
   -
-    name: "Bamboo Trees"
+    caption: "Bamboo Trees"
     src: "media/atl-trip/bamboo_trees.jpg"
     type: "image"
   -
-    name: "A view of the Chattahoochee"
+    caption: "A view of the Chattahoochee"
     src: "media/atl-trip/chattahoochee_river.jpg"
     type: "image"
   -
-    name: "Totally not lost"
+    caption: "A man on the river"
     src: "media/atl-trip/me_on_the_river.jpg"
     type: "image"
   -
-    name: "Koi Mural"
+    caption: "Koi Mural"
     src: "media/atl-trip/koi_mural.jpg"
     type: "image"
   -
-    name: "Belt Line Sculpture"
+    caption: "Belt Line Sculpture"
     src: "media/atl-trip/raging_bull.jpg"
     type: "image"
   -
-    name: "Wide Ponce City Market View"
+    caption: "Wide Ponce City Market View"
     src: "media/atl-trip/ponce_1.jpg"
     type: "image"
   -
-    name: "Ponce City Market from walk bridge"
+    caption: "Ponce City Market from walk bridge"
     src: "media/atl-trip/ponce_2.jpg"
     type: "image"
   -
-    name: "The Vortex Bar and Grill"
+    caption: "The Vortex Bar and Grill"
     src: "media/atl-trip/the_vortex.jpg"
     type: "image"
   -
-    name: "Chattahoochee river footage"
+    caption: "Chattahoochee river footage"
     src: "media/atl-trip/palisades_footage.mp4"
     type: "video"
 bannerImage: "media/atl-trip/me_on_the_river.jpg"

@@ -4,31 +4,31 @@ date: "2020-01-27"
 description: "My journey to sunny southern california"
 gallerySources:
   -
-    name: "Union station"
+    caption: "Union station"
     src: "media/first-ride/union_station.jpg"
     type: "image"
   -
-    name: "The Broad"
+    caption: "The Broad"
     src: "media/first-ride/the_broad.jpg"
     type: "image"
   -
-    name: "Disney Hall"
+    caption: "Disney Hall"
     src: "media/first-ride/disney_hall.jpg"
     type: "image"
   -
-    name: "Grand Park"
+    caption: "Grand Park"
     src: "media/first-ride/grand_park.jpg"
     type: "image"
   -
-    name: "Alfa Commercial Photo"
+    caption: "Alfa Commercial Photo"
     src: "media/first-ride/alfa_commercial.jpg"
     type: "image"
   -
-    name: "Santa Monica Beach"
+    caption: "Santa Monica Beach"
     src: "media/first-ride/santa_monica_beach.jpg"
     type: "image"
   -
-    name: "Alfa Clip"
+    caption: "Alfa Clip"
     src: "media/first-ride/alfa_video.mp4"
     type: "video"
 bannerImage: "media/first-ride/santa_monica_beach.jpg"

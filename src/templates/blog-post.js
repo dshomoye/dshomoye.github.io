@@ -148,7 +148,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         description
         gallerySources {
-          name
+          caption
           src
           type
         }
