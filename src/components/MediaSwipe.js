@@ -1,14 +1,26 @@
 import React from "react"
 import Carousel, { Modal, ModalGateway } from "react-images"
 import { bucketRoot } from "../utils/constants"
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 const customView = ({...props}) => {
+  const imageZoomOptions = {
+    minScale: 0.5
+  }
   const src = `${bucketRoot}/${props.data.src}`
   const media = props.data.type === 'video' ? 
     (<video data-src={src} className="lazyload" alt={props.data.name} width="100%" crossOrigin="anonymous" autoPlay muted controls>
       <track src={`${bucketRoot}/media/first-ride/video.vtt`} default kind="captions" srcLang="en"/>
     </video>) :
-    <img data-src={src} className="lazyload" alt={props.data.name}/>
+    <TransformWrapper
+      wheel={{step: 25}}
+      options={imageZoomOptions}
+      doubleClick={{mode: "reset"}}
+    >
+      <TransformComponent>
+        <img data-src={src} className="lazyload" alt={props.data.name}/>
+      </TransformComponent>
+    </TransformWrapper>
   return media
 }
 
