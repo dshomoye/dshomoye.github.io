@@ -93,7 +93,7 @@ The next and last day was an unfortunately very, very rainy day. Not a lot of ex
 ### It ends in Charlotte
 I drove up to Charlotte at night. Got to my friends place and slept like nobody's business. He's the old friend I mentioned. Well, he's not *old*, we're the same age, I just haven't seen him since the olden days - when I was a kid, in Nigeria. He's fairly reserved and also has a pretty unique work schedule. I'm sure Charlotte has a lot of going for it but I didn't see it all. Not this time. We **did** go to Samoha African cuisine. We got a good chance to relive some memories. Also, we went to the NorthLake Mall. I got one of those massages you get from the electric chair. It was a very... interesting experience. Definitely wouldn't do it again. It felt like I was sitting in a public space and getting tickled by a faceless robot. Yuck. Anyway. That was pretty much all of time in Charlotte. I spent less than 24 hours there so, yeah. 
 
-Shout out to Melissa, the best travel partner and guide you can ask for, sadly, you can't book her. But she's on [Youtube](https://www.youtube.com/channel/UCpMPOCb6q9vrDGwZdCOMLJQ) doing good work! (Plugs will not be customary on my blog but had to make an exception).
+Shout out to Melissa, the best travel partner and guide you can ask for, sadly, you can't book her.
 
 
 Anyway, all in all. it was a great trip. Again, glad you made it this far, see ya next post!
