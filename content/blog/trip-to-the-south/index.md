@@ -77,13 +77,13 @@ It was conveniently located close to the Eastside of the Beltline. Oh, there was
 <media-box src="media/atl-trip/koi_mural.jpg" name="Koi Mural, Krog Street" index=4></media-box>
 <media-box src="media/atl-trip/raging_bull.jpg" name="A familiar looking raging bull, probably wandered from another city" index=5></media-box>
 Afterwards, we went to the Fourth Ward skate park, grabbed some chow at a bar, New Realm. This bar had way more space than ~~it deserves~~ I'm used to seeing - they also had pretty good fries. From there, we went to Ponce City Market. Apparently, the largest red brick structure in **all of the south east** A fact which even Mel, my tour guide was unaware of. It was a interesting market for sure. Also has some offices there. Notably GA (General Assembly) is located there. I'm not quite certain how they've gotten but GA was one of my go-to resources for learning development in my *early days*. Props to them.
-<media-box src="media/atl-trip/ponce_1.jpg" name="Wide Ponce City Market View" index=5></media-box>
-<media-box src="media/atl-trip/ponce_2.jpg" name="Ponce City Market from walk bridge" index=6></media-box>
+<media-box src="media/atl-trip/ponce_1.jpg" name="Wide Ponce City Market View" index=6></media-box>
+<media-box src="media/atl-trip/ponce_2.jpg" name="Ponce City Market from walk bridge" index=7></media-box>
 
 ### Laughing Skull Lounge
 Melissa had the great idea of going to a comedy club. We're both fans of stand up comedy. I was excited. This was an open-mic night though. You never know what you're gonna get with open mic. Now, obviously, I don't have pictures of any of the comics on stage, because I'm not *that guy*. Also, because 1. The comedians were actually really funny! There were maybe 25 or so, I didn't count but definitely up to 80% of the acts were solid. 2. I've had a gaffe at a previous stand up show where I tried to take a picture (of Jay Pharaoh) forgot the my phone's flash was on, and got roasted for it. So I *never* take pictures at stand up shows anymore. I can't fail if I never try, eh? eh? 🤓.
 I did take a (bad perspective) picture of The Vortex Bar Grill - the Laughing Skull is right by (or inside) the restaurant. 
-<media-box src="media/atl-trip/the_vortex.jpg" name="A bad view of The Vortex" index=7></media-box>
+<media-box src="media/atl-trip/the_vortex.jpg" name="A bad view of The Vortex" index=8></media-box>
 
 
 ### Altant Pt. 2

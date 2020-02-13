@@ -36,9 +36,10 @@ class BlogIndex extends React.Component {
                 {
                   node.frontmatter.bannerImage ? 
                   <div
+                  className="lazyload"
+                  data-bg={`${bucketRoot}/${node.frontmatter.bannerImage}`}
                   style={{
                     minHeight: rhythm(8),
-                    backgroundImage: `url('${bucketRoot}/${node.frontmatter.bannerImage}')`,
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
