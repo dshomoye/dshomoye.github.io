@@ -1,29 +1,6 @@
-import React from "react"
-import Carousel, { Modal, ModalGateway } from "react-images"
+import React, { useState, useEffect } from "react"
 import { bucketRoot } from "../utils/constants"
-import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
-
-const customView = ({...props}) => {
-  const imageZoomOptions = {
-    minScale: 0.5
-  }
-  const src = `${bucketRoot}/${props.data.src}`
-  const media = props.data.type === 'video' ? 
-    (<video data-src={src} className="lazyload" alt={props.data.caption} width="100%" crossOrigin="anonymous" autoPlay muted controls>
-      <track src={`${bucketRoot}/media/first-ride/video.vtt`} default kind="captions" srcLang="en"/>
-    </video>) :
-    <TransformWrapper
-      wheel={{step: 25}}
-      options={imageZoomOptions}
-      doubleClick={{mode: "reset"}}
-    >
-      <TransformComponent>
-        <img data-src={src} className="lazyload" alt={props.data.caption}/>
-      </TransformComponent>
-    </TransformWrapper>
-  return media
-}
-
+import Lightbox from "react-image-lightbox"
 
 /**
  * sources: [{
@@ -34,21 +11,24 @@ const customView = ({...props}) => {
  * @param {*} param0 
  */
 const MediaSwipe = ({ index, isOpen, closeModal, sources }) => {
-  if (!sources) return null
+  const [currentIndex, setIndex] = useState(index)
+  const nextIndex = (currentIndex + 1) % sources.length
+  const prevIndex = (currentIndex + sources.length - 1) % sources.length
 
+  useEffect(() => { setIndex(index)}, [index])
 
   return (
-    <ModalGateway>
-      {isOpen ? (
-        <Modal onClose={() => closeModal(false)}>
-          <Carousel
-            components={{ View: customView }}
-            views={sources} 
-            currentIndex={index} 
-          />
-        </Modal>
-      ) : null}
-    </ModalGateway>
+    isOpen && (
+      <Lightbox
+        mainSrc={`${bucketRoot}/${sources[currentIndex].src}`}
+        nextSrc={`${bucketRoot}/${sources[nextIndex].src}`}
+        prevSrc={`${bucketRoot}/${sources[prevIndex].src}`}
+        onCloseRequest={closeModal}
+        onMoveNextRequest={() => setIndex(nextIndex)}
+        onMovePrevRequest={() => setIndex(prevIndex)}
+        imageCaption={sources[currentIndex].caption}
+      />
+    )
   )
 }
 
