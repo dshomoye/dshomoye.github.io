@@ -1,7 +1,25 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
+import { ThemeToggler } from "gatsby-plugin-dark-mode"
 
 import { rhythm, scale } from "../utils/typography"
+
+const ThemeSwitch = ({ theme, toggleTheme }) => {
+  return (
+    <ThemeToggler>
+      {({ theme, toggleTheme }) => (
+        <label className="switch">
+          <input
+            type="checkbox"
+            onChange={e => toggleTheme(e.target.checked ? "dark" : "light")}
+            checked={theme === "dark"}
+          />
+          <span class="slider round"></span> <br />
+        </label>
+      )}
+    </ThemeToggler>
+  )
+}
 
 const QuoteBlock = () => {
   const [quote, setQuote] = useState(null)
@@ -9,11 +27,13 @@ const QuoteBlock = () => {
   useEffect(() => {
     const getJoke = async () => {
       try {
-        const quoteResponse = await fetch('https://quote-garden.herokuapp.com/quotes/random')
+        const quoteResponse = await fetch(
+          "https://quote-garden.herokuapp.com/quotes/random"
+        )
         const quoteData = await quoteResponse.json()
         setQuote({
           author: quoteData.quoteAuthor,
-          text: quoteData.quoteText
+          text: quoteData.quoteText,
         })
       } catch (e) {
         console.log("Unable to fetch joke from api ", e)
@@ -22,14 +42,16 @@ const QuoteBlock = () => {
     getJoke()
   }, [])
 
-  if(!quote) return null
+  if (!quote) return null
   return (
     <>
-      <hr/>
-  <p style={{fontSize: 'small'}}><strong>{quote.author}:</strong> {quote.text}</p>
+      <hr />
+      <p style={{ fontSize: "small" }}>
+        {" "}
+        <strong> {quote.author}: </strong> {quote.text}
+      </p>
     </>
-    )
-
+  )
 }
 
 class Layout extends React.Component {
@@ -55,8 +77,8 @@ class Layout extends React.Component {
             }}
             to={`/`}
           >
-            {title}
-          </Link>
+            {title}{" "}
+          </Link>{" "}
         </h1>
       )
     } else {
@@ -75,8 +97,8 @@ class Layout extends React.Component {
             }}
             to={`/`}
           >
-            {title}
-          </Link>
+            {title}{" "}
+          </Link>{" "}
         </h3>
       )
     }
@@ -89,10 +111,13 @@ class Layout extends React.Component {
           padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
         }}
       >
-        <header>{header}</header>
-        <main>{children}</main>
-        <QuoteBlock/>
-        <footer>© {new Date().getFullYear()} Adedamola Shomoye | <a href="/rss.xml">RSS</a>.</footer>
+        <header> {header} </header> <main> {children} </main> <QuoteBlock />
+        <footer>
+          {" "}
+          ©{new Date().getFullYear()}
+          Adedamola Shomoye | <a href="/rss.xml"> RSS </a>.
+        </footer>
+        <ThemeSwitch />
       </div>
     )
   }
