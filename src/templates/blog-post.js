@@ -12,15 +12,15 @@ import { rhythm, scale } from "../utils/typography"
 
 class BlogPostTemplate extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = { galleryIndex: 0, galleryModalIsOpen: false};
+    super(props)
+    this.state = { galleryIndex: 0, galleryModalIsOpen: false }
   }
 
-  setAndOpenGallery = (index) =>  {
-    if(index !== null){
+  setAndOpenGallery = index => {
+    if (index !== null) {
       this.setState({
         galleryIndex: index,
-        galleryModalIsOpen: true
+        galleryModalIsOpen: true,
       })
     }
   }
@@ -28,7 +28,7 @@ class BlogPostTemplate extends React.Component {
   closeGalleryModal = () => {
     this.setState({
       ...this.state,
-      galleryModalIsOpen: false
+      galleryModalIsOpen: false,
     })
   }
 
@@ -39,12 +39,14 @@ class BlogPostTemplate extends React.Component {
 
     const renderAst = new rehypeReact({
       createElement: React.createElement,
-      components: { 
-        "media-box": MediaBox
+      components: {
+        "media-box": MediaBox,
       },
     }).Compiler
 
-    const lastUpdated = post.frontmatter.lastUpdated ? `Last updated: ${post.frontmatter.lastUpdated }`: null
+    const lastUpdated = post.frontmatter.lastUpdated
+      ? `Last updated: ${post.frontmatter.lastUpdated}`
+      : null
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -52,7 +54,10 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <GalleryContainer closeModal={this.closeGalleryModal} setGalleryIndex={this.setAndOpenGallery} >
+        <GalleryContainer
+          closeModal={this.closeGalleryModal}
+          setGalleryIndex={this.setAndOpenGallery}
+        >
           <article>
             <header>
               <h1
@@ -74,15 +79,14 @@ class BlogPostTemplate extends React.Component {
               <p
                 style={{
                   ...scale(-1 / 5),
-                  whiteSpace: 'pre-wrap'
+                  whiteSpace: "pre-wrap",
                 }}
               >
                 {`${post.frontmatter.date}    |    ${post.timeToRead} min. read`}
               </p>
-              
             </header>
             <section>{renderAst(post.htmlAst)}</section>
-            <p style={{...scale(-0.7)}}>{lastUpdated}</p>
+            <p style={{ ...scale(-0.7) }}>{lastUpdated}</p>
             <hr
               style={{
                 marginBottom: rhythm(1),

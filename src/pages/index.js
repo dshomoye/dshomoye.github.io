@@ -21,37 +21,36 @@ class BlogIndex extends React.Component {
           const title = node.frontmatter.title || node.fields.slug
           return (
             <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-            <article 
-              key={node.fields.slug} 
-              className="home-article" 
-              data-sal="slide-up"
-              data-sal-delay="0"
-            >
-              <header>
-                <h3
-                  style={{
-                    marginBottom: rhythm(1 / 4),
-                  }}
-                >
-                  {title}
-                </h3>
-                <small>{node.frontmatter.date}</small>
-              </header>
-              <section>
-                {
-                  node.frontmatter.bannerImage ? 
-                  <div
-                    className="lazyload home-article-banner"
-                    data-bg={`${bucketRoot}/${node.frontmatter.bannerImage}`}
-                  /> : null
-                }
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
-                  }}
-                />
-              </section>
-            </article>
+              <article
+                key={node.fields.slug}
+                className="home-article"
+                data-sal="slide-up"
+                data-sal-delay="0"
+              >
+                <header>
+                  <h3
+                    style={{
+                      marginBottom: rhythm(1 / 4),
+                    }}
+                  >
+                    {title}
+                  </h3>
+                  <small>{node.frontmatter.date}</small>
+                </header>
+                <section>
+                  {node.frontmatter.bannerImage ? (
+                    <div
+                      className="lazyload home-article-banner"
+                      data-bg={`${bucketRoot}/${node.frontmatter.bannerImage}`}
+                    />
+                  ) : null}
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: node.frontmatter.description || node.excerpt,
+                    }}
+                  />
+                </section>
+              </article>
             </Link>
           )
         })}

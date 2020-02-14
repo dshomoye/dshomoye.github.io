@@ -8,13 +8,16 @@ const MediaBox = ({ name, index, src, type }) => {
   const dispath = useContext(DispatchContext)
   const videoRef = useRef(null)
 
-  const showlightbox = (e) => {
+  const showlightbox = e => {
     e.preventDefault()
-    console.log('handling click for type: ', type)
-    if(type !== "video") {
-      dispath({type: actionTypes.SET_GALLERY_INDEX_AND_SHOW_MODAL, payload: { index: index }})
+    console.log("handling click for type: ", type)
+    if (type !== "video") {
+      dispath({
+        type: actionTypes.SET_GALLERY_INDEX_AND_SHOW_MODAL,
+        payload: { index: index },
+      })
     } else {
-      if(videoRef.current.paused){
+      if (videoRef.current.paused) {
         videoRef.current.play()
       } else {
         videoRef.current.pause()
@@ -23,9 +26,26 @@ const MediaBox = ({ name, index, src, type }) => {
   }
 
   const mediaSrc = `${bucketRoot}/${src}`
-  const media = type === "video" ? 
-          <video data-src={mediaSrc} className="lazyload" width="100%" crossOrigin="anonymous" controls ref={videoRef}><track src={`${bucketRoot}/media/first-ride/video.vtt`} default kind="captions" srcLang="en"/></video> :
-          <img data-src={mediaSrc} className="lazyload styled-media" alt={name}/>
+  const media =
+    type === "video" ? (
+      <video
+        data-src={mediaSrc}
+        className="lazyload"
+        width="100%"
+        crossOrigin="anonymous"
+        controls
+        ref={videoRef}
+      >
+        <track
+          src={`${bucketRoot}/media/first-ride/video.vtt`}
+          default
+          kind="captions"
+          srcLang="en"
+        />
+      </video>
+    ) : (
+      <img data-src={mediaSrc} className="lazyload styled-media" alt={name} />
+    )
 
   return (
     <a onClick={showlightbox} href={mediaSrc}>
