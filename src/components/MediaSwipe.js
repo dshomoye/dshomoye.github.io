@@ -11,6 +11,7 @@ import Lightbox from "react-image-lightbox"
  * @param {*} param0 
  */
 const MediaSwipe = ({ index, isOpen, closeModal, sources }) => {
+  if(!sources) return null
   const [currentIndex, setIndex] = useState(index)
   const nextIndex = (currentIndex + 1) % sources.length
   const prevIndex = (currentIndex + sources.length - 1) % sources.length
