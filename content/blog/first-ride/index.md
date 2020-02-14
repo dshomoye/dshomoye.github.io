@@ -27,10 +27,6 @@ gallerySources:
     caption: "Santa Monica Beach"
     src: "media/first-ride/santa_monica_beach.jpg"
     type: "image"
-  -
-    caption: "Alfa Clip"
-    src: "media/first-ride/alfa_video.mp4"
-    type: "video"
 bannerImage: "media/first-ride/santa_monica_beach.jpg"
 
 ---

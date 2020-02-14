@@ -92,7 +92,7 @@ class Layout extends React.Component {
         <header>{header}</header>
         <main>{children}</main>
         <QuoteBlock/>
-        <footer>© {new Date().getFullYear()} Adedamola Shomoye | <a href="/rss.xml">RSS Feed</a>.</footer>
+        <footer>© {new Date().getFullYear()} Adedamola Shomoye | <a href="/rss.xml">RSS</a>.</footer>
       </div>
     )
   }

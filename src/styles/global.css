@@ -46,3 +46,19 @@ a {
     box-shadow: 1px 0px 14px -5px rgba(0,0,0,0.52);
     text-decoration: underline;
 }
+
+.home-article-banner {
+    min-height: 150px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 9px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+@media (min-width: 768px) {
+    .home-article-banner {
+        min-height: 250px;
+    }
+}

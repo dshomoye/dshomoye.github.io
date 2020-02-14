@@ -21,7 +21,12 @@ class BlogIndex extends React.Component {
           const title = node.frontmatter.title || node.fields.slug
           return (
             <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-            <article key={node.fields.slug} className="home-article">
+            <article 
+              key={node.fields.slug} 
+              className="home-article" 
+              data-sal="slide-up"
+              data-sal-delay="0"
+            >
               <header>
                 <h3
                   style={{
@@ -36,17 +41,9 @@ class BlogIndex extends React.Component {
                 {
                   node.frontmatter.bannerImage ? 
                   <div
-                  className="lazyload"
-                  data-bg={`${bucketRoot}/${node.frontmatter.bannerImage}`}
-                  style={{
-                    minHeight: rhythm(8),
-                    backgroundRepeat: "no-repeat",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    borderRadius: 9,
-                    marginBottom: rhythm(0.5),
-                    marginTop: rhythm(0.5)
-                  }}/> : null
+                    className="lazyload home-article-banner"
+                    data-bg={`${bucketRoot}/${node.frontmatter.bannerImage}`}
+                  /> : null
                 }
                 <p
                   dangerouslySetInnerHTML={{

@@ -74,9 +74,10 @@ class BlogPostTemplate extends React.Component {
               <p
                 style={{
                   ...scale(-1 / 5),
+                  whiteSpace: 'pre-wrap'
                 }}
               >
-                {post.frontmatter.date}  | {post.timeToRead} min. read
+                {`${post.frontmatter.date}    |    ${post.timeToRead} min. read`}
               </p>
               
             </header>

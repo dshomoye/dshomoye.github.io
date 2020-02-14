@@ -39,10 +39,6 @@ gallerySources:
     caption: "The Vortex Bar and Grill"
     src: "media/atl-trip/the_vortex.jpg"
     type: "image"
-  -
-    caption: "Chattahoochee river footage"
-    src: "media/atl-trip/palisades_footage.mp4"
-    type: "video"
 bannerImage: "media/atl-trip/me_on_the_river.jpg"
 lastUpdated: "2020-02-10"
 ---
