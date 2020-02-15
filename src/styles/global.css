@@ -4,19 +4,19 @@ body {
     --textTitle: #222;
     --textLink: rgb(16, 16, 54);
     --hr: hsla(0, 0%, 0%, 0.2);
-  
+    
     background-color: var(--bg);
-  }
-  
-  body.dark {
+}
+
+body.dark {
     -webkit-font-smoothing: antialiased;
-  
+    
     --bg: rgb(0, 0, 0);
     --textNormal: rgba(255, 255, 255, 0.88);
     --textTitle: white;
     --textLink: yellow;
     --hr: hsla(0, 0%, 100%, 0.2);
-  }
+}
 
 h1, h2, h3, h4, h5, h6 {
     color: var(--textNormal)
@@ -92,6 +92,7 @@ a {
 
 
 /* switch */
+/* ref: https://www.w3schools.com/howto/howto_css_switch.asp */
 
 
 /* The switch - the box around the slider */
@@ -101,6 +102,7 @@ a {
     display: inline-block;
     width: 60px;
     height: 34px;
+    margin: 15px;
 }
 
 
@@ -149,11 +151,15 @@ input:checked+.slider:before {
     transform: translateX(26px);
 }
 
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--textNormal);
+}  
 
 /* Rounded sliders */
 
 .slider.round {
     border-radius: 34px;
+    border-color: var(--textNormal);
 }
 
 .slider.round:before {

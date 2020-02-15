@@ -8,14 +8,23 @@ const ThemeSwitch = () => {
   return (
     <ThemeToggler>
       {({ theme, toggleTheme }) => (
-        <label className="switch">
-          <input
-            type="checkbox"
-            onChange={e => toggleTheme(e.target.checked ? "dark" : "light")}
-            checked={theme === "dark"}
-          />
-          <span class="slider round"></span> <br />
-        </label>
+        <div style={{
+          fontSize: '0.7em',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}>
+          {theme === 'dark' ? '': 'Join The '}
+          <label className="switch">
+            <input
+              type="checkbox"
+              onChange={e => toggleTheme(e.target.checked ? "dark" : "light")}
+              checked={theme === 'dark'}
+              />
+            <span class="slider round"></span> <br />
+          </label>
+          {theme === 'dark' ? 'Dark Side': ''}
+        </div>
       )}
     </ThemeToggler>
   )
@@ -115,12 +124,17 @@ class Layout extends React.Component {
         }}
       >
         <header> {header} </header> <main> {children} </main> <QuoteBlock />
-        <footer>
-          {" "}
-          ©{new Date().getFullYear()}
-          Adedamola Shomoye | <a href="/rss.xml"> RSS </a>.
-        </footer>
-        <ThemeSwitch />
+        <div
+          style={{
+            textAlign: 'center',
+          }}
+        >
+          <footer>
+            {" "}
+        ©{new Date().getFullYear()}{' '}Adedamola Shomoye{' '}|{'  '}<a href="/rss.xml"> RSS </a>
+          </footer>
+          <ThemeSwitch />
+        </div>
       </div>
     )
   }
