@@ -71,7 +71,6 @@ class BlogPostTemplate extends React.Component {
               <h2
                 style={{
                   fontSize: "19px",
-                  color: "gray",
                 }}
               >
                 {post.frontmatter.description}
