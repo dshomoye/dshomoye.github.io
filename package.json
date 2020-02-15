@@ -35,6 +35,7 @@
     "react-helmet": "^5.2.1",
     "react-image-lightbox": "^5.1.1",
     "react-images": "^1.1.0-beta.3",
+    "react-scroll-progress-bar": "^1.1.11",
     "react-typography": "^0.16.19",
     "rehype-react": "^4.0.1",
     "typography": "^0.16.19",

@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import ProgressBar from "react-scroll-progress-bar";
 
 import ThemeSwitch from "./ThemeSwitch"
 import QuoteBlock from "./QuoteBlock"
@@ -54,6 +55,8 @@ class Layout extends React.Component {
       )
     }
     return (
+      <div>
+      <ProgressBar bgcolor="#757575" />
       <div
         style={{
           backgroundColor: 'var(--bg)',
@@ -64,19 +67,20 @@ class Layout extends React.Component {
           maxWidth: rhythm(24),
           padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
         }}
-      >
+        >
         <header> {header} </header> <main> {children} </main> <QuoteBlock />
         <div
           style={{
             textAlign: 'center',
           }}
-        >
+          >
           <footer>
             {" "}
         ©{new Date().getFullYear()}{' '}Adedamola Shomoye{' '}|{'  '}<a href="/rss.xml"> RSS </a>
           </footer>
           <ThemeSwitch />
         </div>
+      </div>
       </div>
     )
   }
