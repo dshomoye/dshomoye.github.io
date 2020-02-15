@@ -4,7 +4,7 @@ import { ThemeToggler } from "gatsby-plugin-dark-mode"
 
 import { rhythm, scale } from "../utils/typography"
 
-const ThemeSwitch = ({ theme, toggleTheme }) => {
+const ThemeSwitch = () => {
   return (
     <ThemeToggler>
       {({ theme, toggleTheme }) => (
@@ -105,6 +105,9 @@ class Layout extends React.Component {
     return (
       <div
         style={{
+          backgroundColor: 'var(--bg)',
+          color: 'var(--textNormal)',
+          transition: 'color 0.2s ease-out, background 0.2s ease-out',
           marginLeft: `auto`,
           marginRight: `auto`,
           maxWidth: rhythm(24),

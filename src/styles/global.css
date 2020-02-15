@@ -1,6 +1,34 @@
+body {
+    --bg: white;
+    --textNormal: #222;
+    --textTitle: #222;
+    --textLink: rgb(16, 16, 54);
+    --hr: hsla(0, 0%, 0%, 0.2);
+  
+    background-color: var(--bg);
+  }
+  
+  body.dark {
+    -webkit-font-smoothing: antialiased;
+  
+    --bg: rgb(0, 0, 0);
+    --textNormal: rgba(255, 255, 255, 0.88);
+    --textTitle: white;
+    --textLink: yellow;
+    --hr: hsla(0, 0%, 100%, 0.2);
+  }
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--textNormal)
+}
+
+a {
+    color: var(--textNormal)
+}
+
 figcaption {
     font-size: x-small;
-    color: gray;
+    color: rgb(170, 170, 170);
 }
 
 figure {
@@ -14,7 +42,7 @@ figure {
 .styled-media {
     border-style: solid;
     border-width: 1px;
-    border-color: gray;
+    border-color: rgb(155, 155, 155);
     border-radius: 5px;
     padding: 0;
 }
