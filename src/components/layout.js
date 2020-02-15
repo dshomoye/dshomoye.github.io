@@ -1,67 +1,9 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { Link } from "gatsby"
-import { ThemeToggler } from "gatsby-plugin-dark-mode"
 
+import ThemeSwitch from "./ThemeSwitch"
+import QuoteBlock from "./QuoteBlock"
 import { rhythm, scale } from "../utils/typography"
-
-const ThemeSwitch = () => {
-  return (
-    <ThemeToggler>
-      {({ theme, toggleTheme }) => (
-        <div style={{
-          fontSize: '0.7em',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}>
-          {theme === 'dark' ? '': 'Join The '}
-          <label className="switch">
-            <input
-              type="checkbox"
-              onChange={e => toggleTheme(e.target.checked ? "dark" : "light")}
-              checked={theme === 'dark'}
-              />
-            <span class="slider round"></span> <br />
-          </label>
-          {theme === 'dark' ? 'Dark Side': ''}
-        </div>
-      )}
-    </ThemeToggler>
-  )
-}
-
-const QuoteBlock = () => {
-  const [quote, setQuote] = useState(null)
-
-  useEffect(() => {
-    const getJoke = async () => {
-      try {
-        const quoteResponse = await fetch(
-          "https://quote-garden.herokuapp.com/quotes/random"
-        )
-        const quoteData = await quoteResponse.json()
-        setQuote({
-          author: quoteData.quoteAuthor,
-          text: quoteData.quoteText,
-        })
-      } catch (e) {
-        console.log("Unable to fetch joke from api ", e)
-      }
-    }
-    getJoke()
-  }, [])
-
-  if (!quote) return null
-  return (
-    <>
-      <hr />
-      <p style={{ fontSize: "small" }}>
-        {" "}
-        <strong> {quote.author}: </strong> {quote.text}
-      </p>
-    </>
-  )
-}
 
 class Layout extends React.Component {
   render() {
