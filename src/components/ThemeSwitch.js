@@ -11,7 +11,7 @@ const ThemeSwitch = () => {
           alignItems: 'center',
           justifyContent: 'center'
         }}>
-          {theme === 'dark' ? '': 'Join The '}
+          {theme === 'dark' ? '': 'Join the...'}
           <label className="switch">
             <input
               type="checkbox"
@@ -22,7 +22,7 @@ const ThemeSwitch = () => {
               />
             <span className="slider round"></span> <br />
           </label>
-          {theme === 'dark' ? 'Dark Side': ''}
+          {theme === 'dark' ? '...Dark Side': ''}
         </div>
       )}
     </ThemeToggler>
