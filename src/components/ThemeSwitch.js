@@ -12,7 +12,7 @@ const ThemeSwitch = () => {
           justifyContent: 'center'
         }}>
           {theme === 'dark' ? '': 'Join The '}
-          <label className="switch" for="themeswitch">
+          <label className="switch">
             <input
               type="checkbox"
               onChange={e => toggleTheme(e.target.checked ? "dark" : "light")}
@@ -20,7 +20,7 @@ const ThemeSwitch = () => {
               id="themeswitch"
               aria-label="themeswitch"
               />
-            <span class="slider round"></span> <br />
+            <span className="slider round"></span> <br />
           </label>
           {theme === 'dark' ? 'Dark Side': ''}
         </div>

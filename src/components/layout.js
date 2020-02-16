@@ -5,6 +5,7 @@ import ProgressBar from "react-scroll-progress-bar";
 import ThemeSwitch from "./ThemeSwitch"
 import QuoteBlock from "./QuoteBlock"
 import { rhythm, scale } from "../utils/typography"
+import {Helmet}  from "react-helmet"
 
 class Layout extends React.Component {
   render() {
@@ -81,6 +82,22 @@ class Layout extends React.Component {
           <ThemeSwitch />
         </div>
       </div>
+      <Helmet>
+        <script type="text/javascript"> 
+            {`console.log('tracking code init')          
+              var _tcfg = _tcfg || [];
+              (function() {
+                _tcfg.push(["tags", ""]);
+                var u="https://cdn.ticksel.com/js/analytics_v1.0.js"; _tcfg.push(["account_id", 5427524]);
+                var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
+                g.type="text/javascript"; g.async=true; g.src=u; g.setAttribute("crossorigin", "anonymous");
+                g.setAttribute("integrity", "sha256-7grd8jMivCG0iCcJ7m/Ny4gvWb0mPVpFhRQovLkaUl8=");
+                s.parentNode.insertBefore(g,s);
+              })(); 
+            `
+            }
+        </script>
+      </Helmet>
       </div>
     )
   }

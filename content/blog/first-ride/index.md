@@ -64,7 +64,7 @@ Speaking of getting better, I decided to just started walking through the rest o
 
 
 #### Alfa Romeo Giulia
-Yes, yes, I saw a blacked out SUV, walked closer, and saw a Quadrifoglio Giulia im glorious red being covered by a camera attached to the SUV.
+Yes, yes, I saw a blacked out SUV, walked closer, and saw a Quadrifoglio Giulia in glorious red being covered by a camera attached to the SUV.
 I was so excited! I mean, this is the same car I have, well, the plebian version, and I'm getting to see the promotional footage for it being shot. People are gawking over it. It made me feel like I owned something *special*.
 <media-box name="The shooting of an Alfa Romeo promo video" index=4 src="media/first-ride/alfa_commercial.jpg"></media-box>
 <media-box name="The shooting of an Alfa Romeo promo video" src="media/first-ride/alfa_video.mp4" type=video></media-box>
@@ -79,7 +79,7 @@ I thought Hollywood would be the best part of my day. I will end this very quick
 
 
 #### Santa Monica
-I went to Santa Monica and met up with a friend. We grabbed lunch at Misfit. It's a really nice restaurant. Definitely looks like a place I'd regularly go to for Happy Hour. Regularly. It's in downtown Santa Monica so we got to walk around for about an hour afterwards. This was a much more city-feeling expereince. 
+I went to Santa Monica and met up with a friend. We got dinner at Misfit. It's a really nice restaurant. Definitely looks like a place I'd regularly go to for Happy Hour. **Regularly**. It's in downtown Santa Monica so we got to walk around for about an hour afterwards. This was a much more city-feeling expereince. 
 Really good restaurants like Kazunori which I went to the after, on Monday. Literally the best hand rolls I've ever had. The next day was a lot more fun. Spent the entire time in downtown Santa Monica, went to Sidecar Doughnuts, Kazunori, and the oh-so-awesome SUGARFISH. Really one of the best Sashimi and unagi I've ever had. I also spent a couple hours going along the Santa Monica Pier which I walked to from downtown. It's absolutely beautiful. A refreshing contrast from what you get from a city downtown in New York for sure. 
 This is a really good illustration of what I got to gawk upon.
 

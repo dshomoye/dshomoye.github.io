@@ -20,9 +20,8 @@ class BlogIndex extends React.Component {
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
-            <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+            <Link style={{ boxShadow: `none` }} to={node.fields.slug} key={node.fields.slug}>
               <article
-                key={node.fields.slug}
                 className="home-article"
                 data-sal="slide-up"
                 data-sal-delay="0"
