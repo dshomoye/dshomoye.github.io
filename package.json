@@ -56,13 +56,13 @@
     "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
   },
   "scripts": {
-    "deploy": "gatsby build && cp CNAME public/ && gh-pages -d public -b master",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "lint": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "deploy": "gatsby build && cp CNAME public/ && gh-pages -d public -b master"
   }
 }
