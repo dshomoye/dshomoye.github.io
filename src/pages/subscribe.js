@@ -19,7 +19,6 @@ const Subscribe = ({ ...props }) => {
   )
 
   const siteTitle = props.data.site.siteMetadata.title
-  console.log("body classes ", document.body.classList)
   return (
     <Layout location={props.location} title={siteTitle}>
       <h2>Fill the form below to subscribe.</h2>
