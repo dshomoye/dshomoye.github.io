@@ -1,11 +1,11 @@
 import React from "react"
 import { Link } from "gatsby"
-import ProgressBar from "react-scroll-progress-bar";
+import ProgressBar from "react-scroll-progress-bar"
 
 import ThemeSwitch from "./ThemeSwitch"
 import QuoteBlock from "./QuoteBlock"
 import { rhythm, scale } from "../utils/typography"
-import {Helmet}  from "react-helmet"
+import { Helmet } from "react-helmet"
 
 class Layout extends React.Component {
   render() {
@@ -57,33 +57,38 @@ class Layout extends React.Component {
     }
     return (
       <div>
-      <ProgressBar bgcolor="#757575" />
-      <div
-        style={{
-          backgroundColor: 'var(--bg)',
-          color: 'var(--textNormal)',
-          transition: 'color 0.2s ease-out, background 0.2s ease-out',
-          marginLeft: `auto`,
-          marginRight: `auto`,
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
-        >
-        <header> {header} </header> <main> {children} </main> <QuoteBlock />
+        <ProgressBar bgcolor="#757575" />
         <div
           style={{
-            textAlign: 'center',
+            backgroundColor: "var(--bg)",
+            color: "var(--textNormal)",
+            transition: "color 0.2s ease-out, background 0.2s ease-out",
+            marginLeft: `auto`,
+            marginRight: `auto`,
+            maxWidth: rhythm(24),
+            padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
           }}
+        >
+          <header> {header} </header> <main> {children} </main> <QuoteBlock />
+          <div
+            style={{
+              textAlign: "center",
+            }}
           >
-          <footer>
-            {" "}
-        ©{new Date().getFullYear()}{' '}Adedamola Shomoye{' '}|{'  '}<a href="/rss.xml"> RSS </a>
-          </footer>
-          <ThemeSwitch />
+            <footer>
+              {" "}
+              ©{new Date().getFullYear()} Adedamola Shomoye |{"  "}
+              <a href="/rss.xml">
+                {" "}
+                {` `}RSS {` `}{" "}
+              </a>
+              |<Link to="/subscribe">{`  `}Newsletter</Link>
+            </footer>
+            <ThemeSwitch />
+          </div>
         </div>
-      </div>
-      <Helmet>
-        <script type="text/javascript"> 
+        <Helmet>
+          <script type="text/javascript">
             {`console.log('tracking code init')          
               var _tcfg = _tcfg || [];
               (function() {
@@ -94,10 +99,9 @@ class Layout extends React.Component {
                 g.setAttribute("integrity", "sha256-7grd8jMivCG0iCcJ7m/Ny4gvWb0mPVpFhRQovLkaUl8=");
                 s.parentNode.insertBefore(g,s);
               })(); 
-            `
-            }
-        </script>
-      </Helmet>
+            `}
+          </script>
+        </Helmet>
       </div>
     )
   }

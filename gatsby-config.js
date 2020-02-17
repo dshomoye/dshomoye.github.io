@@ -1,4 +1,4 @@
-require('dotenv').config()
+require("dotenv").config()
 
 module.exports = {
   siteMetadata: {
@@ -46,8 +46,8 @@ module.exports = {
           {
             resolve: `gatsby-remark-autolink-headers`,
             options: {
-              isIconAfterHeader: true
-            }
+              isIconAfterHeader: true,
+            },
           },
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
@@ -62,8 +62,8 @@ module.exports = {
       resolve: `gatsby-plugin-scroll-reveal`,
       options: {
         threshold: 0.05,
-        rootMargin: '100px 0px'
-      }
+        rootMargin: "100px 0px",
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
