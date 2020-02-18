@@ -57,7 +57,7 @@ const Bio = () => {
         Written by <strong>{author}</strong> <em>(tech)</em>nically{" "}
         <em>(enthusiast)</em>ic.
         {` `}
-        Add my RSS feed below to stay up-to-date of new posts.
+        Add the RSS feed below or subscribe to my newsletter to know when I write new posts.
       </p>
     </div>
   )

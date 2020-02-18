@@ -11,7 +11,7 @@ const Subscribe = ({ ...props }) => {
         width: "540px",
         maxWidth: "100%",
         maxHeight: "650px",
-        height: "90vh",
+        height: "480px",
         borderStyle: "none",
       }}
       src={frameSrc}

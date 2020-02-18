@@ -79,10 +79,9 @@ class Layout extends React.Component {
               {" "}
               ©{new Date().getFullYear()} Adedamola Shomoye |{"  "}
               <a href="/rss.xml">
-                {" "}
-                {` `}RSS {` `}{" "}
+                {' '}RSS {' '}
               </a>
-              |<Link to="/subscribe">{`  `}Newsletter</Link>
+              |<Link to="/subscribe">{' '}Newsletter</Link>
             </footer>
             <ThemeSwitch />
           </div>
