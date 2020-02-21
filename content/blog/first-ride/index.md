@@ -21,7 +21,7 @@ gallerySources:
   - caption: "Santa Monica Beach"
     src: "media/first-ride/santa_monica_beach.jpg"
     type: "image"
-bannerImage: "media/first-ride/santa_monica_beach.jpg"
+bannerImage: "media/first-ride/thumbnails/santa_monica_beach.jpg"
 lastUpdated: "2020-02-16"
 ---#### Union Station
 
