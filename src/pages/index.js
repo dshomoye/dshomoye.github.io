@@ -27,9 +27,6 @@ class BlogIndex extends React.Component {
             >
               <article
                 className="home-article"
-                data-sal="slide-up"
-                data-sal-delay="0"
-                data-sal-duration="500"
               >
                 <header>
                   <h3

@@ -59,13 +59,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-feed`,
     {
-      resolve: `gatsby-plugin-scroll-reveal`,
-      options: {
-        threshold: 0.05,
-        rootMargin: "100px 0px",
-      },
-    },
-    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Dshomoye's blog`,
