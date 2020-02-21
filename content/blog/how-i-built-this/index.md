@@ -2,6 +2,7 @@
 title: How I Built This
 date: "2020-02-18"
 description: "Take a look under the hood."
+bannerImage: "media/how-i-built-this/unsplash_mac_w_code.jpg"
 ---
 
 ## How I built this blog (so far)

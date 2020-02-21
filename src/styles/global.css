@@ -80,9 +80,9 @@ a {
 }
 
 .home-article:hover {
-    -webkit-box-shadow: 1px 0px 14px -5px rgba(0, 0, 0, 0.52);
-    -moz-box-shadow: 1px 0px 14px -5px rgba(0, 0, 0, 0.52);
-    box-shadow: 1px 0px 14px -5px var(--shadow);
+    -webkit-box-shadow: 1px 0px 10px -5px rgba(0, 0, 0, 0.52);
+    -moz-box-shadow: 1px 0px 10px -5px rgba(0, 0, 0, 0.52);
+    box-shadow: 1px 0px 10px -5px var(--shadow);
 }
 
 .home-article-banner {

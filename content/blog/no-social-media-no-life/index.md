@@ -3,6 +3,7 @@ title: No Social Media, No LIfe...?
 date: "2020-02-15"
 description: "What has Facebook and Instagram become for us?"
 lastUpdated: "2020-02-16"
+bannerImage: "media/no-sm-no-life/unsplash_social_media.jpg"
 ---
 
 This might end up being more of a rant than a post - and I apologize in advance for that. I will certainly try to be as cohesive as possible.
