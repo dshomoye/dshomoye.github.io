@@ -1,5 +1,6 @@
 import React from "react"
 import Layout from "../components/layout"
+import { graphql } from "gatsby"
 
 const frameSrc =
   "https://96be89f6.sibforms.com/serve/MUIEADiGOEBJZuDcesr4WYI37V8C5y-DjIrAw7rEL-cz2Q6d2UOOeAD--wjSsD_YHSqJ8Wme_cwbrUO_539U3eHvNeCHyyae_vIFvYnCJs7SEWmlGCIvdU67EC9pXY5L_NUHk-dou9bzA8UkByqD8bYjX3wNG-CE9fpv-X94VGQ3hkRTtjdl3Fhc5vpA_7w6CBT1iq1rAuB-lXaM"
@@ -14,6 +15,7 @@ const Subscribe = ({ ...props }) => {
         height: "480px",
         borderStyle: "none",
       }}
+      title="subscriptionForm"
       src={frameSrc}
     ></iframe>
   )

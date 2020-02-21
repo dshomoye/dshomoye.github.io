@@ -42,7 +42,7 @@ All of that aside, I was still excited to go on this trip for various reasons. I
 ### Atlanta
 
 Unsurprisingly, driving to Atlanta was a rigurous endeavor. I’ve never done such a long drive before, outside of another road trip I’d taken in 2018 from NYC to Niagara Falls. That was probably about 70% of the Atlanta trip (440 mi vs 640 mi).  
-I ended up completing the trip in about eleven hours. I stopped **only** one time, for gas and food. Definitely optimized my time. Considering how tiring and tasking that was though, I'm not certain if I'm impressed for completing such a feat, or disappointed for putting myself through it. I mean at one point I just felt like I was [cannonballing](https://en.wikipedia.org/wiki/Cannonball_Run).
+I ended up completing the trip in about eleven hours. I stopped **only** one time, for gas and food. Definitely optimized my time. Considering how tiring and tasking that was though, I'm not certain if I'm impressed for completing such a feat, or disappointed for putting myself through it. I mean at one point I just felt like I was [cannonballing⧉](https://en.wikipedia.org/wiki/Cannonball_Run).
 
 After arriving, I was a little early for check-in at my Airbnb so I got dinner with Mel at this Asian/Mexican fusion restaurant called Takorea. I got a chicken ("sticky chicky") and a beef taco from there. Oh man were they good. Especially the marinated beef, it was, amazing. And the fries...too good to be true!
 From there, I went to my Airbnb so I can finally rest my body after the ill-advised driving marathon I'd just finished. It's a very nice Airbnb. Definitely one of the nicest (if not _the_ nicest) Airbnb I've been in. Particularly the building itself. Here's a look outside from my room.

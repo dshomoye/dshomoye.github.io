@@ -4,6 +4,7 @@ import rehypeReact from "rehype-react"
 
 import MediaBox from "../components/MediaBox"
 import MediaSwipe from "../components/MediaSwipe"
+import SmartLink from "../components/SmartLink"
 import GalleryContainer from "../components/GalleryContainer"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -41,6 +42,7 @@ class BlogPostTemplate extends React.Component {
       createElement: React.createElement,
       components: {
         "media-box": MediaBox,
+        a: SmartLink
       },
     }).Compiler
 
