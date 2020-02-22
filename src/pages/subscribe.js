@@ -1,23 +1,32 @@
 import React from "react"
 import Layout from "../components/layout"
 import { graphql } from "gatsby"
+
+import SEO from "../components/seo"
 import "../styles/Subscribe.css"
 
 const Subscribe = ({ ...props }) => {
   const siteTitle = props.data.site.siteMetadata.title
   return (
     <Layout location={props.location} title={siteTitle}>
+      <SEO 
+        title="Newsletter Subscription Page"
+        description="Sign up for my newsletter to be notified of updates."
+      />
       <form
         className="form-container"
         autoComplete="on"
         name="subscription"
         method="POST"
+        action="/confirmation"
         data-netlify="true"
+        data-netlify-honeypot="bot-field"
       >
         <div className="form-heading">
         <p class="hidden">
           <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
         </p>
+        <input type="hidden" name="form-name" value="subscription" />
           <h2>
             Get notified of new updates!{` `}
             <svg
