@@ -14,8 +14,9 @@ class Confirmation extends React.Component {
         <SEO title="Thanks: Subscription Confirmation." />
         <h1>Thanks!</h1>
         <p>
-          You are now subscribed to new updates.
-          <Link to="/"> Return home. </Link>
+          You are now subscribed to new updates via email.
+          <br/>
+          <Link to="/"> Click here </Link> to return home.
         </p>
       </Layout>
     )
