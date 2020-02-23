@@ -15,7 +15,8 @@ class Confirmation extends React.Component {
         <h1>Thanks!</h1>
         <p>
           You are now subscribed to new updates via email.
-          <br/>
+        </p>
+        <p>
           <Link to="/"> Click here </Link> to return home.
         </p>
       </Layout>

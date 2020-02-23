@@ -45,7 +45,7 @@
     "gh-pages": "^2.2.0",
     "prettier": "^1.19.1"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://dshomoye.dev",
   "keywords": [
     "gatsby"
   ],
@@ -53,18 +53,17 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/dshomoye/dshomoye.github.io.git"
   },
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
     "lint": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "netlifyDeploy": "gatsby build && netlify deploy -d public/ --functions=functions",
-    "netlifyProd": "gatsby build && netlify deploy -d public/ --functions=functions --prod",
-    "deploy": "gatsby build && cp CNAME public/ && gh-pages -d public -b master"
+    "netlifypreview": "gatsby build && netlify deploy -d public/ --functions=functions",
+    "prod": "gatsby build && netlify deploy -d public/ --functions=functions --prod",
+    "pages": "gatsby build && gh-pages -d public -b master"
   }
 }
