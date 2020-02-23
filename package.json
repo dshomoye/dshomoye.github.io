@@ -4,9 +4,6 @@
   "description": "My personal site powered by Gatsby and Markdown",
   "version": "0.1.0",
   "author": "dshomoye <dshomoye@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
   "dependencies": {
     "gatsby": "^2.19.7",
     "gatsby-image": "^2.2.39",
