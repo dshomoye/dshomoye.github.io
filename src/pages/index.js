@@ -25,9 +25,7 @@ class BlogIndex extends React.Component {
               to={node.fields.slug}
               key={node.fields.slug}
             >
-              <article
-                className="home-article"
-              >
+              <article className="home-article">
                 <header>
                   <h3
                     style={{

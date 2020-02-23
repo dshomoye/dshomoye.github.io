@@ -1,0 +1,6 @@
+{
+    "private": true,
+    "dependencies": {
+        "got": "^10.6.0"
+    }
+}
