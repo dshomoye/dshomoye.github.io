@@ -42,7 +42,7 @@ class BlogPostTemplate extends React.Component {
       createElement: React.createElement,
       components: {
         "media-box": MediaBox,
-        a: SmartLink
+        a: SmartLink,
       },
     }).Compiler
 
