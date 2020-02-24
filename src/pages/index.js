@@ -34,7 +34,6 @@ class BlogIndex extends React.Component {
               key={node.fields.slug}
             >
               <article className="home-article">
-                {banner}
                 <div className="article-item article-content">
                 <header>
                   <h3
@@ -54,6 +53,7 @@ class BlogIndex extends React.Component {
                   />
                 </section>
                 </div>
+                {banner}
               </article>
             </Link>
           )

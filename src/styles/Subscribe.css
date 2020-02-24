@@ -70,3 +70,10 @@
 .hidden {
     display: none;
 }
+
+.notice {
+    font-size: x-small;
+    text-align: center;
+    margin: 0;
+    
+}

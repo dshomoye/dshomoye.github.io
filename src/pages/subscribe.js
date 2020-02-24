@@ -70,6 +70,7 @@ const Subscribe = ({ ...props }) => {
             Sign me Up!
           </button>
         </div>
+        <p className="notice">BY SIGNING UP, YOU AGREE TO BE CONTACTED BY EMAIL</p>
       </form>
     </Layout>
   )

@@ -18,7 +18,7 @@ body.dark {
     --textLink: yellow;
     --quote: #ababab;
     --hr: hsla(0, 0%, 100%, 0.2);
-    --shadow: #454545
+    --shadow: #454545;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -89,7 +89,7 @@ a {
 }
 
 .home-article-banner {
-    min-height: 250px;
+    min-height: 200px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -105,14 +105,19 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    order: 2;
 }
 
 @media (min-width: 600px) {
     .home-article-banner {
         min-height: 300px;
-        border-radius: 15px 0 0 15px;
+        border-radius: 0 15px 15px 0;
     }
     .article-item {
         flex-basis: 50%;
+    }
+
+    .article-content {
+        order: -1;
     }
 }
