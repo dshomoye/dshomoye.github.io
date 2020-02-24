@@ -19,6 +19,14 @@ class BlogIndex extends React.Component {
         <Bio />
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
+          let banner = null
+          if(node.frontmatter.bannerImage){
+            banner = 
+              (<div
+                className="lazyload home-article-banner article-item"
+                data-bg={`${bucketRoot}/${node.frontmatter.bannerImage}`}
+              />)
+          }
           return (
             <Link
               style={{ boxShadow: `none` }}
@@ -26,6 +34,8 @@ class BlogIndex extends React.Component {
               key={node.fields.slug}
             >
               <article className="home-article">
+                {banner}
+                <div className="article-item article-content">
                 <header>
                   <h3
                     style={{
@@ -37,18 +47,13 @@ class BlogIndex extends React.Component {
                   <small>{node.frontmatter.date}</small>
                 </header>
                 <section>
-                  {node.frontmatter.bannerImage ? (
-                    <div
-                      className="lazyload home-article-banner"
-                      data-bg={`${bucketRoot}/${node.frontmatter.bannerImage}`}
-                    />
-                  ) : null}
                   <p
                     dangerouslySetInnerHTML={{
                       __html: node.frontmatter.description || node.excerpt,
                     }}
                   />
                 </section>
+                </div>
               </article>
             </Link>
           )
