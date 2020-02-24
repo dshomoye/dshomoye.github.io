@@ -20,7 +20,11 @@ class BlogIndex extends React.Component {
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           let banner = null
+          const articleContentProps = {
+            className: "article-content"
+          }
           if(node.frontmatter.bannerImage){
+            articleContentProps.className = "article-item article-content"
             banner = 
               (<div
                 className="lazyload home-article-banner article-item"
@@ -34,7 +38,7 @@ class BlogIndex extends React.Component {
               key={node.fields.slug}
             >
               <article className="home-article">
-                <div className="article-item article-content">
+                <div {...articleContentProps}>
                 <header>
                   <h3
                     style={{
