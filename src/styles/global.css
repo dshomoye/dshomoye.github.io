@@ -70,7 +70,7 @@ a {
     text-shadow: none !important;
 }
 
-.home-article {
+.card-article {
     -webkit-box-shadow: 1px 0px 14px -9px var(--shadow);
     -moz-box-shadow: 1px 0px 14px -9px var(--shadow);
     box-shadow: 1px 0px 14px -9px var(--shadow);
@@ -82,7 +82,7 @@ a {
     margin-bottom: 20px;
 }
 
-.home-article:hover {
+.card-article:hover {
     -webkit-box-shadow: 1px 0px 12px -5px var(--shadow);
     -moz-box-shadow: 1px 0px 12px -5px var(--shadow);
     box-shadow: 1px 0px 12px -5px var(--shadow);

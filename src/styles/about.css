@@ -1,0 +1,11 @@
+.about-container {
+    text-align: center;
+}
+
+.about-card {
+    padding: 0 20px 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -35px;
+}
