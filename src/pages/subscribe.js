@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import Layout from "../components/layout"
 import { graphql, Link } from "gatsby"
+import Lottie from "react-lottie"
+import checkedAnimationData from "../lotties/checked_done.json"
 
 import SEO from "../components/seo"
 import "../styles/Subscribe.css"
@@ -11,6 +13,15 @@ const encode = (data) => {
   .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
   .join('&')
 }
+
+const defaultOptions = {
+  loop: false,
+  autoplay: true,
+  animationData: checkedAnimationData,
+  rendererSettings: {
+    preserveAspectRatio: 'xMidYMid slice'
+  }
+};
 
 const Subscribe = ({ ...props }) => {
   // 0: notSubmit, 1: submitting, 2: submitted, 3: failed 
@@ -113,7 +124,7 @@ const Subscribe = ({ ...props }) => {
     <>
       <h1>Thanks!</h1>
         <p>
-          You are now subscribed to new updates via email.
+          <Lottie options={defaultOptions} height={300} width={300}/> Email subscription confirmed.
         </p>
         <p>
           <Link to="/"> Click here </Link> to return home.

@@ -42,7 +42,7 @@ class BlogIndex extends React.Component {
                 className="home-article"   
                 data-sal="slide-up"
                 data-sal-easing="ease"
-                data-sal-duration="600"
+                data-sal-duration="700"
                 >
                 <div {...articleContentProps}>
                   <header>
