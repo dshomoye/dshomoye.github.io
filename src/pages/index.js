@@ -21,15 +21,16 @@ class BlogIndex extends React.Component {
           const title = node.frontmatter.title || node.fields.slug
           let banner = null
           const articleContentProps = {
-            className: "article-content"
+            className: "article-content",
           }
-          if(node.frontmatter.bannerImage){
+          if (node.frontmatter.bannerImage) {
             articleContentProps.className = "article-item article-content"
-            banner = 
-              (<div
+            banner = (
+              <div
                 className="lazyload home-article-banner article-item"
                 data-bg={`${bucketRoot}/${node.frontmatter.bannerImage}`}
-              />)
+              />
+            )
           }
           return (
             <Link
@@ -37,25 +38,30 @@ class BlogIndex extends React.Component {
               to={node.fields.slug}
               key={node.fields.slug}
             >
-              <article className="home-article">
+              <article 
+                className="card-article"   
+                data-sal="slide-up"
+                data-sal-easing="ease"
+                data-sal-duration="700"
+                >
                 <div {...articleContentProps}>
-                <header>
-                  <h3
-                    style={{
-                      marginBottom: rhythm(1 / 4),
-                    }}
-                  >
-                    {title}
-                  </h3>
-                  <small>{node.frontmatter.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: node.frontmatter.description || node.excerpt,
-                    }}
-                  />
-                </section>
+                  <header>
+                    <h3
+                      style={{
+                        marginBottom: rhythm(1 / 4),
+                      }}
+                    >
+                      {title}
+                    </h3>
+                    <small>{node.frontmatter.date}</small>
+                  </header>
+                  <section>
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: node.frontmatter.description || node.excerpt,
+                      }}
+                    />
+                  </section>
                 </div>
                 {banner}
               </article>

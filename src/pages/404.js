@@ -1,8 +1,20 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
+import Lottie from "react-lottie"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import animationData from "../lotties/404.json"
+
+
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  animationData,
+  rendererSettings: {
+    preserveAspectRatio: 'xMidYMid slice'
+  }
+};
 
 class NotFoundPage extends React.Component {
   render() {
@@ -12,8 +24,10 @@ class NotFoundPage extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="404: Not Found" />
-        <h1>Not Found</h1>
-        <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+        <Link to="/">
+          <Lottie options={defaultOptions} />
+          <p>This page is not real, you imagined it.</p>
+        </Link>
       </Layout>
     )
   }

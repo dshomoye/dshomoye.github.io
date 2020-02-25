@@ -32,6 +32,7 @@
     "react-helmet": "^5.2.1",
     "react-image-lightbox": "^5.1.1",
     "react-images": "^1.1.0-beta.3",
+    "react-lottie": "^1.2.3",
     "react-scroll-progress-bar": "^1.1.11",
     "react-typography": "^0.16.19",
     "rehype-react": "^4.0.1",
@@ -61,6 +62,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "netlifypreview": "gatsby build && netlify deploy -d public/ --functions=functions",
     "prod": "gatsby build && netlify deploy -d public/ --functions=functions --prod",
-    "pages": "gatsby build && gh-pages -d public -b master"
+    "pages": "gatsby build && gh-pages -d public -b master",
+    "bundleInfo": "source-map-explorer public/*.js"
   }
 }

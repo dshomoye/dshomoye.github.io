@@ -60,7 +60,10 @@ class BlogPostTemplate extends React.Component {
           closeModal={this.closeGalleryModal}
           setGalleryIndex={this.setAndOpenGallery}
         >
-          <article>
+          <article                 
+                data-sal="fade"
+                data-sal-easing="ease"
+                data-sal-duration="700">
             <header>
               <h1
                 style={{
