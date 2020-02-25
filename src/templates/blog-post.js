@@ -61,7 +61,7 @@ class BlogPostTemplate extends React.Component {
           setGalleryIndex={this.setAndOpenGallery}
         >
           <article                 
-                data-sal="zoom-out"
+                data-sal="fade"
                 data-sal-easing="ease"
                 data-sal-duration="700">
             <header>

@@ -53,7 +53,6 @@ const Subscribe = ({ ...props }) => {
       })
       .catch((error) => {
         setSubmit(3)
-        alert(error)
       })
   }
 
@@ -66,6 +65,9 @@ const Subscribe = ({ ...props }) => {
     data-netlify="true"
     data-netlify-honeypot="bot-field"
     onSubmit={handleSubmit}
+    data-sal="slide-down"
+    data-sal-easing="ease"
+    data-sal-duration="700"
   >
     <div className="form-heading">
       <p class="hidden">
@@ -124,10 +126,10 @@ const Subscribe = ({ ...props }) => {
     <>
       <h1>Thanks!</h1>
         <p>
-          <Lottie options={defaultOptions} height={300} width={300}/> Email subscription confirmed.
+          <Lottie options={defaultOptions} height={250} width={250}/> Email subscription confirmed.
         </p>
         <p>
-          <Link to="/"> Click here </Link> to return home.
+          <Link to="/"> Return Home. </Link>
         </p>
     </>
   )
@@ -151,7 +153,7 @@ const Subscribe = ({ ...props }) => {
     <Layout location={props.location} title={siteTitle}>
       <SEO
         title="Newsletter Subscription Page"
-        description="Sign up for my newsletter to be notified of updates."
+        description="Sign up for my newsletter to be notified when I have new posts."
       />
         {content}
     </Layout>
