@@ -3,9 +3,53 @@ title: How I Built This
 date: "2020-02-18"
 description: "Take a look under the hood."
 bannerImage: "media/how-i-built-this/unsplash_mac_w_code.jpg"
+lastUpdated: "2020-02-29"
 ---
 
-## How I built this blog (so far)
+#### UPDATE: 02-29
+
+I have now moved this site to Netlify. I do still have a running version on Githb pages but moving to Netlify was inevitable. My main motivation is that I badly wanted to replace the iframe I was using for the newsletter sign up. An `iframe` is just... basically an abonimation. It felt out of place. The new [page](/subscribe) is much better. I wrote the form myself. And the submission is where Netlify comes. I still needed to automate sending signups to my marketing platform (SendInBlue). So, I used Netlify functions! These are basically, lambda functions, that are _even easier_ to set up. The function gets triggered per submission and the details gets sent to SendInBlue via their API. I'm more satisfied with the set up.
+This is what the function looks like:
+
+```js
+const got = require("got")
+
+exports.handler = async function(event) {
+  const eventData = JSON.parse(event.body)
+  try {
+    const response = await got("https://api.sendinblue.com/v3/contacts", {
+      json: {
+        email: eventData.payload.email,
+        listIds: [2],
+        updateEnabled: true,
+      },
+      method: "POST",
+      headers: {
+        "api-key": process.env.SENDINBLUE_API_KEY,
+        "content-type": "application/json",
+      },
+    })
+    return {
+      statusCode: response.statusCode,
+      body: "success",
+    }
+  } catch (error) {
+    return {
+      statusCode: 500,
+      body: `${error} data: ${JSON.stringify(eventData)}`,
+    }
+  }
+}
+// the critical part of this is the api key
+// it's being set in the Netlify function environment variable.
+// This is just imposibble with a static site not without hardcording
+```
+
+---
+
+Another added benefit is having more control over the headers of the files, I was getting dinged in chrome lighthouse for having low TTL on the static files. Github doesn't allow changing this but Netlify does. Also, Netlify has way better CDN. So things should be even more blazingly fast!
+
+---
 
 > Warning, this is a tech/engineering post, so set your exptectations accordingly.
 

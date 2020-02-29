@@ -6,15 +6,14 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import animationData from "../lotties/404.json"
 
-
 const defaultOptions = {
   loop: true,
   autoplay: true,
   animationData,
   rendererSettings: {
-    preserveAspectRatio: 'xMidYMid slice'
-  }
-};
+    preserveAspectRatio: "xMidYMid slice",
+  },
+}
 
 class NotFoundPage extends React.Component {
   render() {

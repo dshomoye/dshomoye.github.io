@@ -18,21 +18,21 @@ class NotFoundPage extends React.Component {
         <SEO title="About Me" />
         <div className="about-container">
           <div
-            className="about-image"            
+            className="about-image"
             data-sal="slide-down"
             data-sal-easing="ease"
             data-sal-duration="700"
           >
-          <Image
-            fixed={imageSharp}
-            alt={author}
-            style={{
-              minWidth: 50,
-              borderRadius: `100%`,
-            }}
-            imgStyle={{
-              borderRadius: `50%`,
-            }}
+            <Image
+              fixed={imageSharp}
+              alt={author}
+              style={{
+                minWidth: 50,
+                borderRadius: `100%`,
+              }}
+              imgStyle={{
+                borderRadius: `50%`,
+              }}
             />
           </div>
           <article

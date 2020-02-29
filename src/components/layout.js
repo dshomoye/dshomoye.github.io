@@ -4,8 +4,10 @@ import ProgressBar from "react-scroll-progress-bar"
 
 import ThemeSwitch from "./ThemeSwitch"
 import QuoteBlock from "./QuoteBlock"
-import { rhythm, scale } from "../utils/typography"
 import { Helmet } from "react-helmet"
+
+const ticksel_tag =
+  process.env.development === "1" ? "development" : "production"
 
 class Layout extends React.Component {
   render() {
@@ -17,8 +19,8 @@ class Layout extends React.Component {
       header = (
         <h1
           style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
+            fontSize: `2rem`,
+            marginBottom: `2rem`,
             marginTop: 0,
           }}
         >
@@ -64,11 +66,13 @@ class Layout extends React.Component {
             transition: "color 0.2s ease-out, background 0.2s ease-out",
             marginLeft: `auto`,
             marginRight: `auto`,
-            maxWidth: rhythm(24),
-            padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+            maxWidth: `38rem`,
+            padding: `2rem 1rem`,
           }}
         >
-          <header> {header} </header> <main> {children} </main> <QuoteBlock />
+          <header> {header} </header>
+          <main> {children} </main>
+          <QuoteBlock />
           <div
             style={{
               textAlign: "center",
@@ -85,10 +89,10 @@ class Layout extends React.Component {
         </div>
         <Helmet>
           <script type="text/javascript">
-            {`console.log('tracking code init')          
+            {`       
               var _tcfg = _tcfg || [];
               (function() {
-                _tcfg.push(["tags", ""]);
+                _tcfg.push(["tags", "${ticksel_tag}"]);
                 var u="https://cdn.ticksel.com/js/analytics_v1.0.js"; _tcfg.push(["account_id", 5427524]);
                 var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
                 g.type="text/javascript"; g.async=true; g.src=u; g.setAttribute("crossorigin", "anonymous");

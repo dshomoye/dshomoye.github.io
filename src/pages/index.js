@@ -4,7 +4,6 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
 import { bucketRoot } from "../utils/constants"
 
 class BlogIndex extends React.Component {
@@ -38,21 +37,15 @@ class BlogIndex extends React.Component {
               to={node.fields.slug}
               key={node.fields.slug}
             >
-              <article 
-                className="card-article"   
+              <article
+                className="card-article"
                 data-sal="slide-up"
                 data-sal-easing="ease"
                 data-sal-duration="700"
-                >
+              >
                 <div {...articleContentProps}>
                   <header>
-                    <h3
-                      style={{
-                        marginBottom: rhythm(1 / 4),
-                      }}
-                    >
-                      {title}
-                    </h3>
+                    <h3>{title}</h3>
                     <small>{node.frontmatter.date}</small>
                   </header>
                   <section>

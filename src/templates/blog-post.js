@@ -9,7 +9,6 @@ import GalleryContainer from "../components/GalleryContainer"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
 
 class BlogPostTemplate extends React.Component {
   constructor(props) {
@@ -60,14 +59,15 @@ class BlogPostTemplate extends React.Component {
           closeModal={this.closeGalleryModal}
           setGalleryIndex={this.setAndOpenGallery}
         >
-          <article                 
-                data-sal="fade"
-                data-sal-easing="ease"
-                data-sal-duration="700">
+          <article
+            data-sal="fade"
+            data-sal-easing="ease"
+            data-sal-duration="700"
+          >
             <header>
               <h1
                 style={{
-                  marginTop: rhythm(1),
+                  marginTop: `2.3rem`,
                   marginBottom: 0,
                 }}
               >
@@ -82,7 +82,7 @@ class BlogPostTemplate extends React.Component {
               </h2>
               <p
                 style={{
-                  ...scale(-1 / 5),
+                  fontSize: `0.8rem`,
                   whiteSpace: "pre-wrap",
                 }}
               >
@@ -90,10 +90,10 @@ class BlogPostTemplate extends React.Component {
               </p>
             </header>
             <section>{renderAst(post.htmlAst)}</section>
-            <p style={{ ...scale(-0.7) }}>{lastUpdated}</p>
+            <p style={{ fontSize: `0.6rem` }}>{lastUpdated}</p>
             <hr
               style={{
-                marginBottom: rhythm(1),
+                marginBottom: `2rem`,
               }}
             />
             <footer>

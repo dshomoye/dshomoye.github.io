@@ -23,7 +23,9 @@ gallerySources:
     type: "image"
 bannerImage: "media/first-ride/thumbnails/santa_monica_beach.jpg"
 lastUpdated: "2020-02-16"
----#### Union Station
+---
+
+#### Union Station
 
 This wasn't really my first time on the west coast. It's actually the third. First, I came to Las Vegas in the summer of 2018, for about a week. I luckily got to stay for free thanks to one of my good friends who had a month-long training there.
 Then in November of 2018, I went to San Francisco, that trip ended up being more of a nature trip than a city one, even though I was in the bay area. I did about a third of the highway 1 drive, a breathtakingly gorgeous scenery that I will most definitely do again. I also went all the way out to Yosemite.
