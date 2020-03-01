@@ -6,7 +6,8 @@ body {
     --hr: hsla(0, 0%, 0%, 0.2);
     --quote: #474747;
     background-color: var(--bg);
-    --shadow: #000000
+    --shadow: #000000;
+    font-family: 'Varela Round',sans-serif;
 }
 
 body.dark {
@@ -87,10 +88,10 @@ a {
     -moz-box-shadow: 1px 0px 12px -5px var(--shadow);
     box-shadow: 1px 0px 12px -5px var(--shadow);
 }
-
+/* 
 .home-card:hover {
     margin: 25px -10px 25px -10px;
-}
+} */
 
 .home-article-banner {
     min-height: 200px;
