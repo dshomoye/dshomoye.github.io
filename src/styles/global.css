@@ -86,6 +86,9 @@ a {
     -webkit-box-shadow: 1px 0px 12px -5px var(--shadow);
     -moz-box-shadow: 1px 0px 12px -5px var(--shadow);
     box-shadow: 1px 0px 12px -5px var(--shadow);
+}
+
+.home-card:hover {
     margin: 25px -10px 25px -10px;
 }
 

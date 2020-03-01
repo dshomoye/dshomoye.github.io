@@ -38,7 +38,7 @@ class BlogIndex extends React.Component {
               key={node.fields.slug}
             >
               <article
-                className="card-article"
+                className="card-article home-card"
                 data-sal="slide-up"
                 data-sal-easing="ease"
                 data-sal-duration="700"
