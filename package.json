@@ -56,8 +56,8 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop -H 0.0.0.0",
-    "lint": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "serve": "gatsby serve",
+    "lint": "prettier --write \"**/*.{js,jsx,md}\"",
+    "serve": "gatsby build && gatsby serve -H 0.0.0.0",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "netlifypreview": "gatsby build && netlify deploy -d public/ --functions=functions",
