@@ -1,4 +1,1 @@
-
-setTimeout(() => {
-  self.registration.showNotification("Hello, world!")
-}, 5000)
+console.log("Hello from custom service worker")

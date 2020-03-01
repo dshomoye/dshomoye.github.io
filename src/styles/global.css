@@ -6,7 +6,8 @@ body {
     --hr: hsla(0, 0%, 0%, 0.2);
     --quote: #474747;
     background-color: var(--bg);
-    --shadow: #000000
+    --shadow: #000000;
+    font-family: 'Varela Round',sans-serif;
 }
 
 body.dark {
@@ -23,6 +24,10 @@ body.dark {
 
 h1, h2, h3, h4, h5, h6 {
     color: var(--textNormal)
+}
+
+p {
+    font-size: large;
 }
 
 a {

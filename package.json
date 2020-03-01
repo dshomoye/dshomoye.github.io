@@ -54,15 +54,15 @@
     "url": "git+https://github.com/dshomoye/dshomoye.github.io.git"
   },
   "scripts": {
-    "build": "gatsby build",
     "develop": "gatsby develop -H 0.0.0.0",
-    "lint": "prettier --write \"**/*.{js,jsx,md}\"",
     "serve": "gatsby build && gatsby serve -H 0.0.0.0",
+    "lint": "prettier --write \"**/*.{js,jsx,md}\"",
+    "netlifypreview": "gatsby build && netlify deploy -d public/ --functions=functions",
+    "pages": "gatsby build && gh-pages -d public -b master",
+    "prod": "gatsby build && netlify deploy -d public/ --functions=functions --prod",
+    "build": "gatsby build",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "netlifypreview": "gatsby build && netlify deploy -d public/ --functions=functions",
-    "prod": "gatsby build && netlify deploy -d public/ --functions=functions --prod",
-    "pages": "gatsby build && gh-pages -d public -b master",
     "bundleInfo": "source-map-explorer public/*.js"
   }
 }

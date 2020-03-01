@@ -1,10 +1,11 @@
 import React from "react"
 import { Link } from "gatsby"
 import ProgressBar from "react-scroll-progress-bar"
+import { Helmet } from "react-helmet"
 
 import ThemeSwitch from "./ThemeSwitch"
 import QuoteBlock from "./QuoteBlock"
-import { Helmet } from "react-helmet"
+import SubscribeOptions from "./SubscribeOptions"
 
 const ticksel_tag =
   process.env.development === "1" ? "development" : "production"
@@ -80,9 +81,8 @@ class Layout extends React.Component {
           >
             <footer>
               {" "}
-              ©{new Date().getFullYear()} Adedamola Shomoye |{"  "}
-              <a href="/rss.xml"> RSS </a>|
-              <Link to="/subscribe"> Newsletter</Link>
+              ©{new Date().getFullYear()} Adedamola Shomoye {"  "}
+              <SubscribeOptions />
             </footer>
             <ThemeSwitch />
           </div>

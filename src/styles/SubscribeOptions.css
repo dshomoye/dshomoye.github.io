@@ -1,0 +1,16 @@
+.items-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.items-container > * {
+    margin: 1em;
+}
+
+.notification-btn {
+    background-color: var(--bg);
+    color: var(--textNormal);
+}
