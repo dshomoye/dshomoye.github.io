@@ -5,28 +5,6 @@ import { subscriptionOptions } from "../utils/constants"
 
 const subscriptionUrl = '/.netlify/functions/push-notification'
 
-const pushSupported = () => {
-  if (!('PushManager' in window) ) {
-    // push notification isn't supported on this browser.
-    console.log('push not supported')
-    return false;
-  }
-  return true
-}
-
-const hasNotificationPermission = () => {
-  if(Notification.permission === 'granted'){
-    return true
-  } else if(Notification.permission !== 'denied') {
-    const permission = Notification.requestPermission()
-    if(permission === 'granted'){
-      return true
-    }
-  }
-  //warn user here
-  return false
-}
-
 const saveSubscriptionToServer = async (subscriptionEndpoint) => {
   try {
     const saveResponse = await fetch(subscriptionUrl, {
@@ -59,10 +37,30 @@ const removeSubscriptionFromServer = async (subscriptionEndpoint) => {
   }
 }
 
+const hasNotificationPermission = () => {
+  if(Notification.permission === 'granted'){
+    return true
+  } else if(Notification.permission !== 'denied') {
+    const permission = Notification.requestPermission()
+    if(permission === 'granted'){
+      return true
+    }
+  }
+  return false
+}
 
 const PushNotification = () => {
   const [subscribed, setSubscribed] = useState(false)
   const [working, setWorking] = useState(false)
+
+  const pushSupported = () => {
+    if (typeof(window) !== `undefined`) {
+      if('PushManager' in window){
+        return true
+      }
+    }
+    return false
+  }
 
   const createSubscription = async () => {
     if(pushSupported() && hasNotificationPermission()){
@@ -70,9 +68,12 @@ const PushNotification = () => {
       navigator.serviceWorker.ready.then(async (swRegistration) => {
         const pushSubscription = await swRegistration.pushManager.subscribe(subscriptionOptions)
         console.log('subscription created ', pushSubscription)
-        saveSubscriptionToServer(pushSubscription.endpoint)
-        setSubscribed(true)
-        localStorage.setItem('PUSH_NOTIFICATION_SUBSCRIBED', "1")
+        const subSaved = await saveSubscriptionToServer(pushSubscription.endpoint)
+        if(subSaved){
+          setSubscribed(true)
+          localStorage.setItem('PUSH_NOTIFICATION_SUBSCRIBED', "1")
+          notify.show("Push subscription confirmed", "success")
+        }
       }).catch((error) => {
         console.log(error)
         notify.show('An error occured setting up push notification', "warning")
@@ -83,21 +84,19 @@ const PushNotification = () => {
     setWorking(false)
   }
   
-  const unsubscribe = () => {
+  const unsubscribe = async () => {
     if(pushSupported() && subscribed) {
       setWorking(true)
       navigator.serviceWorker.ready.then(async (swRegistration) => {
-        swRegistration.pushManager.getSubscription().then(function(subscription) {
-          subscription.unsubscribe().then(function(successful) {
-            removeSubscriptionFromServer(subscription.endpoint)
-            localStorage.setItem('PUSH_NOTIFICATION_SUBSCRIBED', '0')
-            setSubscribed(false)
-            // You've successfully unsubscribed
-          }).catch(function(e) {
-            console.log('unsub error ',e )
-            // Unsubscription failed
-          })
-        })  
+        const subscription = await swRegistration.pushManager.getSubscription()
+        await subscription.unsubscribe()
+        removeSubscriptionFromServer(subscription.endpoint).then(() => {
+          localStorage.setItem('PUSH_NOTIFICATION_SUBSCRIBED', '0')
+          setSubscribed(false)
+          notify.show('Push notifications unsubscribed', "success")
+        })
+      }).catch((e) => {
+        console.log('unsub error ',e )
       })
     }
     setWorking(false)

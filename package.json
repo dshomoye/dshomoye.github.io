@@ -52,13 +52,13 @@
   },
   "scripts": {
     "develop": "gatsby develop -H 0.0.0.0",
-    "serve": "gatsby build && gatsby serve -H 0.0.0.0",
-    "lint": "prettier --write \"**/*.{js,jsx,md}\"",
+    "build": "gatsby build",
+    "serve": "gatsby serve -H 0.0.0.0",
     "netlifypreview": "gatsby build && netlify deploy -d public/ --functions=functions",
     "pages": "gatsby build && gh-pages -d public -b master",
     "prod": "gatsby build && netlify deploy -d public/ --functions=functions --prod",
-    "build": "gatsby build",
     "clean": "gatsby clean",
+    "lint": "prettier --write \"**/*.{js,jsx,md}\"",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "bundleInfo": "source-map-explorer public/*.js"
   }
