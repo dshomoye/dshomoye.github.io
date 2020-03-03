@@ -1,10 +1,13 @@
 const got = require("got")
-const faunadbEndpoint = 'https://graphql.fauna.com/graphql'
+const faunadbEndpoint = "https://graphql.fauna.com/graphql"
 const faunaKey = process.env.FAUNADB_KEY
+const headers =  {
+  "Content-Type": "application/json",
+  Accept: "application/json",
+  Authorization: `Bearer ${faunaKey}`,
+}
 
-
-
-const addSubscription = async (endpoint) => {
+const addSubscription = async endpoint => {
   const query = `mutation addSubscription {
         createPushNotificationSubscription(data: {
           endpoint: "${endpoint}"
@@ -14,32 +17,27 @@ const addSubscription = async (endpoint) => {
       }`
   try {
     const res = await got(faunadbEndpoint, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Authorization': `Bearer ${faunaKey}`
-      },
-      body: JSON.stringify({query: query})
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify({ query: query }),
     })
     const resultData = JSON.parse(res.body)
     return {
       statusCode: 201,
       body: JSON.stringify({
-        id: resultData.data.createPushNotificationSubscription._id
-      })
+        id: resultData.data.createPushNotificationSubscription._id,
+      }),
     }
   } catch (error) {
-    console.error('error ', error)
+    console.error("error adding subsription: ", error)
     return {
       statusCode: 500,
-      body: error
+      body: error,
     }
   }
-
 }
 
-const removeSubscription = async (endpoint) => {
+const removeSubscription = async endpoint => {
   const query = `mutation delSub {
     deletePushNotificationByEndpoint(endpoint: "${endpoint}"){
       count
@@ -49,38 +47,33 @@ const removeSubscription = async (endpoint) => {
   try {
     await got(faunadbEndpoint, {
       body: query,
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Authorization': `Bearer ${faunaKey}`
-      },
-      body: JSON.stringify({query: query})
+      method: "DELETE",
+      headers: headers,
+      body: JSON.stringify({ query: query }),
     })
     return {
-      statusCode: 204
+      statusCode: 204,
     }
-  }catch(error){
-    console.log(error)
+  } catch (error) {
+    console.error('error deleting subscripton ', error)
     return {
       statusCode: 500,
-      body: JSON.stringify(error)
+      body: JSON.stringify(error),
     }
   }
-    
 }
 
 exports.handler = async function(event) {
-  console.log('received event ', event)
+  console.log("received event ", event)
   const method = event.httpMethod
   const eventData = JSON.parse(event.body)
   switch (method) {
     case "POST":
-      const response = await addSubscription(eventData.endpoint)
-      return response
+      const addResponse = await addSubscription(eventData.endpoint)
+      return addResponse
     case "DELETE":
-      const response = await removeSubscription(eventData.endpoint)
-      return response
+      const delResponse = await removeSubscription(eventData.endpoint)
+      return delResponse
     default:
       return {
         statusCode: 500,

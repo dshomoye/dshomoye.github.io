@@ -92,12 +92,12 @@ const PushNotification = () => {
         await subscription.unsubscribe()
         removeSubscriptionFromServer(subscription.endpoint).then(() => {
           localStorage.setItem('PUSH_NOTIFICATION_SUBSCRIBED', '0')
-          setSubscribed(false)
           notify.show('Push notifications unsubscribed', "success")
         })
       }).catch((e) => {
         console.log('unsub error ',e )
       })
+      setSubscribed(false)
     }
     setWorking(false)
   }
