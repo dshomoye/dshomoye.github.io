@@ -1,12 +1,16 @@
-import React, { useState, useEffect, PureComponent } from "react"
+import React, { useState, useEffect } from "react"
 
 import { subscriptionOptions } from "../utils/constants"
+
+const subscriptionUrl = '/.netlify/functions/push-notification'
 
 const pushSupported = () => {
   if (!('PushManager' in window) ) {
     // push notification isn't supported on this browser.
+    console.log('push not supported')
     return false;
   }
+  return true
 }
 
 const hasNotificationPermission = () => {
@@ -22,8 +26,36 @@ const hasNotificationPermission = () => {
   return false
 }
 
-const saveSubscriptionToServer = (subscriptionEndpoint) => {
+const saveSubscriptionToServer = async (subscriptionEndpoint) => {
+  try {
+    const saveResponse = await fetch(subscriptionUrl, {
+      method: 'POST',
+      body: JSON.stringify({endpoint: subscriptionEndpoint})
+    })
+    if(saveResponse.status === 201){
+      return true
+    }
+    return false
+  }catch(error){
+    console.log(error)
+    return false
+  }
+}
 
+const removeSubscriptionFromServer = (subscriptionEndpoint) => {
+  try {
+    const delResponse = await fetch(subscriptionUrl, {
+      method: 'DELETE',
+      body: JSON.stringify({endpoint: subscriptionEndpoint})
+    })
+    if(delResponse.status === 204){
+      return true
+    }
+    return false
+  }catch(error){
+    console.log(error)
+    return false
+  }
 }
 
 
@@ -32,11 +64,13 @@ const PushNotification = () => {
   const [working, setWorking] = useState(false)
 
   const createSubscription = async () => {
-    if(hasNotificationPermission()){
+    if(pushSupported() && hasNotificationPermission()){
       setWorking(true)
       navigator.serviceWorker.ready.then(async (swRegistration) => {
         const pushSubscription = await swRegistration.pushManager.subscribe(subscriptionOptions)
         saveSubscriptionToServer(pushSubscription.endpoint)
+        setSubscribed(true)
+        setWorking(false)
       }).catch((error) => {
         console.error(error)
         //warn about error
@@ -45,12 +79,25 @@ const PushNotification = () => {
   }
   
   const unsubscribe = () => {
+    if(pushSupported() && subscribed) {
+      setWorking(true)
+      navigator.serviceWorker.ready.then(async (swRegistration) => {
+        swRegistration.pushManager.getSubscription().then(function(subscription) {
+          subscription.unsubscribe().then(function(successful) {
+            removeSubscriptionFromServer(subscription.endpoint)
+            // You've successfully unsubscribed
+          }).catch(function(e) {
+            // Unsubscription failed
+          })
+        })  
+      })
+    }
 
   }
 
   useEffect(() => {
-    const push_id = localStorage.getItem('PUSH_NOTIFICATION_ID')
-    if(push_id){
+    const push_sub = localStorage.getItem('PUSH_NOTIFICATION_SUBSCRIBED')
+    if(push_sub === "1"){
       setSubscribed(true)
     }
   },[])
