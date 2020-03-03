@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { notify } from "react-notify-toast"
 
 import { subscriptionOptions } from "../utils/constants"
 
@@ -42,7 +43,7 @@ const saveSubscriptionToServer = async (subscriptionEndpoint) => {
   }
 }
 
-const removeSubscriptionFromServer = (subscriptionEndpoint) => {
+const removeSubscriptionFromServer = async (subscriptionEndpoint) => {
   try {
     const delResponse = await fetch(subscriptionUrl, {
       method: 'DELETE',
@@ -68,14 +69,18 @@ const PushNotification = () => {
       setWorking(true)
       navigator.serviceWorker.ready.then(async (swRegistration) => {
         const pushSubscription = await swRegistration.pushManager.subscribe(subscriptionOptions)
+        console.log('subscription created ', pushSubscription)
         saveSubscriptionToServer(pushSubscription.endpoint)
         setSubscribed(true)
-        setWorking(false)
+        localStorage.setItem('PUSH_NOTIFICATION_SUBSCRIBED', "1")
       }).catch((error) => {
-        console.error(error)
-        //warn about error
+        console.log(error)
+        notify.show('An error occured setting up push notification', "warning")
       })
+    } else {
+      notify.show('Notifications not allowed.', "error")
     }
+    setWorking(false)
   }
   
   const unsubscribe = () => {
@@ -85,14 +90,17 @@ const PushNotification = () => {
         swRegistration.pushManager.getSubscription().then(function(subscription) {
           subscription.unsubscribe().then(function(successful) {
             removeSubscriptionFromServer(subscription.endpoint)
+            localStorage.setItem('PUSH_NOTIFICATION_SUBSCRIBED', '0')
+            setSubscribed(false)
             // You've successfully unsubscribed
           }).catch(function(e) {
+            console.log('unsub error ',e )
             // Unsubscription failed
           })
         })  
       })
     }
-
+    setWorking(false)
   }
 
   useEffect(() => {

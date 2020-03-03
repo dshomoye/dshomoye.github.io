@@ -29,6 +29,7 @@
     "react-helmet": "^5.2.1",
     "react-image-lightbox": "^5.1.1",
     "react-lottie": "^1.2.3",
+    "react-notify-toast": "^0.5.1",
     "react-scroll-progress-bar": "^1.1.11",
     "react-typography": "^0.16.19",
     "rehype-react": "^4.0.1",
