@@ -1,6 +1,7 @@
 {
     "private": true,
     "dependencies": {
-        "got": "^10.6.0"
+        "got": "^10.6.0",
+        "web-push": "^3.4.3"
     }
 }
