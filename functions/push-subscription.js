@@ -1,7 +1,7 @@
 const got = require("got")
 const faunadbEndpoint = "https://graphql.fauna.com/graphql"
 const faunaKey = process.env.FAUNADB_KEY
-const headers =  {
+const headers = {
   "Content-Type": "application/json",
   Accept: "application/json",
   Authorization: `Bearer ${faunaKey}`,
@@ -55,13 +55,15 @@ const removeSubscription = async endpoint => {
       statusCode: 204,
     }
   } catch (error) {
-    console.error('error deleting subscripton ', error)
+    console.error("error deleting subscripton ", error)
     return {
       statusCode: 500,
       body: JSON.stringify(error),
     }
   }
 }
+
+const getAllSubscriptions = async () => {}
 
 exports.handler = async function(event) {
   console.log("received event ", event)
