@@ -1,5 +1,6 @@
 type PushNotificationSubscription {
     endpoint: String!
+    subscriptionData: String!
 }
 
 type Query {

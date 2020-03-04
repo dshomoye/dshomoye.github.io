@@ -5,11 +5,11 @@ import { subscriptionOptions } from "../utils/constants"
 
 const subscriptionUrl = "/.netlify/functions/push-notification"
 
-const saveSubscriptionToServer = async subscriptionEndpoint => {
+const saveSubscriptionToServer = async subscription => {
   try {
     const saveResponse = await fetch(subscriptionUrl, {
       method: "POST",
-      body: JSON.stringify({ endpoint: subscriptionEndpoint }),
+      body: JSON.stringify({ endpoint: subscription, data: JSON.stringify(subscription) }),
     })
     if (saveResponse.status === 201) {
       return true
@@ -73,7 +73,7 @@ const PushNotification = () => {
           )
           console.log("subscription created ", pushSubscription)
           const subSaved = await saveSubscriptionToServer(
-            pushSubscription.endpoint
+            pushSubscription
           )
           if (subSaved) {
             setSubscribed(true)

@@ -7,10 +7,11 @@ const headers = {
   Authorization: `Bearer ${faunaKey}`,
 }
 
-const addSubscription = async endpoint => {
+const addSubscription = async (endpoint, data) => {
   const query = `mutation addSubscription {
         createPushNotificationSubscription(data: {
           endpoint: "${endpoint}"
+          subscriptionData: ${data}
         }) {
           _id
         }
@@ -46,8 +47,7 @@ const removeSubscription = async endpoint => {
   `
   try {
     await got(faunadbEndpoint, {
-      body: query,
-      method: "DELETE",
+      method: "POST",
       headers: headers,
       body: JSON.stringify({ query: query }),
     })
@@ -63,23 +63,20 @@ const removeSubscription = async endpoint => {
   }
 }
 
-const getAllSubscriptions = async () => {}
-
 exports.handler = async function(event) {
-  console.log("received event ", event)
   const method = event.httpMethod
   const eventData = JSON.parse(event.body)
   switch (method) {
     case "POST":
-      const addResponse = await addSubscription(eventData.endpoint)
+      const addResponse = await addSubscription(eventData.endpoint, eventData.data)
       return addResponse
     case "DELETE":
       const delResponse = await removeSubscription(eventData.endpoint)
       return delResponse
     default:
       return {
-        statusCode: 500,
-        body: JSON.stringify(event),
+        statusCode: 400,
+        body: "Invalid request",
       }
   }
 }
