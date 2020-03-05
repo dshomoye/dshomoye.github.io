@@ -1,39 +1,38 @@
-const got = require("got")
+const { GraphQLClient } = require("graphql-request")
+
+
 const faunadbEndpoint = "https://graphql.fauna.com/graphql"
 const faunaKey = process.env.FAUNADB_KEY
-const headers = {
-  "Content-Type": "application/json",
-  Accept: "application/json",
-  Authorization: `Bearer ${faunaKey}`,
-}
+
+const graphQLClient = new GraphQLClient(faunadbEndpoint, {
+  headers: {
+    authorization: `Bearer ${faunaKey}`
+  },
+})
 
 const addSubscription = async (endpoint, data) => {
   const query = `mutation addSubscription {
         createPushNotificationSubscription(data: {
           endpoint: "${endpoint}"
-          subscriptionData: ${data}
+          subscriptionData: ${JSON.stringify(data)}
         }) {
           _id
         }
       }`
   try {
-    const res = await got(faunadbEndpoint, {
-      method: "POST",
-      headers: headers,
-      body: JSON.stringify({ query: query }),
-    })
-    const resultData = JSON.parse(res.body)
+    const data = await graphQLClient.request(query)
+    const id = data.createPushNotificationSubscription._id
     return {
       statusCode: 201,
       body: JSON.stringify({
-        id: resultData.data.createPushNotificationSubscription._id,
+        id: id
       }),
     }
   } catch (error) {
     console.error("error adding subsription: ", error)
     return {
       statusCode: 500,
-      body: error,
+      body: `${error}`,
     }
   }
 }
@@ -46,11 +45,7 @@ const removeSubscription = async endpoint => {
   }
   `
   try {
-    await got(faunadbEndpoint, {
-      method: "POST",
-      headers: headers,
-      body: JSON.stringify({ query: query }),
-    })
+    await graphQLClient.request(query)
     return {
       statusCode: 204,
     }
@@ -65,14 +60,34 @@ const removeSubscription = async endpoint => {
 
 exports.handler = async function(event) {
   const method = event.httpMethod
-  const eventData = JSON.parse(event.body)
   switch (method) {
     case "POST":
-      const addResponse = await addSubscription(eventData.endpoint, eventData.data)
-      return addResponse
+      try {
+        const eventData = JSON.parse(event.body)
+        const { endpoint, data } = eventData
+        const addResponse = await addSubscription(endpoint, data)
+        console.log("New Subscription added for: ", endpoint)
+        return addResponse
+      } catch (error) {
+        console.error("Error saving subscription ", error)
+        return {
+          statusCode: 400,
+          body: "Unable to process request",
+        }
+      }
     case "DELETE":
-      const delResponse = await removeSubscription(eventData.endpoint)
-      return delResponse
+      try {
+        const eventData = JSON.parse(event.body)
+        const delResponse = await removeSubscription(eventData.endpoint)
+        console.log("Successfully unsubsribed: ", eventData.endpoint)
+        return delResponse
+      } catch (error) {
+        console.error("Failed to delete subscription ", error)
+        return {
+          statusCode: 401,
+          body: "Unable to process request",
+        }
+      }
     default:
       return {
         statusCode: 400,

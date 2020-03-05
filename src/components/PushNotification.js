@@ -3,20 +3,21 @@ import { notify } from "react-notify-toast"
 
 import { subscriptionOptions } from "../utils/constants"
 
-const subscriptionUrl = "/.netlify/functions/push-notification"
+const subscriptionUrl = "/.netlify/functions/push-subscription"
 
 const saveSubscriptionToServer = async subscription => {
+  const body = JSON.stringify({ endpoint: subscription.endpoint, data: JSON.stringify(subscription) })
   try {
     const saveResponse = await fetch(subscriptionUrl, {
       method: "POST",
-      body: JSON.stringify({ endpoint: subscription, data: JSON.stringify(subscription) }),
+      body: body,
     })
     if (saveResponse.status === 201) {
       return true
     }
     return false
   } catch (error) {
-    console.log(error)
+    console.log('Error saving subscription: ', error)
     return false
   }
 }
@@ -37,11 +38,11 @@ const removeSubscriptionFromServer = async subscriptionEndpoint => {
   }
 }
 
-const hasNotificationPermission = () => {
+const hasNotificationPermission = async () => {
   if (Notification.permission === "granted") {
     return true
   } else if (Notification.permission !== "denied") {
-    const permission = Notification.requestPermission()
+    const permission = await Notification.requestPermission()
     if (permission === "granted") {
       return true
     }
@@ -63,7 +64,7 @@ const PushNotification = () => {
   }
 
   const createSubscription = async () => {
-    const hasPermission = hasNotificationPermission()
+    const hasPermission = await hasNotificationPermission()
     if (pushSupported() && hasPermission) {
       setWorking(true)
       navigator.serviceWorker.ready
@@ -79,6 +80,8 @@ const PushNotification = () => {
             setSubscribed(true)
             localStorage.setItem("PUSH_NOTIFICATION_SUBSCRIBED", "1")
             notify.show("Push subscription confirmed", "success")
+          } else {
+            notify.show("An eror occured", "error")
           }
         })
         .catch(error => {
@@ -126,7 +129,7 @@ const PushNotification = () => {
   }
   const btnText = subscribed
     ? "Unsubscribe from push notifications"
-    : "Subscribe to push notifications"
+    : "Enable push notifications"
   const callback = subscribed ? unsubscribe : createSubscription
 
   return (
