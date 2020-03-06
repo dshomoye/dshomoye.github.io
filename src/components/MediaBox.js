@@ -10,7 +10,6 @@ const MediaBox = ({ name, index, src, type }) => {
 
   const showlightbox = e => {
     e.preventDefault()
-    console.log("handling click for type: ", type)
     if (type !== "video") {
       dispath({
         type: actionTypes.SET_GALLERY_INDEX_AND_SHOW_MODAL,

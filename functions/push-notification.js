@@ -23,7 +23,7 @@ const getAllSubscriptions = async () => {
   const query = `query {
     allPushNotificationSubscriptions{
       data {
-        endpoint
+        subscriptionData
       }
     }
   }`
@@ -54,7 +54,8 @@ exports.handler = async (event) => {
     case 'POST':
       const subscriptions = await getAllSubscriptions()
       const promises = subscriptions.map( async (subscription) => {
-        await sendPushMsg(subscription, event.body)
+        const subData = JSON.parse(subscription.subscriptionData)
+        return await sendPushMsg(subData, event.body)
       })
       const result = await Promise.all(promises)
       const failed = result.filter(success => !success).length

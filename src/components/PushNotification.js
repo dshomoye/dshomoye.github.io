@@ -64,6 +64,7 @@ const PushNotification = () => {
   }
 
   const createSubscription = async () => {
+    notify.hide()
     const hasPermission = await hasNotificationPermission()
     if (pushSupported() && hasPermission) {
       setWorking(true)
@@ -72,7 +73,6 @@ const PushNotification = () => {
           const pushSubscription = await swRegistration.pushManager.subscribe(
             subscriptionOptions
           )
-          console.log("subscription created ", pushSubscription)
           const subSaved = await saveSubscriptionToServer(
             pushSubscription
           )
@@ -98,6 +98,7 @@ const PushNotification = () => {
   }
 
   const unsubscribe = async () => {
+    notify.hide()
     if (pushSupported() && subscribed) {
       setWorking(true)
       navigator.serviceWorker.ready
@@ -106,7 +107,7 @@ const PushNotification = () => {
           await subscription.unsubscribe()
           removeSubscriptionFromServer(subscription.endpoint).then(() => {
             localStorage.setItem("PUSH_NOTIFICATION_SUBSCRIBED", "0")
-            notify.show("Push notifications unsubscribed", "success")
+            notify.show("Push notifications disabled", "success")
           })
         })
         .catch(e => {
