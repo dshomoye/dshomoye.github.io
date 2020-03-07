@@ -20,7 +20,6 @@ const saveSubscriptionToServer = async subscription => {
     }
     return false
   } catch (error) {
-    console.log("Error saving subscription: ", error)
     return false
   }
 }
@@ -36,7 +35,6 @@ const removeSubscriptionFromServer = async subscriptionEndpoint => {
     }
     return false
   } catch (error) {
-    console.log(error)
     return false
   }
 }
@@ -85,8 +83,7 @@ const PushNotification = () => {
             notify.show("An eror occured", "error")
           }
         })
-        .catch(error => {
-          console.log(error)
+        .catch(() => {
           notify.show(
             "An error occured setting up push notification",
             "warning"
@@ -111,8 +108,8 @@ const PushNotification = () => {
             notify.show("Push notifications disabled", "success")
           })
         })
-        .catch(e => {
-          console.log("unsub error ", e)
+        .catch((e) => {
+          //NOOP
         })
       setSubscribed(false)
     }

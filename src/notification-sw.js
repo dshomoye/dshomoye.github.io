@@ -1,5 +1,3 @@
-console.log("Hello from custom service worker")
-
 self.addEventListener("push", event => {
   const notifcationOptions = {}
   if (event.data) {
