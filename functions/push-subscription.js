@@ -1,22 +1,22 @@
 const { GraphQLClient } = require("graphql-request")
 
-
 const faunadbEndpoint = "https://graphql.fauna.com/graphql"
 const faunaKey = process.env.FAUNADB_KEY
 
-const isAuthenticated = (event) => {
+const isAuthenticated = event => {
   /**
- * @type {String[]}
- */
+   * @type {String[]}
+   */
   const apiKeys = JSON.parse(process.env.ACCESS_KEYS)
-  const {headers} = event
-  if('x-api-key' in headers && apiKeys.includes(headers['x-api-key'])) return true
+  const { headers } = event
+  if ("x-api-key" in headers && apiKeys.includes(headers["x-api-key"]))
+    return true
   return false
 }
 
 const graphQLClient = new GraphQLClient(faunadbEndpoint, {
   headers: {
-    authorization: `Bearer ${faunaKey}`
+    authorization: `Bearer ${faunaKey}`,
   },
 })
 
@@ -35,7 +35,7 @@ const addSubscription = async (endpoint, data) => {
     return {
       statusCode: 201,
       body: JSON.stringify({
-        id: id
+        id: id,
       }),
     }
   } catch (error) {
@@ -70,10 +70,10 @@ const removeSubscription = async endpoint => {
 
 exports.handler = async function(event) {
   const method = event.httpMethod
-  if(!isAuthenticated(event)){
+  if (!isAuthenticated(event)) {
     return {
       statusCode: 401,
-      body: `{"error": "Invalid api key"}`
+      body: `{"error": "Invalid api key"}`,
     }
   }
   switch (method) {
@@ -88,7 +88,7 @@ exports.handler = async function(event) {
         console.error("Error saving subscription ", error)
         return {
           statusCode: 400,
-          body: `{"error": "Unable to process"}`
+          body: `{"error": "Unable to process"}`,
         }
       }
     case "DELETE":
@@ -101,13 +101,13 @@ exports.handler = async function(event) {
         console.error("Failed to delete subscription ", error)
         return {
           statusCode: 401,
-          body: `{"error": "Unable to process"}`
+          body: `{"error": "Unable to process"}`,
         }
       }
     default:
       return {
         statusCode: 400,
-        body: `{"error": "Unsupported Method"}`
+        body: `{"error": "Unsupported Method"}`,
       }
   }
 }

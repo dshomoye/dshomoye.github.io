@@ -60,7 +60,7 @@ class Layout extends React.Component {
     }
     return (
       <div>
-        <Notifications options={{timeout: '1500'}}/>
+        <Notifications options={{ timeout: 1500 }} />
         <ProgressBar bgcolor="#757575" />
         <div
           style={{

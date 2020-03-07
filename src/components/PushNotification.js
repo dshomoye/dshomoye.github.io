@@ -6,7 +6,10 @@ import { subscriptionOptions } from "../utils/constants"
 const subscriptionUrl = "/.netlify/functions/push-subscription"
 
 const saveSubscriptionToServer = async subscription => {
-  const body = JSON.stringify({ endpoint: subscription.endpoint, data: JSON.stringify(subscription) })
+  const body = JSON.stringify({
+    endpoint: subscription.endpoint,
+    data: JSON.stringify(subscription),
+  })
   try {
     const saveResponse = await fetch(subscriptionUrl, {
       method: "POST",
@@ -17,7 +20,7 @@ const saveSubscriptionToServer = async subscription => {
     }
     return false
   } catch (error) {
-    console.log('Error saving subscription: ', error)
+    console.log("Error saving subscription: ", error)
     return false
   }
 }
@@ -73,9 +76,7 @@ const PushNotification = () => {
           const pushSubscription = await swRegistration.pushManager.subscribe(
             subscriptionOptions
           )
-          const subSaved = await saveSubscriptionToServer(
-            pushSubscription
-          )
+          const subSaved = await saveSubscriptionToServer(pushSubscription)
           if (subSaved) {
             setSubscribed(true)
             localStorage.setItem("PUSH_NOTIFICATION_SUBSCRIBED", "1")

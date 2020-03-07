@@ -44,7 +44,11 @@ const MediaBox = ({ name, index, src, type, noborder }) => {
         />
       </video>
     ) : (
-      <img data-src={mediaSrc} className={`lazyload ${imgClassName}`} alt={name} />
+      <img
+        data-src={mediaSrc}
+        className={`lazyload ${imgClassName}`}
+        alt={name}
+      />
     )
 
   return (
