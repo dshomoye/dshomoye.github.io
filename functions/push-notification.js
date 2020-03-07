@@ -18,6 +18,15 @@ webpush.setVapidDetails(
   vapidPrivateKey
 )
 
+const isAuthenticated = (event) => {
+  /**
+ * @type {String[]}
+ */
+  const apiKeys = JSON.parse(process.env.ACCESS_KEYS)
+  const {headers} = event
+  if('x-api-key' in headers && apiKeys.includes(headers['x-api-key'])) return true
+  return false
+}
 
 const getAllSubscriptions = async () => {
   const query = `query {
@@ -50,6 +59,12 @@ const sendPushMsg = async (subscription, message) => {
 
 exports.handler = async (event) => {
   const method = event.httpMethod
+  if(!isAuthenticated(event)){
+    return {
+      statusCode: 401,
+      body: `{"errors": "Invalid api key"}`
+    }
+  }
   switch (method) {
     case 'POST':
       const subscriptions = await getAllSubscriptions()
@@ -69,7 +84,7 @@ exports.handler = async (event) => {
     default:
       return {
         statusCode: 400,
-        body: "Unsupported request"
+        body: `{"error": "Unsupportd method"}`
       }
   }
 }

@@ -4,7 +4,7 @@ import { DispatchContext, actionTypes } from "./GalleryContainer"
 
 import { bucketRoot } from "../utils/constants"
 
-const MediaBox = ({ name, index, src, type }) => {
+const MediaBox = ({ name, index, src, type, noborder }) => {
   const dispath = useContext(DispatchContext)
   const videoRef = useRef(null)
 
@@ -23,8 +23,9 @@ const MediaBox = ({ name, index, src, type }) => {
       }
     }
   }
-
   const mediaSrc = `${bucketRoot}/${src}`
+  const imgClassName = noborder === "true" ? `` : `styled-media`
+  const containerClassName = noborder === "true" ? `` : `media-container`
   const media =
     type === "video" ? (
       <video
@@ -43,12 +44,12 @@ const MediaBox = ({ name, index, src, type }) => {
         />
       </video>
     ) : (
-      <img data-src={mediaSrc} className="lazyload styled-media" alt={name} />
+      <img data-src={mediaSrc} className={`lazyload ${imgClassName}`} alt={name} />
     )
 
   return (
     <a onClick={showlightbox} href={mediaSrc}>
-      <figure className="media-contianer">
+      <figure className={containerClassName}>
         {media}
         <figcaption>{name}</figcaption>
       </figure>
