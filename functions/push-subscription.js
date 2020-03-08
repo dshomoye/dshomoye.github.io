@@ -3,17 +3,6 @@ const { GraphQLClient } = require("graphql-request")
 const faunadbEndpoint = "https://graphql.fauna.com/graphql"
 const faunaKey = process.env.FAUNADB_KEY
 
-const isAuthenticated = event => {
-  /**
-   * @type {String[]}
-   */
-  const apiKeys = JSON.parse(process.env.ACCESS_KEYS)
-  const { headers } = event
-  if ("x-api-key" in headers && apiKeys.includes(headers["x-api-key"]))
-    return true
-  return false
-}
-
 const graphQLClient = new GraphQLClient(faunadbEndpoint, {
   headers: {
     authorization: `Bearer ${faunaKey}`,
@@ -52,8 +41,7 @@ const removeSubscription = async endpoint => {
     deletePushNotificationByEndpoint(endpoint: "${endpoint}"){
       count
     }
-  }
-  `
+  }`
   try {
     await graphQLClient.request(query)
     return {
@@ -70,12 +58,6 @@ const removeSubscription = async endpoint => {
 
 exports.handler = async function(event) {
   const method = event.httpMethod
-  if (!isAuthenticated(event)) {
-    return {
-      statusCode: 401,
-      body: `{"error": "Invalid api key"}`,
-    }
-  }
   switch (method) {
     case "POST":
       try {
