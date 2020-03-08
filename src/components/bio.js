@@ -49,11 +49,7 @@ const Bio = () => {
         }}
       />
       <p>
-        By{" "}
-        <strong>{author}</strong>.
-        <Link to="/about">
-          {' '}About Me.
-        </Link>
+        By <strong>{author}</strong>.<Link to="/about"> About Me.</Link>
       </p>
     </div>
   )

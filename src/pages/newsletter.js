@@ -5,7 +5,7 @@ import Lottie from "react-lottie"
 import checkedAnimationData from "../lotties/checked_done.json"
 
 import SEO from "../components/seo"
-import "../styles/Subscribe.css"
+import "../styles/Newsletter.css"
 
 const encode = data => {
   return Object.keys(data)
@@ -22,7 +22,7 @@ const defaultOptions = {
   },
 }
 
-const Subscribe = ({ ...props }) => {
+const Newsletter = ({ ...props }) => {
   // 0: notSubmit, 1: submitting, 2: submitted, 3: failed
   const [submit, setSubmit] = useState(0)
   const [formData, setFormData] = useState({})
@@ -159,7 +159,7 @@ const Subscribe = ({ ...props }) => {
   )
 }
 
-export default Subscribe
+export default Newsletter
 
 export const pageQuery = graphql`
   query {

@@ -26,6 +26,10 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--textNormal)
 }
 
+p {
+    font-size: large;
+}
+
 a {
     color: var(--textNormal)
 }
@@ -44,8 +48,11 @@ figcaption {
 }
 
 figure {
-    margin: 50px 0 50px 0;
+    margin: 20px 0 20px 0;
     padding: 0;
+}
+
+.media-container {
     -webkit-box-shadow: 0px -16px 25px -29px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px -16px 25px -29px rgba(0, 0, 0, 0.75);
     box-shadow: 0px -16px 25px -29px rgba(0, 0, 0, 0.75);

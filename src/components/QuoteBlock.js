@@ -15,7 +15,7 @@ const QuoteBlock = () => {
           text: quoteData.quoteText,
         })
       } catch (e) {
-        console.log("Unable to fetch joke from api ", e)
+        //NOOP
       }
     }
     getQuote()
