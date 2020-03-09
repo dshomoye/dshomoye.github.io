@@ -1,4 +1,5 @@
 import React, { useContext, useRef } from "react"
+import PropTypes from "prop-types"
 
 import { DispatchContext, actionTypes } from "./GalleryContainer"
 
@@ -59,6 +60,14 @@ const MediaBox = ({ name, index, src, type, noborder }) => {
       </figure>
     </a>
   )
+}
+
+MediaBox.propTypes = {
+  name: PropTypes.string,
+  index: PropTypes.string,
+  src: PropTypes.string,
+  type: PropTypes.oneOf(["video", "image"]),
+  noborder: PropTypes.oneOf(["true","false"])
 }
 
 export default MediaBox
