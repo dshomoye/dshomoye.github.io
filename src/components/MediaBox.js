@@ -67,7 +67,7 @@ MediaBox.propTypes = {
   index: PropTypes.string,
   src: PropTypes.string,
   type: PropTypes.oneOf(["video", "image"]),
-  noborder: PropTypes.oneOf(["true","false"])
+  noborder: PropTypes.oneOf(["true", "false"]),
 }
 
 export default MediaBox

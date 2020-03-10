@@ -6,10 +6,7 @@ bannerImage: "media/stay-safe-online/messaging.gif"
 lastUpdated: "2020-03-09"
 ---
 
-
 > Just as I was about to publish this post, I saw [this article](https://www.nbcnews.com/news/us-news/google-tracked-his-bike-ride-past-burglarized-home-made-him-n1151761) about a Florida man 🙃 who received an email from Google that the police had requested his information because he's a suspect in a crime case. All because Google was tracking his every single step. This is why everyone should care. This could be anyone. Who wants to have to deal with legal fees because their phone is **spying** on them and they happened to be jogging or running around a certain place.
-
-
 
 ---
 
@@ -47,8 +44,8 @@ I hope everyone has at least _heard_ of password managers. It’s a huge underta
 
 “This is isn’t better than my diary of passwords” you say. Well, you’re right. This is not the _right_ way to use a password manager. Also, if your diary gets stolen or lost, you’re fudged. Now, the right way to use a password manager is: after migrating all your existing (and probably bad) passwords, you _generate_ new passwords. A **unique** password for each website. And for every new, site, you get a unique password too. Now that’s security! This is where “I memorize my passwords” just doesn’t cut it. Also, you can’t really memorize that many passwords. Well I guess you could memorize “passowrd1”, “password2”… but , come on. We all know better than that. My recommendations: Lastpass (Free), 1Password (I use this), and Dashlane. I wouldn’t recommend using just any password manager. These are your passwords after all.
 
-
 ### Two Factor Authentication
+
 Having two-factor authentication (2FA) on an online account is just as important as having a good password. One common place 2FA is required is online banking. Most banks now require users to provide both a password **and** a code sent to the user's device before they can access their online account -- especially if its from a new computer or new location. This usually comes in the form of an SMS sent to the user's phone number. Having 2FA an accout means having a compromised password doesn't mean a compromoised account. SMS authentication is good and its still a strong recommendation if its the only avaialable option for an account. However, it's not the best method, as the [hack of Twitter's CEO shows](https://www.wired.com/story/jack-dorsey-twitter-hacked/)⧉. Fret not, there are other options including using a hardware token and a software token. Using a software token is more convenient option. Google authenticator is probably the most popular app for this but my recommendation (I use this for all my accounts) is [Authy](https://authy.com)⧉. If you're curious which of your accounts support 2FA, there is actually [a website dedicated](https://twofactorauth.org/#backup)⧉ to providing that info as well as the options avaiable. So go forth and be secure!
 
 ### Encrypted Messaging
@@ -63,7 +60,7 @@ I think of web browsers as the cars we use to drive through the roads of the int
 My all around preference is Firefox, Mozilla, the company behind Firefox has made a lot of effort into positioning themselves as suppporters of freedom and openness on the internet. I currently use Brave, its very similar to Chrome (based on it even) but it primarily exists as an antithesis to all of Chrome’s attack on user privacy. The founder of Brave (Brendan Eich) is also a very fascinating character, he created JavaScript, the language that powers pretty much all websites and some mobile sites. He was actually at a point the CEO of Mozilla. So here are my recommendations: Firefox, Brave; in that order.
 <media-box src="media/stay-safe-online/brave_browser.gif" name="Bravely choose Brave" noborder="true"></media-box>
 
-If you *really* have to use Chrome, (and you don’t) Brave is more or less a drop in replacement. But if you do, you have to have have [uBlock origin](https://github.com/gorhill/uBlock)⧉ installed. This is actually available for Firefox and Brave as well. I want to recommend Safari. I really do. But Apple has basically killed extensions in Safari so no way to properly block ads. And ads can be bad. Like, infect-your-computer-with-a-virus bad.
+If you _really_ have to use Chrome, (and you don’t) Brave is more or less a drop in replacement. But if you do, you have to have have [uBlock origin](https://github.com/gorhill/uBlock)⧉ installed. This is actually available for Firefox and Brave as well. I want to recommend Safari. I really do. But Apple has basically killed extensions in Safari so no way to properly block ads. And ads can be bad. Like, infect-your-computer-with-a-virus bad.
 
 ### Tidbits
 

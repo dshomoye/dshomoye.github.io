@@ -41,7 +41,7 @@ MediaSwipe.propTypes = {
   isOpen: PropTypes.bool,
   closeModal: PropTypes.func,
   sources: PropTypes.arrayOf(PropTypes.string),
-  name: PropTypes.string
+  name: PropTypes.string,
 }
 
 export default MediaSwipe

@@ -34,7 +34,7 @@ const GalleryContainer = ({ children, setGalleryIndex, closeModal }) => {
 GalleryContainer.propTypes = {
   children: PropTypes.element,
   closeModal: PropTypes.func,
-  setGalleryIndex: PropTypes.func
+  setGalleryIndex: PropTypes.func,
 }
 
 export default GalleryContainer

@@ -108,7 +108,7 @@ const PushNotification = () => {
             notify.show("Push notifications disabled", "success")
           })
         })
-        .catch((e) => {
+        .catch(e => {
           //NOOP
         })
       setSubscribed(false)

@@ -1,5 +1,7 @@
 ## My Gatsby powered blog site.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/428bfc02-50ae-4481-adf2-50765cddb5f6/deploy-status)](https://app.netlify.com/sites/dshomoye/deploys)
+
 The live version of the blog is [here](https://dshomoye.dev)
 This is _usually_ running the`gatsby` branch but I'm currently building and deploying from local so sometimes the github branch lags by a few commits when I haven't pushed.
 
