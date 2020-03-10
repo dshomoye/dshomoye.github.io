@@ -1,4 +1,5 @@
 import React, { useReducer } from "react"
+import PropTypes from "prop-types"
 
 const actionTypes = {
   SET_GALLERY_INDEX_AND_SHOW_MODAL: "SET_GALLERY_INDEX_AND_SHOW_MODAL",
@@ -28,6 +29,12 @@ const GalleryContainer = ({ children, setGalleryIndex, closeModal }) => {
       {children}
     </DispatchContext.Provider>
   )
+}
+
+GalleryContainer.propTypes = {
+  children: PropTypes.element,
+  closeModal: PropTypes.func,
+  setGalleryIndex: PropTypes.func
 }
 
 export default GalleryContainer

@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import ProgressBar from "react-scroll-progress-bar"
 import { Helmet } from "react-helmet"
 import Notifications from "react-notify-toast"
+import PropTypes from "prop-types"
 
 import ThemeSwitch from "./ThemeSwitch"
 import QuoteBlock from "./QuoteBlock"
@@ -107,6 +108,12 @@ class Layout extends React.Component {
       </div>
     )
   }
+}
+
+Layout.propTypes = {
+  location: PropTypes.string,
+  title: PropTypes.string,
+  children: PropTypes.element
 }
 
 export default Layout

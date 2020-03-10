@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { bucketRoot } from "../utils/constants"
 import Lightbox from "react-image-lightbox"
+import PropTypes from "prop-types"
 
 /**
  * sources: [{
@@ -33,6 +34,14 @@ const MediaSwipe = ({ index, isOpen, closeModal, sources }) => {
       />
     )
   )
+}
+
+MediaSwipe.propTypes = {
+  index: PropTypes.number,
+  isOpen: PropTypes.bool,
+  closeModal: PropTypes.func,
+  sources: PropTypes.arrayOf(PropTypes.string),
+  name: PropTypes.string
 }
 
 export default MediaSwipe
