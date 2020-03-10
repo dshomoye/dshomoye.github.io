@@ -52,6 +52,7 @@
     "url": "git+https://github.com/dshomoye/dshomoye.github.io.git"
   },
   "scripts": {
+    "buildAll": "gatsby build && cd functions && npm install",
     "develop": "gatsby develop -H 0.0.0.0",
     "build": "gatsby build",
     "serve": "gatsby serve -H 0.0.0.0",
