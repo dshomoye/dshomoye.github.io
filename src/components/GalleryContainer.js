@@ -32,7 +32,7 @@ const GalleryContainer = ({ children, setGalleryIndex, closeModal }) => {
 }
 
 GalleryContainer.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.arrayOf(PropTypes.element),
   closeModal: PropTypes.func,
   setGalleryIndex: PropTypes.func,
 }

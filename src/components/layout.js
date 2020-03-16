@@ -111,9 +111,9 @@ class Layout extends React.Component {
 }
 
 Layout.propTypes = {
-  location: PropTypes.string,
+  location: PropTypes.object,
   title: PropTypes.string,
-  children: PropTypes.element,
+  children: PropTypes.array,
 }
 
 export default Layout
