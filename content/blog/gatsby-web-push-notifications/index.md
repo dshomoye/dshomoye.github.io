@@ -1,5 +1,5 @@
 ---
-title: "Web Push Notifications in a Gatsby site."
+title: "Web Push Notifications in Gatsby."
 date: "2020-03-15"
 description: "How I added notifications to this Gatsby blog using Service workers, Netlify functions and FaunaDB"
 bannerImage: "media/gatsby-web-push-notifications/notification-request.gif"
