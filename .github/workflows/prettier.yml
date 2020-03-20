@@ -14,7 +14,7 @@ jobs:
     - name: Prettify the JS Code
       uses: creyD/prettier_action@v2.0
       with:
-        prettier_options: '--write **/*.{js,jsx,md}'
+        prettier_options: '--write --no-semi **/*.js'
         branch: ${{ github.head_ref }}
       env:
         GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
