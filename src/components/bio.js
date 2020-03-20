@@ -33,7 +33,7 @@ const Bio = () => {
       style={{
         display: `flex`,
         marginBottom: `1.5rem`,
-        alignItems: `center`
+        alignItems: `center`,
       }}
     >
       <Image
@@ -49,7 +49,7 @@ const Bio = () => {
           borderRadius: `50%`,
         }}
       />
-      <p style={{marginBottom: 0}}>
+      <p style={{ marginBottom: 0 }}>
         By <strong>{author}</strong>.<Link to="/about"> About Me.</Link>
       </p>
     </div>

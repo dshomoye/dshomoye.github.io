@@ -39,8 +39,8 @@ module.exports = {
           {
             resolve: `gatsby-remark-embed-snippet`,
             options: {
-              directory: `${__dirname}`
-            }
+              directory: `${__dirname}`,
+            },
           },
           `gatsby-remark-prismjs`,
           `gatsby-remark-smartypants`,
