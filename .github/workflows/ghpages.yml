@@ -1,4 +1,4 @@
-name: Gatsby Publish
+name: Gatsby GH Pages Publish
 
 on:
   push:
