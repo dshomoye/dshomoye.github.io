@@ -134,3 +134,11 @@ a {
         order: -1;
     }
 }
+
+.gatsby-highlight {
+    font-size: 0.7em;
+}
+
+code.language-text {
+    font-size: 0.8em;
+}
