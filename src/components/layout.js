@@ -9,8 +9,6 @@ import ThemeSwitch from "./ThemeSwitch"
 import QuoteBlock from "./QuoteBlock"
 import SubscribeOptions from "./SubscribeOptions"
 
-const ticksel_tag =
-  process.env.development === "1" ? "development" : "production"
 
 class Layout extends React.Component {
   render() {
@@ -90,21 +88,6 @@ class Layout extends React.Component {
             <ThemeSwitch />
           </div>
         </div>
-        <Helmet>
-          <script type="text/javascript">
-            {`       
-              var _tcfg = _tcfg || [];
-              (function() {
-                _tcfg.push(["tags", "${ticksel_tag}"]);
-                var u="https://cdn.ticksel.com/js/analytics_v1.0.js"; _tcfg.push(["account_id", 5427524]);
-                var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
-                g.type="text/javascript"; g.async=true; g.src=u; g.setAttribute("crossorigin", "anonymous");
-                g.setAttribute("integrity", "sha256-7grd8jMivCG0iCcJ7m/Ny4gvWb0mPVpFhRQovLkaUl8=");
-                s.parentNode.insertBefore(g,s);
-              })(); 
-            `}
-          </script>
-        </Helmet>
       </div>
     )
   }
