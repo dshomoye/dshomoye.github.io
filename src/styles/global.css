@@ -31,7 +31,8 @@ p {
 }
 
 a {
-    color: var(--textNormal)
+    color: var(--textNormal);
+    background-image: #3c86f5;
 }
 
 blockquote {
