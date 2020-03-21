@@ -51,23 +51,23 @@ const hasNotificationPermission = async () => {
   return false
 }
 
+const pushSupported = () => {
+  if (typeof window !== `undefined`) {
+    if ("PushManager" in window) {
+      return true
+    }
+  }
+  return false
+}
+
 const PushNotification = () => {
   const [subscribed, setSubscribed] = useState(false)
   const [working, setWorking] = useState(false)
 
-  const pushSupported = () => {
-    if (typeof window !== `undefined`) {
-      if ("PushManager" in window) {
-        return true
-      }
-    }
-    return false
-  }
-
   const createSubscription = async () => {
     notify.hide()
     const hasPermission = await hasNotificationPermission()
-    if (pushSupported() && hasPermission) {
+    if (pushSupported() && 'serviceWorker' in navigator && hasPermission) {
       setWorking(true)
       navigator.serviceWorker.ready
         .then(async swRegistration => {

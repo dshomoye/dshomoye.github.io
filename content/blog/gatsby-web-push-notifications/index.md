@@ -3,6 +3,7 @@ title: "Web Push Notifications in Gatsby."
 date: "2020-03-15"
 description: "How I added notifications to this Gatsby blog using Service workers, Netlify functions and FaunaDB"
 bannerImage: "media/gatsby-web-push-notifications/notification-request.gif"
+lastUpdated: "2020-03-22"
 ---
 
 Push notifications are an excellent feature in web applications (when they’re not abused). It lets web apps send notifications to devices, even if the website is closed, as if the web app was natively installed.
@@ -11,7 +12,7 @@ I went from thinking implementing push notifications in Gatsby would be easy (af
 The option I needed (and missed for a long time) is `appendScript` which points to a javascript file that gets added to the service worker code. So, you can keep the full offline feature the plugin provides and just build on top of that.
 I used this [guide](https://developers.google.com/web/fundamentals/push-notifications)⧉ to get a better understanding of implementing push notifications. It should be a good reference especially if deviating from my implementation.
 
-> This post is not a step-by-step guide and assumes comfort with a Gatsby project, installing packages and so on.
+> This post is not a step-by-step guide and assumes comfort with a Gatsby project, installing npm packages and so on.
 
 ---
 
@@ -137,6 +138,9 @@ And then I updated `gatsby-config` to include the custom service worker code, li
 ```
 
 And that’s it!
+
+---
+I send notifications using Postman right now. I considered building out a UI to call the Netlify function I created, but I only need to send a _title_ and a _message_, it was too much effort for too little gain. 
 
 ## References
 
