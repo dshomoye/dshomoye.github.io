@@ -67,7 +67,7 @@ const PushNotification = () => {
   const createSubscription = async () => {
     notify.hide()
     const hasPermission = await hasNotificationPermission()
-    if (pushSupported() && 'serviceWorker' in navigator && hasPermission) {
+    if (pushSupported() && "serviceWorker" in navigator && hasPermission) {
       setWorking(true)
       navigator.serviceWorker.ready
         .then(async swRegistration => {

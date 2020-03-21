@@ -79,8 +79,10 @@ This barely counts as an implementation detail since a domain provider almost ne
 This is my email marketing service. After some light research, it was the best I could find that had some inclination of respecting user’s privacy. If it’s not obvious already, that’s something I don’t take trivially. They’re even based in France so they _really_ have to care about GDPR. There’s a bit of manual process of validating the account before you can start an email campaign,
 
 ---
+
 **Update: 03-21**:
-I have decided to remove ticksel analytics from my site. Even though it's a privacy respecting service, ad blockers still consider it a tracking pixel (and technically speaking, it *is*), so I figured I wasn't getting much value out of it. I might resort to setting up my own basic analytics sytem just to have an idea of usage but this site will be 100% tracking free. Huzzah! 😁
+I have decided to remove ticksel analytics from my site. Even though it's a privacy respecting service, ad blockers still consider it a tracking pixel (and technically speaking, it _is_), so I figured I wasn't getting much value out of it. I might resort to setting up my own basic analytics sytem just to have an idea of usage but this site will be 100% tracking free. Huzzah! 😁
+
 ### Ticksel
 
 I wanted _some form_ of analytics each page but didn’t want to use any tracking cookies (👀 at you Google analytics). Ticksel is one of the very few sites that offers this, and for free.

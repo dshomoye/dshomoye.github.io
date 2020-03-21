@@ -140,7 +140,8 @@ And then I updated `gatsby-config` to include the custom service worker code, li
 And that’s it!
 
 ---
-I send notifications using Postman right now. I considered building out a UI to call the Netlify function I created, but I only need to send a _title_ and a _message_, it was too much effort for too little gain. 
+
+I send notifications using Postman right now. I considered building out a UI to call the Netlify function I created, but I only need to send a _title_ and a _message_, it was too much effort for too little gain.
 
 ## References
 
