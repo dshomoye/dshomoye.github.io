@@ -5,7 +5,7 @@ import { subscriptionOptions } from "../utils/constants"
 
 const subscriptionUrl = "/.netlify/functions/push-subscription"
 
-const saveSubscriptionToServer = async subscription => {
+const saveSubscriptionToServer = async (subscription) => {
   const body = JSON.stringify({
     endpoint: subscription.endpoint,
     data: JSON.stringify(subscription),
@@ -24,7 +24,7 @@ const saveSubscriptionToServer = async subscription => {
   }
 }
 
-const removeSubscriptionFromServer = async subscriptionEndpoint => {
+const removeSubscriptionFromServer = async (subscriptionEndpoint) => {
   try {
     const delResponse = await fetch(subscriptionUrl, {
       method: "DELETE",
@@ -70,7 +70,7 @@ const PushNotification = () => {
     if (pushSupported() && "serviceWorker" in navigator && hasPermission) {
       setWorking(true)
       navigator.serviceWorker.ready
-        .then(async swRegistration => {
+        .then(async (swRegistration) => {
           const pushSubscription = await swRegistration.pushManager.subscribe(
             subscriptionOptions
           )
@@ -100,7 +100,7 @@ const PushNotification = () => {
     if (pushSupported() && subscribed) {
       setWorking(true)
       navigator.serviceWorker.ready
-        .then(async swRegistration => {
+        .then(async (swRegistration) => {
           const subscription = await swRegistration.pushManager.getSubscription()
           await subscription.unsubscribe()
           removeSubscriptionFromServer(subscription.endpoint).then(() => {
@@ -108,7 +108,7 @@ const PushNotification = () => {
             notify.show("Push notifications disabled", "success")
           })
         })
-        .catch(e => {
+        .catch((e) => {
           //NOOP
         })
       setSubscribed(false)

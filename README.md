@@ -11,7 +11,7 @@ It's running the `gatsby` branch.
 
 you must have `gatsby-cli` installed to run the package sripts
 
-run `npm install -g gatsby-cl` 
+run `npm install -g gatsby-cl`
 
 then `npm install`
 

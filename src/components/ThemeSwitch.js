@@ -19,7 +19,7 @@ const ThemeSwitch = () => {
           <label className="switch">
             <input
               type="checkbox"
-              onChange={e => toggleTheme(e.target.checked ? "dark" : "light")}
+              onChange={(e) => toggleTheme(e.target.checked ? "dark" : "light")}
               checked={theme === "dark"}
               id="themeswitch"
               aria-label="themeswitch"

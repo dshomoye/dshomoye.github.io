@@ -36,7 +36,7 @@ const addSubscription = async (endpoint, data) => {
   }
 }
 
-const removeSubscription = async endpoint => {
+const removeSubscription = async (endpoint) => {
   const query = `mutation delSub {
     deletePushNotificationByEndpoint(endpoint: "${endpoint}"){
       count
@@ -56,7 +56,7 @@ const removeSubscription = async endpoint => {
   }
 }
 
-exports.handler = async function(event) {
+exports.handler = async function (event) {
   const method = event.httpMethod
   switch (method) {
     case "POST":
