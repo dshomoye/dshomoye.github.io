@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { Link } from "gatsby"
 
 const pillMap = {
   technology: {
@@ -25,9 +26,11 @@ const TagPills = ({ tagNames }) => {
   const pills = tagNames.map((tagName, index) => {
     return (
       <div className="post-tag-pill" key={index}>
-        <p className={`post-tag ${pillMap[tagName].class}`}>
-          {pillMap[tagName].icon} {tagName}
-        </p>
+        <Link to={`/tags/${tagName}`}>
+          <p className={`post-tag ${pillMap[tagName].class}`}>
+            {pillMap[tagName].icon} {tagName}
+          </p>
+        </Link>
       </div>
     )
   })

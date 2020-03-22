@@ -122,6 +122,11 @@ a {
     order: 2;
 }
 
+.home-article-link {
+    background: none;
+    box-shadow: none;
+}
+
 @media (min-width: 600px) {
     .home-article-banner {
         min-height: 300px;
