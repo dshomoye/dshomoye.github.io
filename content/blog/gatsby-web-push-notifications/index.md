@@ -4,6 +4,8 @@ date: "2020-03-15"
 description: "How I added notifications to this Gatsby blog using Service workers, Netlify functions and FaunaDB"
 bannerImage: "media/gatsby-web-push-notifications/notification-request.gif"
 lastUpdated: "2020-03-22"
+tags:
+  - "technology"
 ---
 
 Push notifications are an awesome addition to the web (when they’re not abused). It lets web apps send notifications to devices, even if the website is closed, as if it was natively installed on the device.

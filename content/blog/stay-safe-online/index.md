@@ -4,6 +4,9 @@ date: "2020-03-06"
 description: "A few tips and tricks (and some non-trivial steps) to being a responsible citizen of the interwebs."
 bannerImage: "media/stay-safe-online/messaging.gif"
 lastUpdated: "2020-03-09"
+tags:
+  - "life"
+  - "technology"
 ---
 
 > Just as I was about to publish this post, I saw [this article](https://www.nbcnews.com/news/us-news/google-tracked-his-bike-ride-past-burglarized-home-made-him-n1151761) about a Florida man 🙃 who received an email from Google that the police had requested his information because he's a suspect in a crime case. All because Google was tracking his every single step. This is why everyone should care. This could be anyone. Who wants to have to deal with legal fees because their phone is **spying** on them and they happened to be jogging or running around a certain place.

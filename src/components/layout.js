@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
 import ProgressBar from "react-scroll-progress-bar"
-import { Helmet } from "react-helmet"
 import Notifications from "react-notify-toast"
 import PropTypes from "prop-types"
 

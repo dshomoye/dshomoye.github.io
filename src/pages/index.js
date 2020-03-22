@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import TagPills from "../components/TagPills"
 import { bucketRoot } from "../utils/constants"
 
 class BlogIndex extends React.Component {
@@ -18,6 +19,7 @@ class BlogIndex extends React.Component {
         <Bio />
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
+          console.log("tags for ", title, " ", node.frontmatter.tags)
           let banner = null
           const articleContentProps = {
             className: "article-content",
@@ -55,6 +57,7 @@ class BlogIndex extends React.Component {
                       }}
                     />
                   </section>
+                  <TagPills tagNames={node.frontmatter.tags} />
                 </div>
                 {banner}
               </article>
@@ -87,6 +90,7 @@ export const pageQuery = graphql`
             title
             description
             bannerImage
+            tags
           }
         }
       }

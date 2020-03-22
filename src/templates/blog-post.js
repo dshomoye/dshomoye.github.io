@@ -9,6 +9,7 @@ import GalleryContainer from "../components/GalleryContainer"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import TagPills from "../components/TagPills"
 
 class BlogPostTemplate extends React.Component {
   constructor(props) {
@@ -36,6 +37,7 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
+    console.log("post frontmatter ", post.frontmatter.tags)
 
     const renderAst = new rehypeReact({
       createElement: React.createElement,
@@ -88,6 +90,7 @@ class BlogPostTemplate extends React.Component {
               >
                 {`${post.frontmatter.date}    |    ${post.timeToRead} min. read`}
               </p>
+              <TagPills tagNames={post.frontmatter.tags} />
             </header>
             <section>{renderAst(post.htmlAst)}</section>
             <p style={{ fontSize: `0.6rem` }}>{lastUpdated}</p>
@@ -162,6 +165,7 @@ export const pageQuery = graphql`
           type
         }
         lastUpdated(formatString: "MMMM DD, YYYY")
+        tags
       }
       timeToRead
     }

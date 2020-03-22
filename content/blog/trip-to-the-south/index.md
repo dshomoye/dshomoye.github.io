@@ -32,6 +32,8 @@ gallerySources:
     type: "image"
 bannerImage: "media/atl-trip/thumbnails/me_on_the_river.jpg"
 lastUpdated: "2020-02-10"
+tags:
+  - "travel"
 ---
 
 ## Heading south, down south.

@@ -143,3 +143,35 @@ a {
 code.language-text {
     font-size: 0.8em;
 }
+
+.blue-pill {
+    background-color: rgb(65, 156, 216);
+}
+
+.red-pill {
+    background-color: rgb(255, 143, 143);
+}
+
+.green-pill {
+    background-color: rgb(94, 248, 94);
+}
+
+.gray-pill {
+    background-color: rgb(148, 148, 148);
+}
+
+.post-tag {
+    font-size: small;
+    /* background-color: rgb(255, 143, 143); */
+    white-space: nowrap;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding: 0 5px;
+}
+
+.post-tag-pill {
+    text-align: center;
+    width: max-content;
+    display: inline-block;
+    margin-right: 5px;
+}
