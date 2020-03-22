@@ -22,9 +22,9 @@ const pillMap = {
 
 const TagPills = ({ tagNames }) => {
   if (!tagNames) return null
-  const pills = tagNames.map(tagName => {
+  const pills = tagNames.map((tagName, index) => {
     return (
-      <div className="post-tag-pill">
+      <div className="post-tag-pill" key={index}>
         <p className={`post-tag ${pillMap[tagName].class}`}>
           {pillMap[tagName].icon} {tagName}
         </p>

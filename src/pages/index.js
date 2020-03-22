@@ -19,7 +19,6 @@ class BlogIndex extends React.Component {
         <Bio />
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
-          console.log("tags for ", title, " ", node.frontmatter.tags)
           let banner = null
           const articleContentProps = {
             className: "article-content",
