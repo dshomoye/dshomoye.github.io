@@ -150,28 +150,27 @@ code.language-text {
 }
 
 .blue-pill {
-    background-color: rgb(65, 156, 216);
+    background-color: rgb(101, 146, 173) ;
 }
 
 .red-pill {
-    background-color: rgb(255, 143, 143);
+    background-color:  	rgb(194, 115, 115) ;
 }
 
 .green-pill {
-    background-color: rgb(94, 248, 94);
+    background-color:  	rgb(116, 194, 77) ;
 }
 
 .gray-pill {
-    background-color: rgb(148, 148, 148);
+    background-color:  	rgb(117, 117, 110) ;
 }
 
 .post-tag {
-    font-size: small;
-    /* background-color: rgb(255, 143, 143); */
+    font-size: x-small;
     white-space: nowrap;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-bottom: 15px;
-    padding: 0 5px;
+    padding: 3px 10px;
 }
 
 .post-tag-pill {
