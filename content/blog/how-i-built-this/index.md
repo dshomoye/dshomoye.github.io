@@ -4,6 +4,8 @@ date: "2020-02-18"
 description: "Take a look under the hood."
 bannerImage: "media/how-i-built-this/unsplash_mac_w_code.jpg"
 lastUpdated: "2020-02-29"
+tags:
+  - "technology"
 ---
 
 #### UPDATE: 02-29
@@ -14,7 +16,7 @@ This is what the function looks like:
 ```js
 const got = require("got")
 
-exports.handler = async function(event) {
+exports.handler = async function (event) {
   const eventData = JSON.parse(event.body)
   try {
     const response = await got("https://api.sendinblue.com/v3/contacts", {

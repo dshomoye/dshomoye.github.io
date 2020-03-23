@@ -18,7 +18,7 @@ webpush.setVapidDetails(
   vapidPrivateKey
 )
 
-const isAuthenticated = event => {
+const isAuthenticated = (event) => {
   /**
    * @type {String[]}
    */
@@ -57,7 +57,7 @@ const sendPushMsg = async (subscription, message) => {
   }
 }
 
-exports.handler = async event => {
+exports.handler = async (event) => {
   const method = event.httpMethod
   if (!isAuthenticated(event)) {
     return {
@@ -68,12 +68,12 @@ exports.handler = async event => {
   switch (method) {
     case "POST":
       const subscriptions = await getAllSubscriptions()
-      const promises = subscriptions.map(async subscription => {
+      const promises = subscriptions.map(async (subscription) => {
         const subData = JSON.parse(subscription.subscriptionData)
         return await sendPushMsg(subData, event.body)
       })
       const result = await Promise.all(promises)
-      const failed = result.filter(success => !success).length
+      const failed = result.filter((success) => !success).length
       return {
         statusCode: 201,
         body: JSON.stringify({

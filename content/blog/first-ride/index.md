@@ -23,6 +23,8 @@ gallerySources:
     type: "image"
 bannerImage: "media/first-ride/thumbnails/santa_monica_beach.jpg"
 lastUpdated: "2020-02-16"
+tags:
+  - "travel"
 ---
 
 #### Union Station

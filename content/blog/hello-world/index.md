@@ -3,6 +3,8 @@ title: Hello, Internet, it is I, again.
 date: "2020-01-26"
 description: "Finally starting a blog, finally."
 lastUpdated: "2020-02-16"
+tags:
+  - "misc"
 ---
 
 So I'm taking yet another stab at my blog. I really want to have a way or narrating my travel experiences (well, _all_ experiences really), and since I have dedicated to the no-Facebook lifestlye, I have very limited options left. Perhaps, this _is_ the only option considering the amount of freedom I wish to have. So here it is.

@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import TagPills from "../components/TagPills"
 import { bucketRoot } from "../utils/constants"
 
 class BlogIndex extends React.Component {
@@ -25,28 +26,34 @@ class BlogIndex extends React.Component {
           if (node.frontmatter.bannerImage) {
             articleContentProps.className = "article-item article-content"
             banner = (
-              <div
-                className="lazyload home-article-banner article-item"
-                data-bg={`${bucketRoot}/${node.frontmatter.bannerImage}`}
-              />
+              <Link
+                className="home-article-link home-article-banner article-item"
+                to={node.fields.slug}
+                key={node.fields.slug}
+              >
+                <div
+                  className="lazyload home-article-banner"
+                  style={{ height: "100%" }}
+                  data-bg={`${bucketRoot}/${node.frontmatter.bannerImage}`}
+                />
+              </Link>
             )
           }
           return (
-            <Link
-              style={{ boxShadow: `none` }}
-              to={node.fields.slug}
+            <article
+              className="card-article home-card"
+              data-sal="slide-up"
+              data-sal-easing="ease"
+              data-sal-duration="700"
               key={node.fields.slug}
             >
-              <article
-                className="card-article home-card"
-                data-sal="slide-up"
-                data-sal-easing="ease"
-                data-sal-duration="700"
-              >
-                <div {...articleContentProps}>
+              <div {...articleContentProps}>
+                <Link className="home-article-link" to={node.fields.slug}>
                   <header>
                     <h3>{title}</h3>
-                    <small>{node.frontmatter.date}</small>
+                    <small style={{ backgroundColor: "None" }}>
+                      {node.frontmatter.date}
+                    </small>
                   </header>
                   <section>
                     <p
@@ -55,10 +62,11 @@ class BlogIndex extends React.Component {
                       }}
                     />
                   </section>
-                </div>
-                {banner}
-              </article>
-            </Link>
+                </Link>
+                <TagPills tagNames={node.frontmatter.tags} />
+              </div>
+              {banner}
+            </article>
           )
         })}
       </Layout>
@@ -87,6 +95,7 @@ export const pageQuery = graphql`
             title
             description
             bannerImage
+            tags
           }
         }
       }

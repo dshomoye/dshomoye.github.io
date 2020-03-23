@@ -122,6 +122,11 @@ a {
     order: 2;
 }
 
+.home-article-link {
+    background: none;
+    box-shadow: none;
+}
+
 @media (min-width: 600px) {
     .home-article-banner {
         min-height: 300px;
@@ -142,4 +147,35 @@ a {
 
 code.language-text {
     font-size: 0.8em;
+}
+
+.blue-pill {
+    background-color: rgb(101, 146, 173) ;
+}
+
+.red-pill {
+    background-color:  	rgb(194, 115, 115) ;
+}
+
+.green-pill {
+    background-color:  	rgb(116, 194, 77) ;
+}
+
+.gray-pill {
+    background-color:  	rgb(117, 117, 110) ;
+}
+
+.post-tag {
+    font-size: x-small;
+    white-space: nowrap;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    padding: 3px 10px;
+}
+
+.post-tag-pill {
+    text-align: center;
+    width: max-content;
+    display: inline-block;
+    margin-right: 5px;
 }

@@ -3,6 +3,8 @@ title: "Mythic Quest: Raven’s Banquet Is Awesome."
 date: "2020-02-28"
 description: "I just finished watching this Apple TV+ show, and I loved it."
 bannerImage: "media/mythic-quest/mythic-quest.jpg"
+tags:
+  - "life"
 ---
 
 <media-box src="media/mythic-quest/mythic-quest.jpg" name="Mythic Quest Poster Image"></media-box>
