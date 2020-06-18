@@ -140,8 +140,8 @@ module.exports = {
       options: {
         code: "dshomoye",
         pixdel: true,
-        allowLocal: true
-      }
-    }
+        allowLocal: true,
+      },
+    },
   ],
 }
