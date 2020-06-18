@@ -135,5 +135,13 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: "gatsby-plugin-goatcounter",
+      options: {
+        code: "dshomoye",
+        pixdel: true,
+        allowLocal: true,
+      },
+    },
   ],
 }
