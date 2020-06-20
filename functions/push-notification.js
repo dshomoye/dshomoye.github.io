@@ -47,7 +47,7 @@ const getAllSubscriptions = async () => {
   }
 }
 
-export const sendPushMsg = async (subscription, message) => {
+const sendPushMsg = async (subscription, message) => {
   try {
     await webpush.sendNotification(subscription, message)
     return true
@@ -56,6 +56,8 @@ export const sendPushMsg = async (subscription, message) => {
     return false
   }
 }
+
+exports.pushToSubscription = sendPushMsg
 
 exports.handler = async (event) => {
   const method = event.httpMethod
