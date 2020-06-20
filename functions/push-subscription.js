@@ -1,4 +1,5 @@
 const { GraphQLClient } = require("graphql-request")
+const {sendPushMsg} = require("./push-notification")
 
 const faunadbEndpoint = "https://graphql.fauna.com/graphql"
 const faunaKey = process.env.FAUNADB_KEY
@@ -21,6 +22,7 @@ const addSubscription = async (endpoint, data) => {
   try {
     const data = await graphQLClient.request(query)
     const id = data.createPushNotificationSubscription._id
+    await sendPushMsg(data, "Awesome! Push Notifications are now enabled.")
     return {
       statusCode: 201,
       body: JSON.stringify({

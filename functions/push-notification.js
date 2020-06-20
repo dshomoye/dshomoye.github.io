@@ -47,7 +47,7 @@ const getAllSubscriptions = async () => {
   }
 }
 
-const sendPushMsg = async (subscription, message) => {
+export const sendPushMsg = async (subscription, message) => {
   try {
     await webpush.sendNotification(subscription, message)
     return true
