@@ -1,5 +1,5 @@
 const { GraphQLClient } = require("graphql-request")
-const {sendPushMsg} = require("./push-notification")
+const { sendPushMsg } = require("./push-notification")
 
 const faunadbEndpoint = "https://graphql.fauna.com/graphql"
 const faunaKey = process.env.FAUNADB_KEY
