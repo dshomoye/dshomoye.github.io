@@ -50,7 +50,8 @@ const getAllSubscriptions = async () => {
 const sendPushMsg = async (subscription, message) => {
   try {
     console.log('sending for subscription ', subscription)
-    await webpush.sendNotification(subscription, message)
+    const sendResult = await webpush.sendNotification(subscription, message)
+    console.log('push sent, result', sendResult)
     return true
   } catch (error) {
     console.error("Failed to send message to endpoint ", error)
