@@ -20,8 +20,8 @@ const addSubscription = async (endpoint, data) => {
         }
       }`
   try {
-    const data = await graphQLClient.request(query)
-    const id = data.createPushNotificationSubscription._id
+    const res = await graphQLClient.request(query)
+    const id = res.createPushNotificationSubscription._id
     const sent = await pushToSubscription({
       endpoint,
       subscriptionData: data
