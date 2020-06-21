@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { notify } from "react-notify-toast"
 
-import { subscriptionOptions } from "../utils/constants"
-
 const subscriptionUrl = "/.netlify/functions/push-subscription"
 
 const saveSubscriptionToServer = async (subscription) => {
@@ -68,11 +66,26 @@ const PushNotification = () => {
     notify.hide()
     const hasPermission = await hasNotificationPermission()
     if (pushSupported() && "serviceWorker" in navigator && hasPermission) {
+      function urlBase64ToUint8Array(base64String) {
+        const padding = "=".repeat((4 - (base64String.length % 4)) % 4)
+        const base64 = (base64String + padding).replace(/-/g, "+").replace(/_/g, "/")
+      
+        const rawData = window.atob(base64)
+        const outputArray = new Uint8Array(rawData.length)
+      
+        for (let i = 0; i < rawData.length; ++i) {
+          outputArray[i] = rawData.charCodeAt(i)
+        }
+        return outputArray
+      }
       setWorking(true)
       navigator.serviceWorker.ready
         .then(async (swRegistration) => {
           const pushSubscription = await swRegistration.pushManager.subscribe(
-            subscriptionOptions
+            {
+              userVisibleOnly: true,
+              applicationServerKey: urlBase64ToUint8Array("BIzWFRNmUmy6ztKkoYNJOaDudQOrbhK5zHDmeCSDX6m3L5yVd5f6Bv3xMPf6A5Cf2-X4pPULKYjL7-ddmLRKcBA"),
+            }
           )
           const subSaved = await saveSubscriptionToServer(pushSubscription)
           if (subSaved) {
@@ -122,6 +135,13 @@ const PushNotification = () => {
       setSubscribed(true)
     }
   }, [])
+
+  useEffect(() => {
+    //always update sw
+    if(pushSupported() && "serviceWorker" in navigator) {
+      navigator.serviceWorker.ready.then(swRegistration => swRegistration.update())
+    }
+  },[])
 
   if (!pushSupported()) {
     return null

@@ -49,13 +49,17 @@ const getAllSubscriptions = async () => {
 
 const sendPushMsg = async (subscription, message) => {
   try {
-    await webpush.sendNotification(subscription, message)
+    console.log('sending for subscription ', subscription)
+    const sendResult = await webpush.sendNotification(subscription, message)
+    console.log('push sent, result', sendResult)
     return true
   } catch (error) {
     console.error("Failed to send message to endpoint ", error)
     return false
   }
 }
+
+exports.pushToSubscription = sendPushMsg
 
 exports.handler = async (event) => {
   const method = event.httpMethod
