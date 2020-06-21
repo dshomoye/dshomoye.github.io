@@ -24,7 +24,7 @@ const addSubscription = async (endpoint, data) => {
     const id = data.createPushNotificationSubscription._id
     const sent = await pushToSubscription({
       endpoint,
-      subbscriptionData: data
+      subscriptionData: data
     }, "Awesome! Push Notifications are now enabled.")
     return {
       statusCode: 201,
