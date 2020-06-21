@@ -49,6 +49,7 @@ const getAllSubscriptions = async () => {
 
 const sendPushMsg = async (subscription, message) => {
   try {
+    console.log('sending for subscription ', subscription)
     await webpush.sendNotification(subscription, message)
     return true
   } catch (error) {

@@ -22,10 +22,7 @@ const addSubscription = async (endpoint, data) => {
   try {
     const res = await graphQLClient.request(query)
     const id = res.createPushNotificationSubscription._id
-    const sent = await pushToSubscription({
-      endpoint,
-      subscriptionData: data
-    }, "Awesome! Push Notifications are now enabled.")
+    const sent = await pushToSubscription(data, "Awesome! Push Notifications are now enabled.")
     return {
       statusCode: 201,
       body: JSON.stringify({
