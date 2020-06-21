@@ -136,6 +136,13 @@ const PushNotification = () => {
     }
   }, [])
 
+  useEffect(() => {
+    //always update sw
+    if(pushSupported() && "serviceWorker" in navigator) {
+      navigator.serviceWorker.ready.then(swRegistration => swRegistration.update())
+    }
+  },[])
+
   if (!pushSupported()) {
     return null
   }
