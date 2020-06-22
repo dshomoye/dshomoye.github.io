@@ -139,9 +139,10 @@ module.exports = {
       resolve: "gatsby-plugin-goatcounter",
       options: {
         code: "dshomoye",
-        pixdel: true,
+        pixel: true,
         allowLocal: false,
       },
     },
+    'gatsby-plugin-sitemap'
   ],
 }
