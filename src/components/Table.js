@@ -3,7 +3,6 @@ import BaseTable, { Column, AutoResizer } from "react-base-table"
 import "react-base-table/styles.css"
 
 const Table = ({ data, rowKey, columns }) => {
-  console.log("table data ", data, " columns ", columns)
 
   return (
     <div style={{ height: "400px" }}>

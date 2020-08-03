@@ -68,5 +68,5 @@ If you _really_ have to use Chrome, (and you don’t) Brave is more or less a dr
 ### Tidbits
 
 - When setting up a Windows computer, don’t connect to internet until everything is set up. If you do, Microsoft will force you to sign in with a Microsoft account before you can use your computer.
-- [Fakespot](fakespot.com)⧉ for amazon reviews. Yes, a lot of "five-star" reviews are fake.
+- [Fakespot](https://www.fakespot.com)⧉ for amazon reviews. Yes, a lot of "five-star" reviews are fake.
 - Get a virtual phone number. This is slightly similar to the virtual card numbers. It’s important because phone numbers are a critical identification method. Your phone number is tied to critical information like address and birthday. Tied together makes identity theft easier. Google voice is a great free service for this. There’s a resounding irony of me bashing google and recommending them at the same time but it’s really hard to beat Google voice. And at the end of the day. That’s what’s most important. Choosing what’s best - for you.
