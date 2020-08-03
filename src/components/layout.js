@@ -15,6 +15,7 @@ class Layout extends React.Component {
     let header
 
     const containerWidth = fullWidth ? '100%' : '38rem'
+    const containerPadding = fullWidth ? '2rem 2rem' : '2rem 1rem'
 
     if (location.pathname === rootPath) {
       header = (
@@ -69,7 +70,7 @@ class Layout extends React.Component {
             marginLeft: `auto`,
             marginRight: `auto`,
             maxWidth: containerWidth,
-            padding: `2rem 1rem`,
+            padding: containerPadding,
           }}
         >
           <header> {header} </header>

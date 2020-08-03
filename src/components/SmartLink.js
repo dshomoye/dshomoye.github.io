@@ -1,16 +1,15 @@
 import React from "react"
+import { Link } from "gatsby"
 
-const SmartLink = (props) => {
-  const linkProps = {}
-  if (props.href.toLowerCase().startsWith("https")) {
-    linkProps.target = "_blank"
-    linkProps.rel = "external"
+const SmartLink = ({href, children}) => {
+  if (href.toLowerCase().startsWith("https")) {
+    return (
+      <a target="_blank" rel="external" href={href}>
+        {children}
+      </a>
+    )
   }
-  return (
-    <a {...linkProps} href={props.href}>
-      {props.children}
-    </a>
-  )
+  return <Link to={href}>{children}</Link>
 }
 
 export default SmartLink
