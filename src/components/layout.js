@@ -14,8 +14,8 @@ class Layout extends React.Component {
     const rootPath = `${__PATH_PREFIX__}/`
     let header
 
-    const containerWidth = fullWidth ? '100%' : '38rem'
-    const containerPadding = fullWidth ? '2rem 2rem' : '2rem 1rem'
+    const containerWidth = fullWidth ? "100%" : "38rem"
+    const containerPadding = fullWidth ? "2rem 2rem" : "2rem 1rem"
 
     if (location.pathname === rootPath) {
       header = (
@@ -98,7 +98,7 @@ Layout.propTypes = {
   location: PropTypes.object,
   title: PropTypes.string,
   children: PropTypes.array,
-  fullWidth: PropTypes.bool
+  fullWidth: PropTypes.bool,
 }
 
 export default Layout

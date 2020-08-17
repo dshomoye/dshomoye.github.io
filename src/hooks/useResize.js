@@ -1,6 +1,6 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from "react"
 
-const useResize = (ref) => {
+const useResize = ref => {
   const [width, setWidth] = useState(0)
   const [height, setHeight] = useState(0)
 
@@ -10,12 +10,12 @@ const useResize = (ref) => {
       setHeight(ref.current.offsetHeight)
     }
 
-    if(ref) handleResize()
+    if (ref) handleResize()
 
-    window.addEventListener('resize', handleResize)
+    window.addEventListener("resize", handleResize)
 
     return () => {
-      window.removeEventListener('resize', handleResize)
+      window.removeEventListener("resize", handleResize)
     }
   }, [ref])
 

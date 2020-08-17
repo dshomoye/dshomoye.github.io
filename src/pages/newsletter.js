@@ -8,9 +8,9 @@ import checkedAnimationData from "../lotties/checked_done.json"
 import SEO from "../components/seo"
 import "../styles/Newsletter.css"
 
-const encode = (data) => {
+const encode = data => {
   return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
     .join("&")
 }
 
@@ -28,14 +28,14 @@ const Newsletter = ({ ...props }) => {
   const [submit, setSubmit] = useState(0)
   const [formData, setFormData] = useState({})
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     setSubmit(1)
     e.preventDefault()
     const form = e.target
@@ -50,7 +50,7 @@ const Newsletter = ({ ...props }) => {
       .then(() => {
         setSubmit(2)
       })
-      .catch((error) => {
+      .catch(error => {
         setSubmit(3)
       })
   }

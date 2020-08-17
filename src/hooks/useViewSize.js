@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react"
+import { useState, useEffect } from "react"
 import { isClient } from "../utils"
 
 const useViewSize = () => {
@@ -14,8 +14,8 @@ const useViewSize = () => {
     return () => {
       window.removeEventListener("resize", handleResize)
     }
-  },[])
-  return {height, width}
+  }, [])
+  return { height, width }
 }
 
-export default useViewSize;
+export default useViewSize

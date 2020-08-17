@@ -13,7 +13,7 @@ const Table = ({ data, rowKey, columns }) => {
       style={{
         width: "100%",
         overflow: "scroll",
-        minHeight: "50vh"
+        minHeight: "50vh",
       }}
     >
       <div style={{ minHeight: "100px" }}>
@@ -33,7 +33,7 @@ const Table = ({ data, rowKey, columns }) => {
                   dataKey={col.key}
                   style={{
                     backgroundColor: "var(--bg)",
-                    transition: 'background 0.2s ease-out',
+                    transition: "background 0.2s ease-out",
                   }}
                 />
               ))}
