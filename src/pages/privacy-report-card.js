@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Table from "../components/Table"
+import useViewSize from "../hooks/useViewSize"
 
 const privcayData = [
   {
@@ -22,47 +23,33 @@ const dataColumns = [
   {
     key: "name",
     title: "Service Summary",
-    width: 100,
     frozen: true,
-    resizable: true,
     linkKey: "summaryLink",
     type: "link"
   },
   {
     key: "crossSiteTracking",
     title: "Cross Site Tracking",
-    width: 100,
-    resizable: true
   },
   {
     key: "locationTracking",
     title: "Location Tracking",
-    width: 100,
-    resizable: true
   },
   {
     key: "dataRetention",
     title: "Data Retentation",
-    width: 100,
-    resizable: true
   },
   {
     key: "userControl",
     title: "User Control",
-    width: 100,
-    resizable: true
   },
   {
     key: "darkPatterns",
     title: "Dark Pattern Usage",
-    width: 100,
-    resizable: true
   },
   {
     key: "reference",
     title: "Policy Reference",
-    width: 100,
-    resizable: true,
     linkKey: "referenceLink",
     type: "link",
     linkText: "View ↗"
@@ -70,7 +57,16 @@ const dataColumns = [
 ]
 
 const PrivacyReportCard = ({ data, location }) => {
+  const {width: viewWidth} = useViewSize()
   const { title } = data.site.siteMetadata
+
+  const equalWidth = Math.floor(viewWidth/dataColumns.length) - 10
+  const columnWidth = equalWidth > 100 ? equalWidth : 100
+  for(let i=0; i<dataColumns.length; i+=1){
+    dataColumns[i].width = columnWidth
+    dataColumns[i].resizable = true
+  }
+  
   return (
     <Layout title={title} location={location} fullWidth>
       <h2>

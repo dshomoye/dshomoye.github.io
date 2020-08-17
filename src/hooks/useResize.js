@@ -6,7 +6,6 @@ const useResize = (ref) => {
 
   useEffect(() => {
     const handleResize = () => {
-      console.log('resizing for ', ref.current)
       setWidth(ref.current.offsetWidth)
       setHeight(ref.current.offsetHeight)
     }

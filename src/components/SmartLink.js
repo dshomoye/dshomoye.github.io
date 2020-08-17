@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 const SmartLink = ({href, children}) => {
   if (href.toLowerCase().startsWith("https")) {
     return (
-      <a target="_blank" rel="external" href={href}>
+      <a target="_blank" rel="noreferrer" href={href}>
         {children}
       </a>
     )

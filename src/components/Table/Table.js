@@ -1,16 +1,22 @@
 import React from "react"
 import BaseTable, { Column, AutoResizer } from "react-base-table"
 import "react-base-table/styles.css"
-import Cell from "./Table/Cell"
+import Cell from "./Cell"
 
 const components = {
-  TableCell: Cell
+  TableCell: Cell,
 }
 
 const Table = ({ data, rowKey, columns }) => {
   return (
-    <div style={{width: "100%", overflow: "scroll"}}>
-      <div style={{ height: "400px" }}>
+    <div
+      style={{
+        width: "100%",
+        overflow: "scroll",
+        minHeight: "50vh"
+      }}
+    >
+      <div style={{ minHeight: "100px" }}>
         <AutoResizer>
           {({ height, width }) => (
             <BaseTable
@@ -22,7 +28,14 @@ const Table = ({ data, rowKey, columns }) => {
               components={components}
             >
               {columns.map(col => (
-                <Column {...col} dataKey={col.key} />
+                <Column
+                  {...col}
+                  dataKey={col.key}
+                  style={{
+                    backgroundColor: "var(--bg)",
+                    transition: 'background 0.2s ease-out',
+                  }}
+                />
               ))}
             </BaseTable>
           )}

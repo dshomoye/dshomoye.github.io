@@ -10,7 +10,7 @@ import SubscribeOptions from "./SubscribeOptions"
 
 class Layout extends React.Component {
   render() {
-    const { location, title, children, fullWidth, heading } = this.props
+    const { location, title, children, fullWidth } = this.props
     const rootPath = `${__PATH_PREFIX__}/`
     let header
 

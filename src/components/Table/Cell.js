@@ -12,7 +12,6 @@ const stringRenderer = ({ className, cellData }) => (
 )
 
 const Cell = props => {
-  console.log("cell props ", props)
   if (props.column.type === "link") return linkRenderer(props)
   return stringRenderer(props)
 }
