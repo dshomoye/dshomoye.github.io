@@ -11,6 +11,7 @@ import SubscribeOptions from "./SubscribeOptions"
 class Layout extends React.Component {
   render() {
     const { location, title, children, fullWidth } = this.props
+    // eslint-disable-next-line no-undef
     const rootPath = `${__PATH_PREFIX__}/`
     let header
 
@@ -97,7 +98,7 @@ class Layout extends React.Component {
 Layout.propTypes = {
   location: PropTypes.object,
   title: PropTypes.string,
-  children: PropTypes.array,
+  children: PropTypes.node,
   fullWidth: PropTypes.bool,
 }
 
