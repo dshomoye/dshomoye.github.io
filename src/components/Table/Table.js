@@ -11,7 +11,7 @@ const Table = ({ data, rowKey, columns }) => {
   return (
     <div
       style={{
-        minHeight: "50vh",
+        minHeight: "35vh",
         backgroundColor: "var(--bg)",
       }}
     >
