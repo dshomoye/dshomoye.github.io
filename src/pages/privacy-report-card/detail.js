@@ -17,7 +17,9 @@ const Detail = ({data, location}) => {
 
   useEffect(() => {
     if(!siteName || !(siteName in SiteDetails)){
-      navigate("/404")
+      navigate("/404", {
+        replace: true
+      })
     }
   },[siteName, SiteDetails])
 

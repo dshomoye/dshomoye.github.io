@@ -11,12 +11,11 @@ const Table = ({ data, rowKey, columns }) => {
   return (
     <div
       style={{
-        width: "100%",
-        overflow: "scroll",
         minHeight: "50vh",
+        backgroundColor: "var(--bg)",
       }}
     >
-      <div style={{ minHeight: "100px" }}>
+      <div style={{ minHeight: "100px", width: "100%" }}>
         <AutoResizer>
           {({ height, width }) => (
             <BaseTable
@@ -30,6 +29,7 @@ const Table = ({ data, rowKey, columns }) => {
               {columns.map(col => (
                 <Column
                   {...col}
+                  key={col.key}
                   dataKey={col.key}
                   style={{
                     backgroundColor: "var(--bg)",

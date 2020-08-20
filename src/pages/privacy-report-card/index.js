@@ -61,7 +61,7 @@ const PrivacyReportCard = ({ data, location }) => {
   const { width: viewWidth } = useViewSize()
   const { title } = data.site.siteMetadata
 
-  const equalWidth = Math.floor(viewWidth / dataColumns.length) - 10
+  const equalWidth = Math.floor(viewWidth / dataColumns.length) - 13
   const columnWidth = equalWidth > 100 ? equalWidth : 100
   for (let i = 0; i < dataColumns.length; i += 1) {
     dataColumns[i].width = columnWidth
