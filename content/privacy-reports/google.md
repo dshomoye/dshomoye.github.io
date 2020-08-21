@@ -1,11 +1,13 @@
 ---
-name: google
-locationTracking: 5
-dataRetention: 4
-userControl: 4
-darkPatterns: 5
-summaryLink: "/privacy-report-card/detail?site=google"
-referenceLink: "https://policies.google.com/privacy"
+name: Google
+ratings:
+  locationTracking: 5
+  dataRetention: 4
+  userControl: 4
+  darkPatterns: 5
+  crossSiteTracking: 5
+summary: "/privacy-report-card/details/google"
+reference: "https://policies.google.com/privacy"
 category: "privacy-report-detail"
 ---
 
