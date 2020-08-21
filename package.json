@@ -63,7 +63,7 @@
   },
   "scripts": {
     "buildAll": "gatsby build && cd functions && npm install",
-    "develop": "GATSBY_GRAPHQL_IDE=playground gatsby develop -H 0.0.0.0",
+    "develop": "gatsby develop -H 0.0.0.0",
     "build": "gatsby build",
     "serve": "gatsby serve -H 0.0.0.0",
     "netlifypreview": "gatsby build && netlify deploy -d public/ --functions=functions",

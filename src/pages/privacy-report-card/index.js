@@ -5,7 +5,7 @@ import Layout from "../../components/layout"
 import Table from "../../components/Table"
 import useViewSize from "../../hooks/useViewSize"
 import SEO from "../../components/seo"
-import { TableColumns } from "./TableColumns"
+import {PrivacyReportTableColumns as TableColumns} from "../../utils/constants"
 
 
 const PrivacyReportCard = ({ data, location }) => {
@@ -59,6 +59,7 @@ export const pageQuery = graphql`
             dataRetention
             locationTracking
             userControl
+            crossSiteTracking
           }
           reference
           summary
