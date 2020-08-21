@@ -7,12 +7,25 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
   const tagTemplate = path.resolve("./src/templates/tags.js")
+  const privacyDetailTemplate = path.resolve("./src/templates/privacy-report-detail.js")
   const result = await graphql(
     `
       {
         tagsGroup: allMarkdownRemark(limit: 2000) {
           group(field: frontmatter___tags) {
             fieldValue
+          }
+        }
+
+        privacyDetailsPages: allMarkdownRemark(filter: {frontmatter: {category: {eq: "privacy-report-detail"}}}) {
+          edges {
+            node {
+              parent {
+                ... on File {
+                  name
+                }
+              }
+            }
           }
         }
 
@@ -64,6 +77,18 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         tag: tag.fieldValue,
       },
+    })
+  })
+
+  const privacyDetailsPages = result.data.privacyDetailsPages.edges
+  privacyDetailsPages.forEach(pageNode => {
+    const {name} = pageNode.node.parent
+    createPage({
+      path: `/privacy-report-card/details/${name}`,
+      component: privacyDetailTemplate,
+      context: {
+        slug: `/${name}/`
+      }
     })
   })
 }

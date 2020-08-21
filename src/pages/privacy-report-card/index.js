@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import Layout from "../../components/layout"
 import Table from "../../components/Table"
 import useViewSize from "../../hooks/useViewSize"
+import SEO from "../../components/seo"
 
 export const PrivcayData = [
   {
@@ -70,6 +71,7 @@ const PrivacyReportCard = ({ data, location }) => {
 
   return (
     <Layout title={title} location={location} fullWidth>
+      <SEO title={title} description="An easy overview and summary of privacy policies of sites across the web." />
       <h2>
         Privacy Report: Summary of privacy policies of (popular) services.
       </h2>
