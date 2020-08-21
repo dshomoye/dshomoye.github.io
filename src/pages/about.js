@@ -44,9 +44,7 @@ class NotFoundPage extends React.Component {
             <h2>About Me</h2>
             <section>
               <p>
-                I’m a full stack developer at Splunk — joining in Feb, im still
-                a new “Splunker”; Before that, I was helping Capital One change
-                banking for good.
+                I’m a full stack developer at Splunk; Before that, I was a software engineer at Capital One (they are totally a tech company!).
               </p>
               <p>
                 Believe this, I love everything tech. In a “the future is gonna
@@ -55,22 +53,20 @@ class NotFoundPage extends React.Component {
               </p>
 
               <p>
-                I play overwatch, almost exclusively Ashe, and definitely
-                exclusively on a PS4 pro. Is it me or is her hit-scan sorta
-                kinda wonky?
+                {`I have a PlayStation 4 pro and it is how I usually unwind at the end of day. 
+                I really don't have a lot of options anyway 🥺. #2020`}
               </p>
               <p>
-                I like to hike. I picked this up less than two years ago, after
-                moving to Virginia. It’s nice to be... *one with nature*
+                {`I like to hike. This is a new...err... "hobby" for me, while I was living in Virginia. 
+                It’s nice to be... *one with nature*. I'm now based out of the bay area. `}
               </p>
               <p>
-                I like to travel. I don’t have a long list of awesome places
-                I’ve been to, yet, but trust me. I like to travel.
+                {`I like to travel. I don’t have a long list of mind-blowing places
+                I’ve been to, yet, but trust me. I like to travel.`}
               </p>
 
               <p>
-                I grew up in Nigeria. It’s not WAKANDA, but it was great in its
-                own way, and I loved growing up there.
+                I grew up in Nigeria. It’s not Wakanda, but it was great in a very special way, I loved it.
               </p>
             </section>
           </article>
