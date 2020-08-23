@@ -9,7 +9,7 @@ const MediaBox = ({ name, index, src, type, noborder }) => {
   const dispath = useContext(DispatchContext)
   const videoRef = useRef(null)
 
-  const showlightbox = (e) => {
+  const showlightbox = e => {
     e.preventDefault()
     if (type !== "video") {
       dispath({

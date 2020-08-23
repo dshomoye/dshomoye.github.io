@@ -10,13 +10,13 @@ tags:
 
 #### UPDATE: 02-29
 
-I have now moved this site to Netlify. I do still have a running version on Githb pages but moving to Netlify was inevitable. My main motivation is that I badly wanted to replace the iframe I was using for the newsletter sign up. An `iframe` is just... basically an abonimation. It felt out of place. The new [page](/subscribe) is much better. I wrote the form myself. And the submission is where Netlify comes. I still needed to automate sending signups to my marketing platform (SendInBlue). So, I used Netlify functions! These are basically, lambda functions, that are _even easier_ to set up. The function gets triggered per submission and the details gets sent to SendInBlue via their API. I'm more satisfied with the set up.
+I have now moved this site to Netlify. I do still have a running version on Githb pages but moving to Netlify was inevitable. My main motivation is that I badly wanted to replace the iframe I was using for the newsletter sign up. An `iframe` is just... basically an abonimation. It felt out of place. The new [page](/newsletter) is much better. I wrote the form myself. And the submission is where Netlify comes. I still needed to automate sending signups to my marketing platform (SendInBlue). So, I used Netlify functions! These are basically, lambda functions, that are _even easier_ to set up. The function gets triggered per submission and the details gets sent to SendInBlue via their API. I'm more satisfied with the set up.
 This is what the function looks like:
 
 ```js
 const got = require("got")
 
-exports.handler = async function (event) {
+exports.handler = async function(event) {
   const eventData = JSON.parse(event.body)
   try {
     const response = await got("https://api.sendinblue.com/v3/contacts", {

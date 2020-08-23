@@ -39,35 +39,37 @@ class BlogIndex extends React.Component {
               </Link>
             )
           }
-          return (
-            <article
-              className="card-article home-card"
-              data-sal="slide-up"
-              data-sal-easing="ease"
-              data-sal-duration="700"
-              key={node.fields.slug}
-            >
-              <div {...articleContentProps}>
-                <Link className="home-article-link" to={node.fields.slug}>
-                  <header>
-                    <h3>{title}</h3>
-                    <small style={{ backgroundColor: "None" }}>
-                      {node.frontmatter.date}
-                    </small>
-                  </header>
-                  <section>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: node.frontmatter.description || node.excerpt,
-                      }}
-                    />
-                  </section>
-                </Link>
-                <TagPills tagNames={node.frontmatter.tags} />
-              </div>
-              {banner}
-            </article>
-          )
+          if (node.parent.sourceInstanceName === "blog") {
+            return (
+              <article
+                className="card-article home-card"
+                data-sal="slide-up"
+                data-sal-easing="ease"
+                data-sal-duration="700"
+                key={node.fields.slug}
+              >
+                <div {...articleContentProps}>
+                  <Link className="home-article-link" to={node.fields.slug}>
+                    <header>
+                      <h3>{title}</h3>
+                      <small style={{ backgroundColor: "None" }}>
+                        {node.frontmatter.date}
+                      </small>
+                    </header>
+                    <section>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: node.frontmatter.description || node.excerpt,
+                        }}
+                      />
+                    </section>
+                  </Link>
+                  <TagPills tagNames={node.frontmatter.tags} />
+                </div>
+                {banner}
+              </article>
+            )
+          }
         })}
       </Layout>
     )
@@ -96,6 +98,11 @@ export const pageQuery = graphql`
             description
             bannerImage
             tags
+          }
+          parent {
+            ... on File {
+              sourceInstanceName
+            }
           }
         }
       }

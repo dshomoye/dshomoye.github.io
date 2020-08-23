@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 require("dotenv").config()
 
 module.exports = {
@@ -5,7 +6,7 @@ module.exports = {
     title: `Damola's blog`,
     author: `Adedamola Shomoye`,
     description: `Posts, long forms, short forms, etc on everything about everything, that matters (to me).`,
-    siteUrl: `https://dshomoye.dev`,
+    siteUrl: `https://www.dshomoye.dev`,
     social: {
       twitter: `dhamoh_6`,
     },
@@ -23,6 +24,13 @@ module.exports = {
       options: {
         path: `${__dirname}/content/assets`,
         name: `assets`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/privacy-reports`,
+        name: `privacy-reports`,
       },
     },
     {
@@ -100,7 +108,7 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map((edge) => {
+              return allMarkdownRemark.edges.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
@@ -143,6 +151,6 @@ module.exports = {
         allowLocal: false,
       },
     },
-    'gatsby-plugin-sitemap'
+    "gatsby-plugin-sitemap",
   ],
 }

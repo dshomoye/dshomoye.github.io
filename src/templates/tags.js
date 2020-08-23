@@ -13,9 +13,9 @@ const Tags = ({ pageContext, data, location }) => {
 
   return (
     <Layout location={location} title={data.site.siteMetadata.title}>
-      <SEO title={pageTitle} description={pageTitle} />
+      <SEO title={pageTitle} description={`All posts with tag ${pageTitle}.`} />
       <div>
-        <h3>{tagHeader}</h3>
+        <h1>{tagHeader}</h1>
         <ul className="tag-list">
           {edges.map(({ node }) => {
             const { slug } = node.fields

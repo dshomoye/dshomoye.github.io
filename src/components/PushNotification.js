@@ -3,7 +3,7 @@ import { notify } from "react-notify-toast"
 
 const subscriptionUrl = "/.netlify/functions/push-subscription"
 
-const saveSubscriptionToServer = async (subscription) => {
+const saveSubscriptionToServer = async subscription => {
   const body = JSON.stringify({
     endpoint: subscription.endpoint,
     data: JSON.stringify(subscription),
@@ -22,7 +22,7 @@ const saveSubscriptionToServer = async (subscription) => {
   }
 }
 
-const removeSubscriptionFromServer = async (subscriptionEndpoint) => {
+const removeSubscriptionFromServer = async subscriptionEndpoint => {
   try {
     const delResponse = await fetch(subscriptionUrl, {
       method: "DELETE",
@@ -68,11 +68,13 @@ const PushNotification = () => {
     if (pushSupported() && "serviceWorker" in navigator && hasPermission) {
       function urlBase64ToUint8Array(base64String) {
         const padding = "=".repeat((4 - (base64String.length % 4)) % 4)
-        const base64 = (base64String + padding).replace(/-/g, "+").replace(/_/g, "/")
-      
+        const base64 = (base64String + padding)
+          .replace(/-/g, "+")
+          .replace(/_/g, "/")
+
         const rawData = window.atob(base64)
         const outputArray = new Uint8Array(rawData.length)
-      
+
         for (let i = 0; i < rawData.length; ++i) {
           outputArray[i] = rawData.charCodeAt(i)
         }
@@ -80,13 +82,13 @@ const PushNotification = () => {
       }
       setWorking(true)
       navigator.serviceWorker.ready
-        .then(async (swRegistration) => {
-          const pushSubscription = await swRegistration.pushManager.subscribe(
-            {
-              userVisibleOnly: true,
-              applicationServerKey: urlBase64ToUint8Array("BIzWFRNmUmy6ztKkoYNJOaDudQOrbhK5zHDmeCSDX6m3L5yVd5f6Bv3xMPf6A5Cf2-X4pPULKYjL7-ddmLRKcBA"),
-            }
-          )
+        .then(async swRegistration => {
+          const pushSubscription = await swRegistration.pushManager.subscribe({
+            userVisibleOnly: true,
+            applicationServerKey: urlBase64ToUint8Array(
+              "BIzWFRNmUmy6ztKkoYNJOaDudQOrbhK5zHDmeCSDX6m3L5yVd5f6Bv3xMPf6A5Cf2-X4pPULKYjL7-ddmLRKcBA"
+            ),
+          })
           const subSaved = await saveSubscriptionToServer(pushSubscription)
           if (subSaved) {
             setSubscribed(true)
@@ -113,7 +115,7 @@ const PushNotification = () => {
     if (pushSupported() && subscribed) {
       setWorking(true)
       navigator.serviceWorker.ready
-        .then(async (swRegistration) => {
+        .then(async swRegistration => {
           const subscription = await swRegistration.pushManager.getSubscription()
           await subscription.unsubscribe()
           removeSubscriptionFromServer(subscription.endpoint).then(() => {
@@ -121,7 +123,7 @@ const PushNotification = () => {
             notify.show("Push notifications disabled", "success")
           })
         })
-        .catch((e) => {
+        .catch(e => {
           //NOOP
         })
       setSubscribed(false)
@@ -138,10 +140,12 @@ const PushNotification = () => {
 
   useEffect(() => {
     //always update sw
-    if(pushSupported() && "serviceWorker" in navigator) {
-      navigator.serviceWorker.ready.then(swRegistration => swRegistration.update())
+    if (pushSupported() && "serviceWorker" in navigator) {
+      navigator.serviceWorker.ready.then(swRegistration =>
+        swRegistration.update()
+      )
     }
-  },[])
+  }, [])
 
   if (!pushSupported()) {
     return null

@@ -10,9 +10,13 @@ import SubscribeOptions from "./SubscribeOptions"
 
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
+    const { location, title, children, fullWidth } = this.props
+    // eslint-disable-next-line no-undef
     const rootPath = `${__PATH_PREFIX__}/`
     let header
+
+    const containerWidth = fullWidth ? "100%" : "38rem"
+    const containerPadding = fullWidth ? "2rem 2rem" : "2rem 1rem"
 
     if (location.pathname === rootPath) {
       header = (
@@ -66,8 +70,8 @@ class Layout extends React.Component {
             transition: "color 0.2s ease-out, background 0.2s ease-out",
             marginLeft: `auto`,
             marginRight: `auto`,
-            maxWidth: `38rem`,
-            padding: `2rem 1rem`,
+            maxWidth: containerWidth,
+            padding: containerPadding,
           }}
         >
           <header> {header} </header>
@@ -94,7 +98,8 @@ class Layout extends React.Component {
 Layout.propTypes = {
   location: PropTypes.object,
   title: PropTypes.string,
-  children: PropTypes.array,
+  children: PropTypes.node,
+  fullWidth: PropTypes.bool,
 }
 
 export default Layout
