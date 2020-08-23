@@ -65,7 +65,6 @@ exports.createPages = async ({ graphql, actions }) => {
 
   posts.forEach((post, index) => {
     if (post.node.parent.name === "index") {
-      console.log("is valid: ", post.node.fields.slug)
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
       const next = index === 0 ? null : posts[index - 1].node
 

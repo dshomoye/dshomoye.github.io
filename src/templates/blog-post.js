@@ -15,6 +15,8 @@ class BlogPostTemplate extends React.Component {
   constructor(props) {
     super(props)
     this.state = { galleryIndex: 0, galleryModalIsOpen: false }
+    this.setAndOpenGallery = this.setAndOpenGallery.bind(this)
+    this.closeGalleryModal = this.closeGalleryModal.bind(this)
   }
 
   setAndOpenGallery (index) {

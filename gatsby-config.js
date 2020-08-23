@@ -37,7 +37,12 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          "gatsby-remark-component",
+          {
+            resolve: "gatsby-remark-component",
+            options: {
+              components: ["media-box"]
+            }
+          },
           {
             resolve: `gatsby-remark-autolink-headers`,
             options: {
