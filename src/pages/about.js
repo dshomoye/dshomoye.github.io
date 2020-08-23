@@ -41,7 +41,7 @@ class NotFoundPage extends React.Component {
             data-sal-easing="ease"
             data-sal-duration="700"
           >
-            <h2>About Me</h2>
+            <h1>About Me</h1>
             <section>
               <p>
                 I’m a full stack developer at Splunk; Before that, I was a software engineer at Capital One (they are totally a tech company!).

@@ -75,7 +75,7 @@ const Newsletter = ({ ...props }) => {
           </label>
         </p>
         <input type="hidden" name="form-name" value="subscription" />
-        <h2>
+        <h1 style={{marginTop: 0}}>
           Get notified of new updates!{` `}
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +86,7 @@ const Newsletter = ({ ...props }) => {
           >
             <path d="M.026 24l11.974-11.607 11.974 11.607h-23.948zm11.964-23.961l-11.99 8.725v12.476l7.352-7.127-5.653-4.113 10.291-7.488 10.309 7.488-5.655 4.108 7.356 7.132v-12.476l-12.01-8.725z" />
           </svg>{" "}
-        </h2>
+        </h1>
       </div>
       <div className="form-item">
         <label htmlFor="email" className="input-label">
