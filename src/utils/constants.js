@@ -26,7 +26,7 @@ export const PrivacyReportTableColumns = [
   },
   {
     key: "darkPatterns",
-    title: "Dark Pattern Usage",
+    title: "Dark Patterns",
   },
   {
     key: "reference",

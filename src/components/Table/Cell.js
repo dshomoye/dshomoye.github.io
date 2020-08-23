@@ -1,5 +1,6 @@
 import React from "react"
 import SmartLink from "../SmartLink"
+import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai"
 
 const linkRenderer = ({ rowData, column, cellData }) => (
   <SmartLink href={rowData[column.linkKey]}>
@@ -7,9 +8,13 @@ const linkRenderer = ({ rowData, column, cellData }) => (
   </SmartLink>
 )
 
-const stringRenderer = ({ className, cellData }) => (
-  <div className={className}>{cellData}</div>
-)
+const stringRenderer = ({ className, cellData }) => {
+  return (
+    <div className={className}>
+      {!cellData ? <AiOutlineLike /> : <AiOutlineDislike />}
+    </div>
+  )
+}
 
 const Cell = props => {
   if (props.column.type === "link") return linkRenderer(props)

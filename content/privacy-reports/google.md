@@ -1,11 +1,11 @@
 ---
 name: Google
 ratings:
-  locationTracking: 5
-  dataRetention: 4
-  userControl: 4
-  darkPatterns: 5
-  crossSiteTracking: 5
+  locationTracking: 1
+  dataRetention: 0
+  userControl: 1
+  darkPatterns: 1
+  crossSiteTracking: 1
 summary: "/privacy-report-card/details/google"
 reference: "https://policies.google.com/privacy"
 category: "privacy-report-detail"
