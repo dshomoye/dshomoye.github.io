@@ -6,7 +6,7 @@ module.exports = {
     title: `Damola's blog`,
     author: `Adedamola Shomoye`,
     description: `Posts, long forms, short forms, etc on everything about everything, that matters (to me).`,
-    siteUrl: `https://dshomoye.dev`,
+    siteUrl: `https://www.dshomoye.dev`,
     social: {
       twitter: `dhamoh_6`,
     },
