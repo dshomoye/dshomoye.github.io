@@ -21,6 +21,12 @@
     margin-top: 10px;
     border-style: none;
     border-bottom: thin solid var(--textNormal);
+    color: var(--textNormal);
+    background-color: var(--bg);
+}
+
+.styled-checkbox {
+    margin: 0 20px 0 5px;
 }
 
 .styled-input:focus {

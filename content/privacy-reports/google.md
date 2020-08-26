@@ -16,3 +16,6 @@ category: "privacy-report-detail"
 ---
 
 This is a WIP, contributions welcome!
+
+
+Google is a search company that provides personalized online services.

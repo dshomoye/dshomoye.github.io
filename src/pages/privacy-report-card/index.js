@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 import Layout from "../../components/layout"
 import Table from "../../components/Table"
@@ -10,7 +10,6 @@ import {PrivacyReportTableColumns as TableColumns} from "../../utils/constants"
 
 const PrivacyReportCard = ({ data, location }) => {
   const { width: viewWidth } = useViewSize()
-  const { title } = data.site.siteMetadata
   const sites = data.allMarkdownRemark.edges
 
   const sitesInfo = sites.map(siteNode => {
@@ -31,13 +30,19 @@ const PrivacyReportCard = ({ data, location }) => {
   }
 
   return (
-    <Layout title={title} location={location} fullWidth>
-      <SEO title={title} description="An easy overview and summary of privacy policies of sites across the web." />
+    <Layout title="Privacy Report Card" location={location} fullWidth>
+      <SEO title="Privacy Report Card" description="An easy overview and summary of privacy policies of sites across the web." />
       <h2>
         Privacy Report: Summary of privacy policies of (popular) services.
       </h2>
       <hr />
       <Table columns={TableColumns} data={sitesInfo} rowKey="id" />
+      <div style={{
+        textAlign:"center",
+        marginBottom: "10px"
+      }}>
+        <Link to="/privacy-report-card/contribute">Contribute</Link>
+      </div>
     </Layout>
   )
 }
