@@ -8,12 +8,8 @@ import checkedAnimationData from "../lotties/checked_done.json"
 
 import SEO from "../components/seo"
 import "../styles/Newsletter.css"
+import { encodeFormData } from "../utils";
 
-const encode = data => {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&")
-}
 
 const defaultOptions = {
   loop: false,
@@ -43,7 +39,7 @@ const Newsletter = ({ ...props }) => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({
+      body: encodeFormData({
         "form-name": form.getAttribute("name"),
         ...formData,
       }),

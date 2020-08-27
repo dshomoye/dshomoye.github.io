@@ -1,6 +1,8 @@
 const got = require("got")
 
 exports.handler = async function(event) {
+  console.log('submission event: ')
+  console.log(event)
   const eventData = JSON.parse(event.body)
   try {
     const response = await got("https://api.sendinblue.com/v3/contacts", {
