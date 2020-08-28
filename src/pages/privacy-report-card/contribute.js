@@ -1,6 +1,8 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { graphql } from "gatsby"
 import { BiAward } from "react-icons/bi"
+import { notify } from "react-notify-toast"
+import {navigate} from "@reach/router"
 
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
@@ -11,19 +13,31 @@ const Contribute = ({ location }) => {
   const [submit, setSubmit] = useState(0)
   const [filledText, setFilledText] = useState({})
 
+  useEffect(() => {
+    if(submit === 2) {
+      setTimeout(() => {
+        navigate("/privacy-report-card")
+      }, 1500)
+    }
+  }, [submit])
+
   const handleChange = e => {
     e.persist()
-    console.log(e)
     let val = e.target.value
-    if(e.target.type === 'checkbox') {
+    if (e.target.type === "checkbox") {
       val = e.target.checked
     }
     setFilledText(oldFilledText => {
       return {
         ...oldFilledText,
-        [e.target.name]: val
+        [e.target.name]: val,
       }
     })
+  }
+
+  const handleError = () => {
+    setSubmit(3)
+    notify.show("Submission Failed ☹️. Try Again", "error")
   }
 
   const handleSubmit = e => {
@@ -31,14 +45,38 @@ const Contribute = ({ location }) => {
     e.preventDefault()
     fetch("/.netlify/functions/privacy-report", {
       method: "POST",
-      body: JSON.stringify(filledText)
+      body: JSON.stringify(filledText),
     })
-      .then(() => {
-        setSubmit(2)
+      .then((res) => {
+        console.log(res)
+        if(res.ok) {
+          setSubmit(2)
+          notify.show("Submission Created!", "success")
+        } else {
+          handleError()
+        }
       })
-      .catch(() => {
-        setSubmit(3)
-      })
+      .catch(handleError)
+  }
+
+  let submitBtnState = {
+    value: "Submit",
+    className: "submit-btn",
+    disabled: false
+  }
+
+  if(submit === 1) {
+    submitBtnState = {
+      value: "Submitting",
+      className: "disabled-submit-btn",
+      disabled: true
+    }
+  } else if (submit === 2) {
+    submitBtnState = {
+      value: "Submitted",
+      disabled: true,
+      className: "disabled-submit-btn"
+    }
   }
 
   return (
@@ -62,7 +100,8 @@ const Contribute = ({ location }) => {
         <div className="form-heading">
           <p className="honeypot">
             <label>
-              Don’t fill this out if you are human: <input name="bot-field" onChange={handleChange} />
+              Don’t fill this out if you are human:{" "}
+              <input name="bot-field" onChange={handleChange} />
             </label>
           </p>
           <h2 style={{ marginTop: "0" }}>Add New Privacy Summary.</h2>
@@ -141,7 +180,10 @@ const Contribute = ({ location }) => {
           />
         </div>
         <div className="form-item">
-          <input type="submit" value="Submit" className="submit-btn" />
+          <input
+            type="submit"
+            {...submitBtnState}
+          />
         </div>
       </form>
     </Layout>
