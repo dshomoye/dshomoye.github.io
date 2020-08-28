@@ -68,7 +68,7 @@ const Newsletter = ({ ...props }) => {
       <div className="form-heading">
         <p class="hidden">
           <label>
-            Don’t fill this out if you're human: <input name="bot-field" />
+            Don’t fill this out if you're human: <input name="bot-field" onChange={handleChange} />
           </label>
         </p>
         <input type="hidden" name="form-name" value="subscription" />

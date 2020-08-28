@@ -2,10 +2,9 @@ import React, { useState } from "react"
 import { graphql } from "gatsby"
 import { BiAward } from "react-icons/bi"
 
-import Layout from "../../../components/layout"
-import SEO from "../../../components/seo"
-import { PrivacyReportTableColumns } from "../../../utils/constants"
-import { encodeFormData } from "../../../utils"
+import Layout from "../../components/layout"
+import SEO from "../../components/seo"
+import { PrivacyReportTableColumns } from "../../utils/constants"
 
 const Contribute = ({ location }) => {
   // 0: notSubmit, 1: submitting, 2: submitted, 3: failed
@@ -30,15 +29,9 @@ const Contribute = ({ location }) => {
   const handleSubmit = e => {
     setSubmit(1)
     e.preventDefault()
-    console.log(e)
-    const form = e.target
-    fetch("/", {
+    fetch("/.netlify/functions/privacy-report", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encodeFormData({
-        ...filledText,
-        "form-name": form.getAttribute('name')
-      })
+      body: JSON.stringify(filledText)
     })
       .then(() => {
         setSubmit(2)
@@ -67,9 +60,9 @@ const Contribute = ({ location }) => {
         action="/privacy-report-card"
       >
         <div className="form-heading">
-          <p className="hidden">
+          <p className="honeypot">
             <label>
-              Don’t fill this out if you are human: <input name="bot-field" />
+              Don’t fill this out if you are human: <input name="bot-field" onChange={handleChange} />
             </label>
           </p>
           <h2 style={{ marginTop: "0" }}>Add New Privacy Summary.</h2>

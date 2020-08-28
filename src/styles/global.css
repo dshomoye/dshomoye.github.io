@@ -179,3 +179,7 @@ code.language-text {
     display: inline-block;
     margin-right: 5px;
 }
+
+.honeypot {
+    display: none;
+}
