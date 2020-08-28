@@ -53,6 +53,13 @@ exports.handler = async event => {
   try {
     const octokit = new Octokit({
       auth: process.env.GITHUB_ISSUE_TOKEN,
+
+      log: {
+        debug: () => {},
+        info: console.log,
+        warn: console.warn,
+        error: console.error
+      },
     });
 
     const createdIssue = await octokit.issues.create({
