@@ -48,7 +48,6 @@ const Contribute = ({ location }) => {
       body: JSON.stringify(filledText),
     })
       .then((res) => {
-        console.log(res)
         if(res.ok) {
           setSubmit(2)
           notify.show("Submission Created!", "success")
