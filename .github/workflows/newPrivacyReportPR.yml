@@ -15,9 +15,11 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Create summary file
+        env:
+          DEBUG_DATA: ${{ toJson(github.event) }}
         run: |
           echo Showing trigger event details
-          echo ${{ toJson(github.event) }}
+          echo $DEBUG_DATA
     
 
       
