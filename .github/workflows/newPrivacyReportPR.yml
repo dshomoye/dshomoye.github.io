@@ -16,8 +16,8 @@ jobs:
             fetch-depth: 0
             persist-credentials: false
         - name: Create summary file
-        run:
-          echo "Showing trigger event details"
+        run: |
+          echo Showing trigger event details
           echo ${{ github.event }}
     
 
