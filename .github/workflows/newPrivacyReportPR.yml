@@ -6,7 +6,7 @@ on:
   push
 
 jobs:
-  createFile
+  createFile:
     build:
       runs-on: ubuntu-latest
       steps:
