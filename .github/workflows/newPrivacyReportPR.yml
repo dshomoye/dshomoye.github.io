@@ -18,8 +18,17 @@ jobs:
         env:
           FILE_CONTENT: ${{ github.event.issue.body }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
+          BRANCH_NAME: mytest
         run: |
           node content/privacy-reports/createPrivacySummaryFile.js
           ls content/privacy-reports
-
-      
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m "Add New Privacy Summary File" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          branch: $BRANCH_NAME
