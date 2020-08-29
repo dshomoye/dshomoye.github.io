@@ -1,0 +1,24 @@
+name: Create PR from Privacy Report Submission
+
+on:
+  issues:
+    types: [opened]
+  push
+
+jobs:
+  createFile
+    build:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+          with:
+            ref: gatsby
+            fetch-depth: 0
+            persist-credentials: false
+        - name: Create summary file
+        run:
+          echo "Showing trigger event details"
+          echo ${{ github.event }}
+    
+
+      
