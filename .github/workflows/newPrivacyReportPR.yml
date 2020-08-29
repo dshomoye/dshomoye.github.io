@@ -19,6 +19,6 @@ jobs:
           FILE_CONTENT: ${{ github.event.issue.body }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
         run: |
-          node src/utils/createPrivacySummaryFile.js
+          node content/privacy-reports/createPrivacySummaryFile.js
 
       
