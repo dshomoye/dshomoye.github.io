@@ -20,6 +20,7 @@ jobs:
         run: |
           echo File Content
           echo $FILE_CONTENT
-          ls
-          
+          echo touch file
+          node -v
+
       
