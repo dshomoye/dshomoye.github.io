@@ -3,7 +3,9 @@ name: Create PR from Privacy Report Submission
 on:
   issues:
     types: [opened]
-  push
+  push:
+    branches:
+      - privacy-sub-form
 
 jobs:
   createFile:
