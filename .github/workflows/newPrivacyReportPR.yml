@@ -17,10 +17,8 @@ jobs:
       - name: Create summary file
         env:
           FILE_CONTENT: ${{ github.event.issue.body }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
         run: |
-          echo File Content
-          echo $FILE_CONTENT
-          echo touch file
-          node -v
+          node src/utils/createPrivacySummaryFile.js
 
       

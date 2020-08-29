@@ -63,7 +63,7 @@ exports.handler = async event => {
     });
 
     const createdIssue = await octokit.issues.create({
-      title: `[TO-PR] Privacy Report Submission ${requestData.siteName}`,
+      title: `[TO-PR] [${requestData.siteName}] Privacy Report Submission.`,
       repo: "dshomoye.github.io",
       owner: "dshomoye",
       body: getSummaryMarkdown(requestData)
