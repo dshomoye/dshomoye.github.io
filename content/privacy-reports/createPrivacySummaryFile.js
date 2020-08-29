@@ -9,7 +9,7 @@ console.log(issueTitle)
 console.log(content)
 
 const match = issueTitle.match(siteNameRegex)
-const siteName = match.length > 1 ? match[1] : null
+const siteName = match && match.length > 1 ? match[1] : null
 if(content && siteName) {
   console.log(`Creating file with content ${siteName}.md`)
   fs.writeFileSync(`${siteName}.md`, content)
