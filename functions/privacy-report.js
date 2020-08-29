@@ -13,12 +13,13 @@ const { Octokit } = require("@octokit/rest");
  * @property {Boolean} crossSiteTracking
  */
 
+const capitalize = string =>  string.charAt(0).toUpperCase() + string.slice(1)
+
 /**
   * 
   * @param {Summary} data 
   */
 const getSummaryMarkdown = data => {
-  const capitalize = string =>  string.charAt(0).toUpperCase() + string.slice(1)
   
   return `
   ---
