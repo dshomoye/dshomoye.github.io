@@ -21,24 +21,23 @@ const capitalize = string =>  string.charAt(0).toUpperCase() + string.slice(1)
   */
 const getSummaryMarkdown = data => {
   
-  return `
-  ---
-  name: ${capitalize(data.siteName)}
-  ratings:
-    locationTracking: ${data.locationTracking ? 1 : 0}
-    dataRetention: ${data.dataRetention ? 1 : 0}
-    userControl: ${data.userControl ? 1 : 0}
-    darkPatterns: ${data.userControl ? 1 : 0}
-    crossSiteTracking: ${data.crossSiteTracking ? 1 : 0}
-  summary: "/privacy-report-card/details/${data.siteName}"
-  reference: "${data.reference}"
-  category: "privacy-report-detail"
-  ---
-  
-  ## ${capitalize(data.siteName)}'s Privacy Policy - Summary
-  
-  ---
-  ${data.summary}
+  return `---
+name: ${capitalize(data.siteName)}
+ratings:
+  locationTracking: ${data.locationTracking ? 1 : 0}
+  dataRetention: ${data.dataRetention ? 1 : 0}
+  userControl: ${data.userControl ? 1 : 0}
+  darkPatterns: ${data.userControl ? 1 : 0}
+  crossSiteTracking: ${data.crossSiteTracking ? 1 : 0}
+summary: "/privacy-report-card/details/${data.siteName}"
+reference: "${data.reference}"
+category: "privacy-report-detail"
+---
+
+## ${capitalize(data.siteName)}'s Privacy Policy - Summary
+
+---
+${data.summary}
   `
 }
 
