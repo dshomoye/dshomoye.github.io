@@ -148,7 +148,19 @@ const Contribute = ({ location, data }) => {
           onChange={handleChange}
         />
       </div>
+      <hr/>
       <div className="form-item">
+        <p>Attribution:</p>
+        <label htmlFor="contributor" className="input-label">
+          Name for attribution (Optional):
+        </label>
+        <input
+          className="styled-input"
+          type="text"
+          name="contributor"
+          placeholder="John Smith"
+          onChange={handleChange}
+        />
         <label htmlFor="email" className="input-label">
           Email (Optional):
         </label>

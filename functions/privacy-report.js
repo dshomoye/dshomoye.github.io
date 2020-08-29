@@ -11,6 +11,8 @@ const { Octokit } = require("@octokit/rest");
  * @property {Boolean} userControl
  * @property {Boolean} darkPatterns
  * @property {Boolean} crossSiteTracking
+ * @property {string} contributor
+ * @property {string} email
  */
 
 const capitalize = string =>  string.charAt(0).toUpperCase() + string.slice(1)
@@ -20,6 +22,11 @@ const capitalize = string =>  string.charAt(0).toUpperCase() + string.slice(1)
   * @param {Summary} data 
   */
 const getSummaryMarkdown = data => {
+
+  let user = 'anonymous'
+  if(data.contributor || data.email){
+    user = `${data.contributor} <${data.email}>`
+  }
   
   return `---
 name: ${capitalize(data.siteName)}
@@ -32,6 +39,7 @@ ratings:
 summary: "/privacy-report-card/details/${data.siteName}"
 reference: "${data.reference}"
 category: "privacy-report-detail"
+contibutors: ${user}
 ---
 
 ## ${capitalize(data.siteName)}'s Privacy Policy - Summary
