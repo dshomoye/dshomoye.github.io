@@ -9,27 +9,27 @@ jobs:
   createFile:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: checkout
+        uses: actions/checkout@v2
         with:
           ref: privacy-sub-form
           fetch-depth: 0
           persist-credentials: false
-      - name: Create summary file
+      - name: create_file
         env:
           FILE_CONTENT: ${{ github.event.issue.body }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
-          BRANCH_NAME: mytest
         run: |
           node content/privacy-reports/createPrivacySummaryFile.js
           ls content/privacy-reports
-      - name: Commit files
+      - name: commit
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
           git commit -m "Add New Privacy Summary File" --allow-empty
-      - name: Push changes
+      - name: push
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.REPO_ACCESS_TOKEN }}
-          branch: ${{ BRANCH_NAME }}
+          branch: ${{ steps.create_file.outputs.BRANCH_NAME }}

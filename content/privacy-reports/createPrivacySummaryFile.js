@@ -9,4 +9,5 @@ if(content && siteName) {
   console.log(`Creating file with content ${siteName}.md`)
   fs.writeFileSync(`content/privacy-reports/${siteName}.md`, content)
   console.log('DONE')
+  console.log(`::set-output name=BRANCH_NAMe::${siteName}`)
 }
