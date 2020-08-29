@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 
 const issueTitle = process.env.ISSUE_TITLE
 const content = process.env.FILE_CONTENT
