@@ -8,7 +8,7 @@ const siteNameRegex = /\[TO-PR\] \[(\w+)\]/
 console.log(issueTitle)
 console.log(content)
 
-const match = issueTitle.match(siteNameRegex)[1]
+const match = issueTitle.match(siteNameRegex)
 const siteName = match.length > 1 ? match[1] : null
 if(content && siteName) {
   console.log(`Creating file with content ${siteName}.md`)
