@@ -3,7 +3,6 @@ name: Create PR from Privacy Report Submission
 on:
   issues:
     types: [opened]
-  push:
 
 jobs:
   createFile:
