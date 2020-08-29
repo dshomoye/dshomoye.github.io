@@ -11,6 +11,6 @@ if(content && siteName) {
   console.log(`Creating file with content ${siteName}.md`)
   fs.writeFileSync(`content/privacy-reports/${siteName}.md`, content)
   console.log('File Content:')
-  console.log(fs.readFileSync(`content/privacy-reports/${siteName}.md`))
+  console.log(fs.readFileSync(`content/privacy-reports/${siteName}.md`, "utf-8"))
   console.log('DONE')
 }
