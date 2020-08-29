@@ -4,11 +4,12 @@ const issueTitle = process.env.ISSUE_TITLE
 const content = process.env.FILE_CONTENT
 
 const siteNameRegex = /\[TO-PR\] \[(\w+)\]/
-const siteName = issueTitle.match(siteNameRegex)[1]
 
 console.log(issueTitle)
 console.log(content)
 
+const match = issueTitle.match(siteNameRegex)[1]
+const siteName = match.length > 1 ? match[1] : null
 if(content && siteName) {
   console.log(`Creating file with content ${siteName}.md`)
   fs.writeFileSync(`${siteName}.md`, content)
