@@ -16,10 +16,9 @@ jobs:
           persist-credentials: false
       - name: Create summary file
         env:
-          DEBUG_DATA: ${{ toJson(github.event) }}
+          FILE_CONTENT: ${{ github.event.issue.body }}
         run: |
-          echo Showing trigger event details
-          echo $DEBUG_DATA
+          echo File Content
+          echo $FILE_CONTENT
     
-
       
