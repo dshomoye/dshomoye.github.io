@@ -30,7 +30,7 @@ const PrivacyReportCard = ({ data, location }) => {
   }
 
   return (
-    <Layout title="Privacy Report Card" location={location} fullWidth>
+    <Layout title={data.site.siteMetadata.title} location={location} fullWidth>
       <SEO title="Privacy Report Card" description="An easy overview and summary of privacy policies of sites across the web." />
       <h2>
         Privacy Report: Summary of privacy policies of (popular) services.

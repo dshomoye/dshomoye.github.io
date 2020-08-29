@@ -20,7 +20,6 @@ jobs:
           ISSUE_TITLE: ${{ github.event.issue.title }}
         run: |
           node content/privacy-reports/createPrivacySummaryFile.js
-          ls content/privacy-reports
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
@@ -29,5 +28,5 @@ jobs:
             committer: Actions Bot <action@github.com>
             author: Actions Bot <action@github.com>
             branch: issue${{ github.event.issue.number }}
-            title: "New Privacy Summary:${{ github.event.issue.number }}"
+            title: "New Privacy Report: #${{ github.event.issue.number }}"
             body: "New Submission from contribution form. closes #${{ github.event.issue.number }}"
