@@ -30,4 +30,4 @@ jobs:
             author: Actions Bot <action@github.com>
             branch: issue${{ github.event.issue.number }}
             title: "New Privacy Summary:${{ github.event.issue.number }}"
-            body: "New Submission from contribution form."
+            body: "New Submission from contribution form. closes #${{ github.event.issue.number }}"
