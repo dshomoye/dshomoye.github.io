@@ -113,7 +113,8 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
+              const blogPosts = allMarkdownRemark.edges.filter((edge => edge.node.parent.sourceInstanceName === "blog"))
+              return blogPosts.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
@@ -136,6 +137,11 @@ module.exports = {
                         title
                         date
                       }
+                      parent {
+                        ... on File {
+                          sourceInstanceName
+                        }
+                      }
                     }
                   }
                 }
@@ -156,6 +162,11 @@ module.exports = {
         allowLocal: false,
       },
     },
-    "gatsby-plugin-sitemap",
+    {
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        exclude: ["/privacy-report-card/", "/privacy-report-card/details/google", "/privacy-report-card/contribute/"]
+      }
+    }
   ],
 }
