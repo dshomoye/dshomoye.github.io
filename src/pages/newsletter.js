@@ -1,18 +1,15 @@
 /* eslint-disable */
 import React, { useState } from "react"
 import Layout from "../components/layout"
-import { graphql, Link } from "gatsby"
+import { graphql, Link } from "gatsby";
+import {BiMailSend} from "react-icons/bi"
 import Lottie from "react-lottie"
 import checkedAnimationData from "../lotties/checked_done.json"
 
 import SEO from "../components/seo"
 import "../styles/Newsletter.css"
+import { encodeFormData } from "../utils";
 
-const encode = data => {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&")
-}
 
 const defaultOptions = {
   loop: false,
@@ -42,7 +39,7 @@ const Newsletter = ({ ...props }) => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({
+      body: encodeFormData({
         "form-name": form.getAttribute("name"),
         ...formData,
       }),
@@ -71,22 +68,11 @@ const Newsletter = ({ ...props }) => {
       <div className="form-heading">
         <p class="hidden">
           <label>
-            Don’t fill this out if you're human: <input name="bot-field" />
+            Don’t fill this out if you're human: <input name="bot-field" onChange={handleChange} />
           </label>
         </p>
         <input type="hidden" name="form-name" value="subscription" />
-        <h1 style={{marginTop: 0}}>
-          Get notified of new updates!{` `}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="26"
-            height="26"
-            fill="var(--textNormal)"
-            viewBox="0 0 25 25"
-          >
-            <path d="M.026 24l11.974-11.607 11.974 11.607h-23.948zm11.964-23.961l-11.99 8.725v12.476l7.352-7.127-5.653-4.113 10.291-7.488 10.309 7.488-5.655 4.108 7.356 7.132v-12.476l-12.01-8.725z" />
-          </svg>{" "}
-        </h1>
+        <h1 style={{marginTop: 0}}>Get notified of new updates! <BiMailSend style={{marginBottom: "-8px"}}/></h1>
       </div>
       <div className="form-item">
         <label htmlFor="email" className="input-label">

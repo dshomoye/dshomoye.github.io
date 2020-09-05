@@ -11,22 +11,27 @@ export const PrivacyReportTableColumns = [
   {
     key: "crossSiteTracking",
     title: "Cross Site Tracking",
+    isRating: true,
   },
   {
     key: "locationTracking",
     title: "Location Tracking",
+    isRating: true,
   },
   {
     key: "dataRetention",
     title: "Data Retentation",
+    isRating: true,
   },
   {
     key: "userControl",
     title: "User Control",
+    isRating: true,
   },
   {
     key: "darkPatterns",
     title: "Dark Patterns",
+    isRating: true,
   },
   {
     key: "reference",

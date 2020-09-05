@@ -1,8 +1,8 @@
 const got = require("got")
 
 exports.handler = async function(event) {
-  const eventData = JSON.parse(event.body)
   try {
+    const eventData = JSON.parse(event.body)
     const response = await got("https://api.sendinblue.com/v3/contacts", {
       json: {
         email: eventData.payload.email,
@@ -22,7 +22,7 @@ exports.handler = async function(event) {
   } catch (error) {
     return {
       statusCode: 500,
-      body: `${error} data: ${JSON.stringify(eventData)}`,
+      body: `${error}`,
     }
   }
 }

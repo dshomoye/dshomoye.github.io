@@ -1,0 +1,32 @@
+name: Create PR from Privacy Report Submission
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  createFile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: privacy-sub-form
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Create File
+        env:
+          FILE_CONTENT: ${{ github.event.issue.body }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+        run: |
+          node content/privacy-reports/createPrivacySummaryFile.js
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+            token: ${{ secrets.REPO_ACCESS_TOKEN }}
+            commit-message: Add Privacy Summary File
+            committer: Actions Bot <action@github.com>
+            author: Actions Bot <action@github.com>
+            branch: issue${{ github.event.issue.number }}
+            title: "New Privacy Report: #${{ github.event.issue.number }}"
+            body: "New Submission from contribution form. closes #${{ github.event.issue.number }}"
