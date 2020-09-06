@@ -183,3 +183,7 @@ code.language-text {
 .honeypot {
     display: none;
 }
+
+.BaseTable__body {
+    background-color: var(--bg);
+}

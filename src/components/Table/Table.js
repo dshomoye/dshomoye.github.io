@@ -11,11 +11,10 @@ const Table = ({ data, rowKey, columns }) => {
   return (
     <div
       style={{
-        minHeight: "35vh",
-        backgroundColor: "var(--bg)",
+        minHeight: "50vh",
+        marginBottom: "25px"
       }}
     >
-      <div style={{ minHeight: "100px", width: "100%" }}>
         <AutoResizer>
           {({ height, width }) => (
             <BaseTable
@@ -25,6 +24,7 @@ const Table = ({ data, rowKey, columns }) => {
               height={height}
               rowKey={rowKey}
               components={components}
+              className="table-container"
             >
               {columns.map(col => (
                 <Column
@@ -40,7 +40,6 @@ const Table = ({ data, rowKey, columns }) => {
             </BaseTable>
           )}
         </AutoResizer>
-      </div>
     </div>
   )
 }
