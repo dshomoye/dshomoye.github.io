@@ -59,8 +59,6 @@ Then, there was the **Chattahoochee** river. We got a pretty good view of the ri
 <media-box src="media/atl-trip/chattahoochee_river.jpg" name="A view of the Chattahooche river" index=2></media-box>
 <media-box src="media/atl-trip/me_on_the_river.jpg" name="A man on the river" index=3></media-box>
 I find it hard to narrate the experience, it being a hike. But the sounds (or lack of it) was just so serene. It really sums up my affinity for hiking. A chance to escape the endless noise of the time we live in. The calming sound of a flowing stream of water? Now, _that’s_ therapy. It’s like having the _Calm_ app, except its all around you, not on your phone (I should add, I think the phone is probably not the appropriate medium for such things but maybe I’ll save that for another time). It was a great experience. Now that I’ve failed to convey what the feeling of being in the calm of nature brings, maybe these pictures below will do a better job.
-Oh, I also took pictures and got some footage with my new drone! It’s my second time flying it!
-<media-box name="The Chattahoochee river from a DJI Mavic Mini" src="media/atl-trip/palisades_footage.mp4" type=video></media-box>
 
 ### Krog Street Market & Beltline
 

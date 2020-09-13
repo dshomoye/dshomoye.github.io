@@ -4,6 +4,7 @@ import PropTypes from "prop-types"
 import { DispatchContext, actionTypes } from "./GalleryContainer"
 
 import { bucketRoot } from "../utils/constants"
+import { getImageSourceSet } from '../utils'
 
 const MediaBox = ({ name, index, src, type, noborder }) => {
   const dispath = useContext(DispatchContext)
@@ -47,8 +48,11 @@ const MediaBox = ({ name, index, src, type, noborder }) => {
     ) : (
       <img
         data-src={mediaSrc}
+        data-sizes="auto"
+        data-srcset={getImageSourceSet(mediaSrc)}
         className={`lazyload ${imgClassName}`}
         alt={name}
+        style={{width: '100%'}}
       />
     )
 
