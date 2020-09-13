@@ -3,7 +3,7 @@ title: How I Built This
 date: "2020-02-18"
 description: "Take a look under the hood."
 bannerImage: "media/how-i-built-this/unsplash_mac_w_code.jpg"
-lastUpdated: "2020-02-29"
+lastUpdated: "2020-09-12"
 tags:
   - "technology"
 ---
@@ -64,13 +64,13 @@ Getting right to it, the major piece of this puzzle is `Gatsby`. This is a reall
 - I write all posts in Markdown (the “markup” portion of “JAM”) and this is converted into html by `gatsby-transformer-remark`
 - I have some non-trivial logic with images and galleries that I put some work into making it clean and reusable (as best as I could). It is all based around `useContext` and `useReducer` hooks in React and _react-image-lightbox_ package for the gallery. I use _rehype-react_ so I can still use my complex image components _inside_ my markdown files. If you know about `mdx` and wonder why I don’t use this. Well, for one, I didn’t even know about MDX when I started using _rehype-react_, and secondly mdx generates one page per markdown file so reusing gatsby logic would be a pain. Right now, I still only have a javascript file for generating all the blog pages. Also, the coupling between the image components that I have right now would just end up with me writing really messy `*.mdx` files. I do not want that, at all. One of my main focus of design was to make sure all of my posts remain in markdown. There’s a lot of benefits but one of the big ones is that I can write on the go. I can write markdown on my phone, but **definitely** not JavaScript. There’s still some pretty important plugins that make things all nice and pretty but they’re mostly plug and play. Everything I use is in my `package.json` file and you’re free to [check it out](https://github.com/dshomoye/dshomoye.github.io/blob/gatsby/package.json)⧉
 
-### Media (Digital Ocean)
-
-My first iteration of this blog had images right next to the markdown files. But, I knew I would be adding videos. And even though I’m “_only_” using an iPhone for photography. The file sizes are still in the megabytes. I _could_ compress but I want the reader to get something a little higher quality than from a regular site. Especially since part of the point of this is a showcase of my experiences. I do not want to compress those experiences. Now, as a good web citizen, I do run _lossless_ compression on the images and also make them progressive with a mac app called `imagemagick`. It has a handy command (`mogrify`) that I just run on an image directory to get these optimized images. There’s probably some way to further reduce the files sizes but this isn’t really where I want to dedicate research time so I’ll stick with this but I’m open to improving. In order to graduate from images in the repo which is bad for several reasons but also just a problem because Github flags repos larger than 1Gb (a trivial limit to hit with media). I decided to use Digital Ocean `spaces`. It’s the cheapest blob storage solution I’ve found and is pretty comparable to AWS S3 feature-wise. There really aren’t a lot of options for free storage (another main goal of this project was to not run a huge bill). The UI is nice enough. And best part, the API is S3-compliant so aws-sdk usage is perfectly fine and I haven’t even had to use this yet. I just use an S3 app called Cyberduck for managing my bucket.
+### Media (Sirv)
+I have moved out of Digital Ocean. I primarily have more words than pictures (although, maybe I could save more time by reversing that?). Anyway, digital ocean spaces aren't free. And for a side project whose main value to me, is something to tinker with, I didn't quite like paying for the digital ocean space. It was up to 50Gb, and I just don't need it. Sirv is limited to 500MB on the free plan, but that will suffice for, well, very long. I will gladly support a good service (in fact, its taken me this long to leave the server because I liked supporting them). My main motivation, was actually not the cost, it was because I really wanted to serve progressive images to devices based on screen sizes. [Sirv](sirv.com) does this for you, all with just a query parameter on the url to the image! Being free, was just the icing on top. It took me 15 minutes, to migrate all media and just update the root url for all media. I'm happier now. I don't have to bother with any local optimizations. Creating images of 240, 600, 1200px just doesn't sound very fun. It's all server-side. Its the kind of plug-and-play I like to see. Lets me focus on what matters to me. 
 
 ### Github Pages
 
-As you may have deducted, the actual code (and “server” for all intents and purposes) is on Github. This is pretty self explanatory. Code must go somewhere. And these days **git** is just analogous for _Github_. If you are unfamiliar with Github pages (how the static files are sent whenever you go to this site in the browser) — the homepage includes an explanatory video. [pages.github.com](https://pages.github.com/)⧉
+This is less relevant. The site is primarily on Netlify, but there is a seconday version on pages, contigency and what-not.
+
 
 ### Google domains
 
@@ -85,8 +85,6 @@ This is my email marketing service. After some light research, it was the best I
 **Update: 03-21**:
 I have decided to remove ticksel analytics from my site. Even though it's a privacy respecting service, ad blockers still consider it a tracking pixel (and technically speaking, it _is_), so I figured I wasn't getting much value out of it. I might resort to setting up my own basic analytics sytem just to have an idea of usage but this site will be 100% tracking free. Huzzah! 😁
 
-### Ticksel
-
-I wanted _some form_ of analytics each page but didn’t want to use any tracking cookies (👀 at you Google analytics). Ticksel is one of the very few sites that offers this, and for free.
-
-That all just about covers everything I’ve done so far. I’ll keep this updated when things change (and they certainly will).
+~~### Ticksel~~
+### Goatcounter
+I use goatcounter, an even leaner alternative to `Ticksel`. I really don't **need** analytics here. But, getting hit count, is kind of nice, making it easy to know what might need to be updated. I _love_ [goatcounter](goatcounter.com), and, it thankfully doesn't get blocked by adblockers; unlike Ticksel, which even though was simple, it evidently wasn't simple enough.

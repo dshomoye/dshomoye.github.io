@@ -34,7 +34,7 @@ class BlogIndex extends React.Component {
                 <div
                   className="lazyload home-article-banner"
                   style={{ height: "100%" }}
-                  data-bg={`${bucketRoot}/${node.frontmatter.bannerImage}`}
+                  data-bg={`${bucketRoot}/${node.frontmatter.bannerImage}?w=900`}
                 />
               </Link>
             )

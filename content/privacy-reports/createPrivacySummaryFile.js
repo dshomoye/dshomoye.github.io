@@ -10,4 +10,6 @@ if(content && siteName) {
   fs.writeFileSync(`content/privacy-reports/${siteName}.md`, content)
   console.log('DONE')
   console.log(`::set-output name=BRANCH_NAME::${siteName}`)
+} else {
+  throw new Error('Cannot create summary file from issue')
 }

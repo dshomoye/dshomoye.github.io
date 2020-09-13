@@ -1,4 +1,4 @@
-export const bucketRoot = "https://dshomoye.nyc3.digitaloceanspaces.com"
+export const bucketRoot = "https://dshomoye.sirv.com"
 
 export const PrivacyReportTableColumns = [
   {
