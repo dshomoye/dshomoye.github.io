@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 
 const SmartLink = ({ href, children }) => {
-  if (href && href.toLowerCase().startsWith("https")) {
+  if (RegExp('^https?://').test(href)) {
     return (
       <a target="_blank" rel="noreferrer" href={href}>
         {children}
