@@ -56,5 +56,5 @@ Also, I know there are better solutions to this problem. For one, a regular web-
 
 Some good references:
 - Netflix Engineering video [video](https://www.youtube.com/watch?v=AslncyG8whg) on rxjs.
-- [rxjs](https://rxjs-dev.firebaseapp.com/guide/overview) provides a good intro. There’s a slight focus on events which wasn’t very appealing to me thinking in a React context, DOM events aren’t hard to listen/subsribe to there. 
+- [rxjs](https://rxjs-dev.firebaseapp.com/guide/overview). 
 - [ReactiveX - Intro](http://reactivex.io/intro.html)
