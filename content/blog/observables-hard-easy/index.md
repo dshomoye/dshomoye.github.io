@@ -52,6 +52,7 @@ One very important property of observables that I am not even taking advantage o
 So, `completedPages` is the number of pages updated, and since there’s already access to the total number of pages. It’s trivial to show the percentage completed.
 And that’s it, a very simple to use Reactivity/Observables.
 I should reiterate this is barely scratching the surface of what’s possible with observables, more a basic intro for *understanding* what they are.
+Also, I know there are better solutions to this problem. For one, a regular web-server can make all the calls and have an endpoint that gets polled to get the progress state. Or, using a Websocket for instant progress pings - I think this is preferable since it will avoid the polling logic - which could lead to a lot of GET calls as well.
 
 Some good references:
 - Netflix Engineering video [video](https://www.youtube.com/watch?v=AslncyG8whg) on rxjs.
