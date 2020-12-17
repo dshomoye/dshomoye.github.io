@@ -5,6 +5,10 @@ description: "The not-so-steep uphill climb to building in Rust."
 bannerImage: "media/trying-rust-lang/cargo.png"
 tags:
   - "technology"
+gallerySources:
+  - caption: "Helpful Rust compiler messages."
+    src: "media/trying-rust-lang/rust-compiler-message.png"
+    type: "image"
 ---
 
 Rust holds the crown for “most-loved” language for [5 years in a row](https://insights.stackoverflow.com/survey/2020#technology-most-loved-dreaded-and-wanted-languages)  according to the stack overflow survey - quite an impressive feat. I actually didn’t *know* Rust was this much beloved until I started writing this post and checked its position. I however, have been wanting to foray into development with WebAssembly (wasm) for sometime. Rust probably has the largest ecosystem for building with WebAssembly. And probably the best suited for wasm over languages like Java or C# (or even GoLang) since they all have garbage collectors and require at least some form of minimal run time to be packaged with the code in order to run. Compiled rust wasm will generally come out smaller than the alternatives since it has no garbage collector - and smaller is **always** better with web apps. 
@@ -64,7 +68,7 @@ I was hoping to find a dedicated IDE for Rust. It seems like it would benefit a 
 Rust’s compiler errors and warnings are probably the most pleasant part of working in Rust when just getting started. I don’t remember the compiler being this friendly the first time I tried Rust (3-ish years ago). It points out exactly where something’s gone wrong and, often, even suggests *how* to fix it. 
 This is an example of one such message that shows in VSCode:
 
-<media-box src="media/trying-rust-lang/rust-compiler-message.png" name="A very helpful message from the Rust compiler."></media-box>
+<media-box src="media/trying-rust-lang/rust-compiler-message.png" name="A very helpful message from the Rust compiler." index=0></media-box>
 
 I can’t stress enough just how much easier this makes things - and this is possibly the most trivial example. There are also a *lot* of compiler flags to warn/error on things like unused imports/dead code, and even fail on missing documentation! Ok maybe, there’s another platform that does it and I don’t know about it but I think Rust`s approach just makes it so … approachable :).
 
