@@ -58,8 +58,6 @@ I am so surprised at how easy it was for me to create a library in Rust. Really,
 
 - - - -
 
-## Thoughts
-
 ### Editor Support:
 
 I was hoping to find a dedicated IDE for Rust. It seems like it would benefit a lot from having a full-fledged environment (like Goland) - there isn't one. But, there is a pretty solid [extension](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust) for VS Code. I was not expecting anything impressive. VSCode is, a code *editor* at the end of the day. And it especially seems to struggle with everything that’s not JavaScript or TypeScript. My main issue is how it slows down with larger code bases, “Go To Definition” sometimes refusing to work. The Rust extension was pretty good. I think an IDE would do even better (and I’m hoping an IntelliJ-like thing comes out eventually). The main issues I ran into were (rare) occasions where hovering a `function`, `Struct`, `method` etc would not show the proper documentation for it, and trying to go to the definition would also not work. Also, lint and error checking always take an extra second to show after saving. So it always feels like the editor is trying to catch up to me. However, once linting and compiling is done, and the messages do show up in the editor— wow, I don’t think I’ve worked with a compiler as helpful as Rust’s.
@@ -82,6 +80,30 @@ Rust has a `match` expression which is like a `switch` statement (or `if/else` )
 Things like `switch` fall-through - which, you know, why? WHY do so many languages have switch statements fall through by default?? (and *require* you use to a `break` - leading to weird bugs in code, because a switch branch is missing a `break`). No more dealing with all that non-sense. `match` to the rescue! What I like the most about `match` is the exhaustiveness of it. If you switch over an enumeration of 3 possible values. And then later the enum is extended to 4. In most languages, the previous code would still work (but could potentially be buggy because of a missing case). With `match` - that missing case is a compile error! These are the kind of edge cases you’d need unit tests for — and now they’re free.
 This really shines when dealing with an `Option`. A wrapper for something that could have a `Some(value)` or be `None`. `match`  forces you to write the code to handle both cases. Every time. So you’ll never accidentally pass a `None` to a place that can’t handle it! (No more `null pointer exceptions`) The same for `Result` (like in the sample code). Ensuring an error is **always** handled. There’s some helper methods for working with these types. But the general rule is: you won’t unintentionally lose and edge case. This is great. It actually frees up more mental real state knowing the compiler has your back that way. 
 
+## Macros
+Macros in Rust were sort of like voodoo the first time I saw it (why is it `println!()` and not `println()`). So I ignored how it works and just *used* it when I needed it. I really came to appreciate the power of macros when I jumped into `yew` and noticed that they had created a `jsx-like` syntax for writing declarative html views.
+There's an `html!` macro that renders html views. In the rickandmorty app, this is a sample macro that renders a single character: 
+
+```rust
+            html! {
+                <li class="character-list-item">
+                    <div class="character-container">
+                        <div>
+                            <img src={copy.image} alt={"image of"} />
+                        </div>
+                        <div>
+                            <p>{copy.name}</p>
+                            <p>{"Status: "} {copy.status}</p>
+                            <p>{"Location:"} {copy.origin.name}</p>
+                        </div>
+                    </div>
+                </li>
+            }
+```
+I haven't written any macros (and I doubt I'll need to anytime soon), but my little trick of understanding them is they're a way of auto-generating code ("meta-programming"). So the macro is "expanded" at compile time into actual rust code (i.e. making all the calls to create the dom elements in the case of `html!`).
+If you say, *why* macros, why not functions? Good question; Rust doesn't have function overloading, or variadic parameters, so in this `html` case where the dom tree structure (the function input) cannot be known before hand, the equivalent function is basically impossible to write. Hence a macro is needed.
+
+
 ### Package Management (Cargo, crates.io, docs.rs)
 Dealing with webpack has to be one of the last things I ever want to do when working in a large JavaScript code base. It’s like it was deliberately designed to be complex (complicated?) and intimidating. I mean, I get that it's actually solving a problem but, it's a pain. CLI tools like vue, angular and create-react-app have made things a lot easier but - those are all framework specific. So whenever there’s a need to do something the defaults aren’t designed for - well, that becomes a rabbit hole. Cargo is what I *expect* a package manager to look like. There’s commands for everything from creating a new rust library or binary, running tests, generating docs, building the code, packaging *and* publishing. 
 
@@ -93,7 +115,7 @@ To reiterate: I’ve only spent a few days with Rust, there are a ton more stuff
 
 My wishlist for Rust long-term:
 - A solid cross platform sdk for building native apps. I generally prefer the speed of native apps versus electron-based apps. But there really aren't a lot of great alternative to electron and JavaScript here (ie. VSCode's unimpressive handling of large files vs Sublime). I think Rust would be a perfect fit.
-- Native DOM apis for wasm. Right now, wasm apps regardless of the language the wasm bundle is written in, still depend on the JS dom api for making changes to UI. So technically, they're not yet any faster than JavaScript. That will (hopefully) eventually change. And when it does; I think the web will become an even more platform for building... everything.
+- Native DOM apis for wasm. Right now, wasm code, regardless of the language, still depends on the JS dom api for making changes to UI. So technically, they're not yet any faster than JavaScript. That will (hopefully) eventually change. And when it does; I think the web will become an even more platform for building... everything.
 
 
 - - - -
