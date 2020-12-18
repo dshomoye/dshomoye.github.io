@@ -15,7 +15,7 @@ Rust holds the crown for “most-loved” language for [5 years in a row](https:
 
 Rust is like C++, but it makes it *much less* painful to deal with memory management and safety by doing the hard work at **compile time**. Just thinking of the many times I got `segfault` writing C++ in college… yikes. This is where Rust shines - while remaining as efficient as C++. I say “efficient”, without any numbers but Google “Rust” and the first sentence should be “Performance.” (Literally, that one-word sentence).
 
-I have *attempted* to learn Rust before, but the first try left me very… confused. I was “fighting the borrow checker” (a key way Rust guarantees memory safety) so I sort of… ~~gave up~~ put it in the backlog - to later try again. Knowing that I wanted to do something (anything) with Rust, my first goal was finding out an “Hello World” program. It was mostly by chance, but I found [yew](https://yew.rs) on [the "realworld" repo](https://github.com/gothinkster/realworld). Yew is a framework for building web apps with Rust.
+I have *attempted* to learn Rust before, but the first try left me very… confused. I was “fighting the borrow checker” (a key way Rust guarantees memory safety) so I sort of… ~~gave up~~ put it in the backlog - to later try again. Knowing that I wanted to do something (anything) with Rust, my first goal was finding out an “Hello World” program. It was mostly by chance, but I found [yew](https://yew.rs) on [the "realworld" repo](https://github.com/gothinkster/realworld). Yew is a framework for building web apps with Rust. I will not write about setting up Rust, the [rust documentation](https://doc.rust-lang.org/book/ch01-00-getting-started.html) is a great resource (and was always my go-to for getting questions answered)
 
 Yew was fairly straightforward to get started with. There’s a sample app in the documentation that I was able to run within minutes. The framework is component based so coming from mostly React, I felt at home - at least from a high level. Components have state and receive props from their parents. I highly recommend reading the yew docs if curious. The documentation is solid. (A very common theme in Rust-land).  
 
@@ -120,6 +120,7 @@ My wishlist for Rust long-term:
 
 - - - -
 ## Useful Links:
+- [Setting up Rust](https://doc.rust-lang.org/book/ch01-00-getting-started.html)
 - [Yew](https://yew.rs)
 - [Create Yew App](https://github.com/jetli/create-yew-app)
 - [rickandmortyapi.com](https://rickandmortyapi.com)
