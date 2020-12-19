@@ -7,12 +7,12 @@ const QuoteBlock = () => {
     const getQuote = async () => {
       try {
         const quoteResponse = await fetch(
-          "https://quote-garden.herokuapp.com/quotes/random"
+          "https://api.quotable.io/random"
         )
         const quoteData = await quoteResponse.json()
         setQuote({
-          author: quoteData.quoteAuthor,
-          text: quoteData.quoteText,
+          author: quoteData.author,
+          text: quoteData.content,
         })
       } catch (e) {
         //NOOP
