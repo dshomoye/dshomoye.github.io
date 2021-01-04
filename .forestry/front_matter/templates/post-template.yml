@@ -1,0 +1,35 @@
+---
+label: Post Template
+hide_body: false
+fields:
+- type: text
+  name: title
+  label: title
+- type: datetime
+  name: date
+  label: date
+- type: text
+  name: description
+  label: description
+- type: field_group_list
+  name: gallerySources
+  label: gallerySources
+  fields:
+  - type: text
+    name: caption
+    label: caption
+  - type: file
+    name: src
+    label: src
+  - type: text
+    name: type
+    label: type
+- type: file
+  name: bannerImage
+  label: bannerImage
+- type: datetime
+  name: lastUpdated
+  label: lastUpdated
+- type: list
+  name: tags
+  label: tags
