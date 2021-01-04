@@ -9,6 +9,8 @@ sections:
   label: Posts
   create: all
   match: "**/*"
+  templates:
+  - post-template
 upload_dir: uploads
 public_path: "/uploads"
 front_matter_path: ''
