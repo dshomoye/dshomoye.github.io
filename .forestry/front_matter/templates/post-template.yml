@@ -4,32 +4,45 @@ hide_body: false
 fields:
 - type: text
   name: title
-  label: title
+  label: Title
+  config:
+    required: true
 - type: datetime
   name: date
-  label: date
+  label: Date
+  config:
+    required: true
+  default: now
 - type: text
   name: description
   label: description
+  config:
+    required: true
 - type: field_group_list
   name: gallerySources
-  label: gallerySources
+  label: Gallery sources
   fields:
   - type: text
     name: caption
     label: caption
-  - type: file
-    name: src
-    label: src
   - type: text
     name: type
     label: type
-- type: file
-  name: bannerImage
-  label: bannerImage
+  - name: src
+    type: text
+    config:
+      required: false
+    label: src
+  config:
+    labelField: caption
 - type: datetime
   name: lastUpdated
   label: lastUpdated
 - type: list
   name: tags
   label: tags
+- name: bannerimage
+  type: text
+  config:
+    required: false
+  label: bannerImage
