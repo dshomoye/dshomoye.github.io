@@ -2,7 +2,7 @@
 title: Hello, Internet, it is I, again.
 date: 2020-01-26
 description: Finally starting a blog, finally.
-lastUpdated: 2020-02-16
+lastUpdated: 2021-01-05T05:00:00Z
 tags:
 - misc
 
