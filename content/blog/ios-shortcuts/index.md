@@ -1,8 +1,7 @@
 ---
 title: It's time to take iOS shortcuts seriously.
 date: 2021-01-03
-description: iOS shortcuts are getting more powerful. I built one for Shazam to open
-  Spotify.
+description: iOS shortcuts are getting more powerful. I built one for Shazam to open Spotify.
 bannerImage: media/ios-shortcuts/shortcut-schedule.png
 tags:
 - technology
