@@ -1,7 +1,8 @@
 ---
 title: It's time to take iOS shortcuts seriously.
 date: 2021-01-03
-description: I think Shortcuts are viable alternatives to some simple iOS applications.
+description: iOS shortcuts are getting more powerful. I built one for Shazam to open
+  Spotify.
 bannerImage: media/ios-shortcuts/shortcut-schedule.png
 tags:
 - technology
@@ -22,7 +23,7 @@ It turns out iOS has way more Shortcut actions than I remember - including one f
 The flow is fairly simple:
 
 * Call the Shazam action which does its magic, identifies a song and returns the result.
-* Use the result to open Spotify. Unfortunately, the result (from Shazam) returned is so tied to Apple ecosystem that it’s not possible to open Spotify directly from it (all the links and track info are Apple Music specific). So I had to find a way to get the Spotify link to the song given its Apple Music info. Luckily, there is a free API ([Songlink](https://www.notion.so/Public-API-d8093b1bb8874f8b85527d985c4f9e68) that does _literally_ that. I found out about the API while digging through the Shazam++.
+* Use the result to open Spotify. Unfortunately, the result (from Shazam) returned is so tied to Apple ecosystem that it’s not possible to open Spotify directly from it (all the links and track info are Apple Music specific). So I had to find a way to get the Spotify link to the song given its Apple Music info. Luckily, there is a free API: [Songlink](https://www.notion.so/Public-API-d8093b1bb8874f8b85527d985c4f9e68), that does _literally_ that. I found out about the API while digging through the Shazam++ shortcut code:
   * Parse the json response (using the `Get dictionary from <>` action) from the song link api to get the Spotify link.
   * Open Spotify
   * ???
