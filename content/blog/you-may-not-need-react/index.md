@@ -1,6 +1,6 @@
 ---
 title: "You may not need React"
-date: "2021-02-7"
+date: "2021-02-07"
 description: "Interactive web pages can be created with libraries that are simpler than React: alpineJS, Svelte; or even no library at all: vanillaJS. "
 bannerImage: "media/you-may-not-need-react/alpine.png"
 tags:
