@@ -1,17 +1,17 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import TagPills from "../components/TagPills"
-import { bucketRoot } from "../utils/constants"
+import ArticleCard from "../components/ArticleCard"
 
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
+    const images = data.allFile.edges
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -19,47 +19,30 @@ class BlogIndex extends React.Component {
         <Bio />
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
-          let banner = null
-          if (node.frontmatter.bannerImage) {
-            banner = (
-              <Link to={node.fields.slug} className="article-item banner-container">
-              <div
-                className="lazyload home-article-banner"
-                style={{ height: "100%" }}
-                data-bg={`${bucketRoot}/${node.frontmatter.bannerImage}?w=900`}
-                />
-              </Link>
-            )
+          let fluid
+          let imageSrc
+          const imageNode = images.find(
+            n => n.node.relativePath === node.frontmatter.bannerImage
+          )
+          if (imageNode) {
+            if(imageNode.node.childImageSharp?.fluid) {
+              fluid = imageNode.node.childImageSharp.fluid
+            } else {
+              imageSrc = imageNode.node.publicURL
+            }
           }
           if (node.parent.sourceInstanceName === "blog") {
             return (
-              <article
-                className="card-article flex"
-                data-sal="slide-up"
-                data-sal-easing="ease"
-                data-sal-duration="700"
+              <ArticleCard
+                title={title}
+                slug={node.fields.slug}
+                date={node.frontmatter.date}
+                excerpt={node.excerpt}
+                tags={node.frontmatter.tags}
+                fluid={fluid}
                 key={node.fields.slug}
-              >
-                <div className="article-item article-content">
-                  <Link className="home-article-link" to={node.fields.slug}>
-                    <header>
-                      <h3>{title}</h3>
-                      <small style={{ backgroundColor: "None" }}>
-                        {node.frontmatter.date}
-                      </small>
-                    </header>
-                    <section>
-                      <p
-                        dangerouslySetInnerHTML={{
-                          __html: node.frontmatter.description || node.excerpt,
-                        }}
-                      />
-                    </section>
-                  </Link>
-                  <TagPills tagNames={node.frontmatter.tags} />
-                </div>
-                {banner}
-              </article>
+                src={imageSrc}
+              />
             )
           }
         })}
@@ -94,6 +77,19 @@ export const pageQuery = graphql`
           parent {
             ... on File {
               sourceInstanceName
+            }
+          }
+        }
+      }
+    }
+    allFile(filter: { extension: { ne: "md" } }) {
+      edges {
+        node {
+          relativePath
+          publicURL
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
             }
           }
         }

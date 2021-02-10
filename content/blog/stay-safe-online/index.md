@@ -2,7 +2,7 @@
 title: "A millenial's guide to staying safe online."
 date: "2020-03-06"
 description: "A few tips and tricks (and some non-trivial steps) to being a responsible citizen of the interwebs."
-bannerImage: "media/stay-safe-online/messaging.gif"
+bannerImage: "messaging.gif"
 lastUpdated: "2020-03-09"
 tags:
   - "life"

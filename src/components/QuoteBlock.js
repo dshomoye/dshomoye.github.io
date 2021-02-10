@@ -26,7 +26,7 @@ const QuoteBlock = () => {
     <>
       <hr />
       <p style={{ fontSize: "small" }}>
-        {" "}
+        <link rel="preconnect" href="https://api.quotable.io"/>
         <strong> {quote.author}: </strong> {quote.text}
       </p>
     </>

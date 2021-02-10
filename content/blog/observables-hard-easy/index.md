@@ -2,7 +2,7 @@
 title: Learning Observables the hard (easy) way 
 date: "2020-10-22"
 description: ReactiveX is the new black.
-bannerImage: "media/observables/reactivex.png"
+bannerImage: "reactivex.png"
 tags:
   - "technology"
 ---

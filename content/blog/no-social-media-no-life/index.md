@@ -3,7 +3,7 @@ title: No Social Media, No LIfe...?
 date: "2020-02-15"
 description: "What has Facebook and Instagram become for us?"
 lastUpdated: "2020-02-16"
-bannerImage: "media/no-sm-no-life/unsplash_social_media.jpg"
+bannerImage: "unsplash_social_media.jpg"
 tags:
   - "life"
 ---

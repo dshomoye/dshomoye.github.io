@@ -46,14 +46,14 @@ class NotFoundPage extends React.Component {
                 I’m a Full-Stack Software Engineer at Splunk; Previously, I was a software engineer at Capital One (they are totally a tech company!).
                 <br />
                 I primarily write in JavaScript and Python, 
-                but I've worked in Go and Java too, and always trying out new languages, like <Link to="/trying-rust-lang">Rust</Link>.
+                but I have worked in Go and Java too, and always trying out new languages, like <Link to="/trying-rust-lang">Rust</Link>.
                 <br />
                 <br />
                 Believe this, I love everything tech. In a “the future is gonna
                 be so awesome” kind of way. All cautiously of course. We have to
                 stay on sky net’s good side.
                 <br />
-                I'm always looking for something new to learn or work on. 
+                I am always looking for something new to learn or work on. 
                 And I occasionally travel, which I hope to return to when regular civilization is restored.
                 <br />
                 Video games are a fun pass time too.

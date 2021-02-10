@@ -2,7 +2,7 @@
 title: "Testing the waters - Thoughts on Rust."
 date: "2020-12-17"
 description: "The not-so-steep uphill climb to building in Rust."
-bannerImage: "media/trying-rust-lang/cargo.png"
+bannerImage: "cargo.png"
 tags:
   - "technology"
 gallerySources:

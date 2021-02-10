@@ -30,7 +30,7 @@ gallerySources:
   - caption: "The Vortex Bar and Grill"
     src: "media/atl-trip/the_vortex.jpg"
     type: "image"
-bannerImage: "media/atl-trip/thumbnails/me_on_the_river.jpg"
+bannerImage: "raging_bull.jpg"
 lastUpdated: "2020-02-10"
 tags:
   - "travel"

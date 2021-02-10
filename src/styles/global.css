@@ -136,6 +136,13 @@ a {
   text-decoration: underline;
 }
 
+.banner-image {
+  height: 100%;
+  width: 100%;
+  border-radius: 15px 15px 0 0;
+  object-fit: cover;
+}
+
 @media (min-width: 600px) {
   .home-article-banner {
     min-height: 300px;
@@ -147,6 +154,10 @@ a {
 
   .article-content {
     order: -2;
+  }
+
+  .banner-image {
+    border-radius: 0 15px 15px 0;
   }
 }
 

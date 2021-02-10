@@ -2,7 +2,7 @@
 title: How I Built This
 date: 2020-02-18
 description: Take a look under the hood.
-bannerImage: media/how-i-built-this/unsplash_mac_w_code.jpg
+bannerImage: unsplash_mac_w_code.jpg
 lastUpdated: 2021-02-06T19:00:00Z
 tags:
 - technology
