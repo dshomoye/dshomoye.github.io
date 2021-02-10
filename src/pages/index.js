@@ -20,21 +20,13 @@ class BlogIndex extends React.Component {
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           let banner = null
-          const articleContentProps = {
-            className: "article-content",
-          }
           if (node.frontmatter.bannerImage) {
-            articleContentProps.className = "article-item article-content"
             banner = (
-              <Link
-                className="home-article-link home-article-banner article-item"
-                to={node.fields.slug}
-                key={node.fields.slug}
-              >
-                <div
-                  className="lazyload home-article-banner"
-                  style={{ height: "100%" }}
-                  data-bg={`${bucketRoot}/${node.frontmatter.bannerImage}?w=900`}
+              <Link to={node.fields.slug} className="article-item banner-container">
+              <div
+                className="lazyload home-article-banner"
+                style={{ height: "100%" }}
+                data-bg={`${bucketRoot}/${node.frontmatter.bannerImage}?w=900`}
                 />
               </Link>
             )
@@ -42,13 +34,13 @@ class BlogIndex extends React.Component {
           if (node.parent.sourceInstanceName === "blog") {
             return (
               <article
-                className="card-article home-card"
+                className="card-article flex"
                 data-sal="slide-up"
                 data-sal-easing="ease"
                 data-sal-duration="700"
                 key={node.fields.slug}
               >
-                <div {...articleContentProps}>
+                <div className="article-item article-content">
                   <Link className="home-article-link" to={node.fields.slug}>
                     <header>
                       <h3>{title}</h3>

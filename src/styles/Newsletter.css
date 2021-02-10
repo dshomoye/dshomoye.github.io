@@ -1,94 +1,95 @@
 .form-container {
-    padding-top: 10%;
-    padding-bottom: 10%;
-    color: var(--textNormal);
-    -webkit-box-shadow: 0px 1px 7px -2px rgba(66,66,66,1);
-    -moz-box-shadow: 0px 1px 7px -2px rgba(66,66,66,1);
-    box-shadow: 0px 1px 7px -2px rgba(66,66,66,1);
-    border-radius: 10px;
-    font-family: 'Varela Round',sans-serif;
-    margin-top: 50px;
-    margin-bottom: 50px;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  color: var(--textNormal);
+  -webkit-box-shadow: 0px 1px 7px -2px rgba(66, 66, 66, 1);
+  -moz-box-shadow: 0px 1px 7px -2px rgba(66, 66, 66, 1);
+  box-shadow: 0px 1px 7px -2px rgba(66, 66, 66, 1);
+  border-radius: 10px;
+  font-family: "Varela Round", sans-serif;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .form-item {
-    margin: 25px;
+  margin: 25px;
 }
 
 .styled-input {
-    padding: 0 15px 0 15px;
-    width: 100%;
-    margin-top: 10px;
-    border-style: none;
-    border-bottom: thin solid var(--textNormal);
-    color: var(--textNormal);
-    background-color: var(--bg);
+  padding: 0 0 0 15px;
+  width: 100%;
+  margin-top: 10px;
+  border-style: none;
+  border-bottom: thin solid var(--textNormal);
+  color: var(--textNormal);
+  background-color: var(--bg);
+  font-size: large;
 }
 
 .styled-checkbox {
-    margin: 0 20px 0 5px;
+  margin: 0 20px 0 5px;
 }
 
 .styled-input:focus {
-    outline: none;
-    padding: 5px;
-    border-bottom: medium solid gray;
+  outline: none;
+  padding: 5px;
+  border-bottom: medium solid gray;
 }
 
 .input-label {
-    font-size: medium;
-    font-family: 'Varela Round',sans-serif;
+  font-size: medium;
+  font-family: "Varela Round", sans-serif;
 }
 
 .form-heading {
-    margin-left: 25px;
-    margin-right: 25px;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 
 .form-heading h2 {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .submit-btn {
-    cursor: pointer;
-    color:white;
-    background-color:black;
-    padding: 10px;
-    border-radius: 10px;
-    width: 100%;
-    margin-top: 30px;
+  cursor: pointer;
+  color: white;
+  background-color: black;
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  margin-top: 30px;
 }
 
 .disabled-submit-btn {
-    background-color: #b5b5b5;
-    cursor: pointer;
-    color:white;
-    padding: 10px;
-    border-radius: 10px;
-    width: 100%;
-    margin-top: 30px;
+  background-color: #b5b5b5;
+  cursor: pointer;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  margin-top: 30px;
 }
 
 .submit-btn:hover {
-    -webkit-box-shadow: 0px 1px 5px -1px rgba(66,66,66,1);
-    -moz-box-shadow: 0px 1px 5px -1px rgba(66,66,66,1);
-    box-shadow: 0px 1px 5px -1px rgba(66,66,66,1);
+  -webkit-box-shadow: 0px 1px 5px -1px rgba(66, 66, 66, 1);
+  -moz-box-shadow: 0px 1px 5px -1px rgba(66, 66, 66, 1);
+  box-shadow: 0px 1px 5px -1px rgba(66, 66, 66, 1);
 }
 
 ::placeholder {
-    color: #b5b5b5;
+  color: #b5b5b5;
 }
 
 .form-btn {
-    text-align: end;
+  text-align: end;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .notice {
-    font-size: x-small;
-    text-align: center;
-    margin: 0;
+  font-size: x-small;
+  text-align: center;
+  margin: 0;
 }
