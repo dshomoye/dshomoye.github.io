@@ -70,15 +70,16 @@ class BlogPostTemplate extends React.Component {
             <header>
               <h1
                 style={{
-                  marginTop: `2.3rem`,
-                  marginBottom: 0,
+                  marginTop: '2rem',
+                  marginBottom: '2rem',
                 }}
               >
                 {post.frontmatter.title}
               </h1>
               <h2
                 style={{
-                  fontSize: "19px",
+                  fontSize: "1rem",
+                  marginBottom: '2*/9rem'
                 }}
               >
                 {post.frontmatter.description}

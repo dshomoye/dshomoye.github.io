@@ -4,7 +4,6 @@ import Image from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import "../styles/about.css"
 
 class NotFoundPage extends React.Component {
   render() {

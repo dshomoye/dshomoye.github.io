@@ -1,24 +1,23 @@
 .items-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .items-container > * {
-    margin: 0.5em;
+  margin: 0.5em;
 }
 
 .notification-btn {
-    background-color: var(--bg);
-    color: var(--textNormal);
-    cursor: pointer;
-    border-radius: 30px;
-    padding: 8px;
-    margin-top: 10px;
+  background-color: var(--bg);
+  color: var(--textNormal);
+  cursor: pointer;
+  border-radius: 30px;
+  padding: 8px;
+  margin-top: 10px;
 }
 
 .notification-btn:hover {
-    box-shadow: 0px 0px 2px var(--shadow);
+  box-shadow: 0px 0px 2px var(--shadow);
 }
