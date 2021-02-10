@@ -146,7 +146,7 @@ a {
   }
 
   .article-content {
-    order: -1;
+    order: -2;
   }
 }
 
@@ -215,5 +215,5 @@ code.language-text {
 }
 
 .banner-container {
-  order: 1;
+  order: -1;
 }
