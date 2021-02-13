@@ -4,6 +4,7 @@ import Image from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import LikeButton from "../components/LikeButton"
 
 class NotFoundPage extends React.Component {
   render() {
@@ -62,6 +63,7 @@ class NotFoundPage extends React.Component {
               </p>
             </section>
           </article>
+          <LikeButton />
         </div>
       </Layout>
     )

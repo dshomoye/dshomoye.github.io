@@ -10,6 +10,7 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import TagPills from "../components/TagPills"
+import LikeButton from "../components/LikeButton"
 
 class BlogPostTemplate extends React.Component {
   constructor(props) {
@@ -101,6 +102,9 @@ class BlogPostTemplate extends React.Component {
                 marginBottom: `2rem`,
               }}
             />
+            <div style={{width: "100%", textAlign: "center"}}>
+              <LikeButton pathname={this.props.path} hostname={window.location.hostname}/>
+            </div>
             <footer>
               <Bio />
             </footer>
