@@ -64,7 +64,7 @@ Here's a working example of an incrementing button in vanilla js.
 
 I consider this a clearer, more explicit code than the react example. It is _exactly_ how the browser works. Creating a non-trivial web page using this vanillajs is a good learning experience; even if for no other reason than understanding how the browser APIs work.
 
-\**This _looks_ like a stateful component in vanilla, but it's definitely not. Based on context, it could be buggy. It's intentionally simple, the point isn't state management. I'm simply highlighting what's _possible_.
+This _looks_ like a stateful component in vanilla, but it's definitely not. Based on context, it could be buggy. It's intentionally simple, the point isn't state management. I'm simply highlighting what's _possible_.
 
 ### AlpineJS
 

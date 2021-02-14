@@ -35,8 +35,8 @@ Here is everything I created to get push notifications running,
 Even though implementing push notifications is (probably equally) a backend and front end endeavor, I ended up spending a lot of time creating this UI component. If you have read my previous posts, you’ll know that I strongly oppose dark patterns (well, I suppose _most_ people do). I definitely wanted to do it right, so it was important to make unsubscribing as easy as subscribing - and I took my time to make sure I accomplished this.
 The component itself is a button that lies in the footer of the page. The basic flow when the button is clicked is:
 
-- If the browser supports push notifications: - request permission to send notifications, if permitted: - create a new subscription and send the subscription data to the backend - change the button to allow the user to unsubscribe. - if request not permitted, show an error alert that
-- if the browser doesn’t support push notifications then nothing shows up.
+- If the browser supports push notifications: - request permission to send notifications, if permitted: - create a new subscription and send the subscription data to the backend - change the button to allow the user to unsubscribe. - if request not permitted, show an error alert.
+- if the browser doesn’t support push notifications, then nothing shows up.
 
 On Safari or any other browser that does not support the Push API, the component returns `null` and nothing renders. There’s one caveat that in Gatsby, “window” isn’t defined at build time (build runs in node) so I had to wrap this check inside another check like so:
 

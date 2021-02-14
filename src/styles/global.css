@@ -10,6 +10,7 @@ body {
   background-color: var(--bg);
   --shadow: #000000;
   font-family: "Varela Round", sans-serif;
+  font-display: swap;
 }
 
 body.dark {
@@ -45,6 +46,16 @@ a {
 
 blockquote {
   color: var(--quote);
+  border-left: 0.5em solid gray;
+  padding-left: 1rem;
+}
+
+ul, ol {
+  line-height: 1.7rem;
+}
+
+ul, ol li {
+  margin: 0.5rem 0
 }
 
 hr {
@@ -212,10 +223,6 @@ code.language-text {
   display: none;
 }
 
-.BaseTable__body {
-  background-color: var(--bg);
-}
-
 .about-container {
   text-align: center;
 }
@@ -227,4 +234,32 @@ code.language-text {
 
 .banner-container {
   order: -1;
+}
+
+.tag-list {
+  line-height: 2.5rem;
+}
+
+.like-btn {
+  font-size: 1.1rem;
+  border-radius: 10px;
+  padding: 0.5rem 0.8rem;
+  border: none;
+  cursor: pointer;
+  margin: 0.5rem auto;
+  color: var(--textNormal);
+  box-shadow: 1px 0px 14px -9px var(--shadow);
+  background: none;
+  transition-property: transform;
+  transition-timing-function: ease;
+  transition-duration: 0.5s;
+}
+
+.like-btn:hover {
+  transform: scale(1.12);
+}
+
+.like-btn-liked {
+  background-color: gray;
+  color: white
 }
