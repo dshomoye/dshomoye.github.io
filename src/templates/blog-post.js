@@ -99,7 +99,7 @@ class BlogPostTemplate extends React.Component {
             <p style={{ fontSize: `0.6rem` }}>{lastUpdated}</p>
             <hr
               style={{
-                marginBottom: `2rem`,
+                marginBottom: `1.5rem`,
               }}
             />
             <div style={{width: "100%", textAlign: "center"}}>
