@@ -25,7 +25,8 @@ const addSubscription = async (subscription) => {
   }
   try {
     const {status, errors} = await client.rawRequest(query, variables)
-    if(status >= 400) {
+    console.log('status, error ', status, errors)
+    if(status >= 300) {
       throw new Error(`Failed to add subscription: ${errors.toString()}`)
     }
     const welcomeMsg = JSON.stringify({
@@ -74,7 +75,7 @@ exports.handler = async function(event) {
     case "POST":
       try {
         const addResponse = await addSubscription(JSON.parse(event.body))
-        console.log("New Subscription added.")
+        console.log("New Subscription handled.")
         return addResponse
       } catch (error) {
         console.error("Error saving subscription ", error)
