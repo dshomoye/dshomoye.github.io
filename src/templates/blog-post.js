@@ -103,7 +103,7 @@ class BlogPostTemplate extends React.Component {
               }}
             />
             <div style={{width: "100%", textAlign: "center"}}>
-              <LikeButton pathname={this.props.path} hostname={window.location.hostname}/>
+              <LikeButton pathname={this.props.path} hostname={this.props.location.hostname}/>
             </div>
             <footer>
               <Bio />
