@@ -14,8 +14,10 @@
   color: var(--textNormal);
   cursor: pointer;
   border-radius: 30px;
-  padding: 8px;
+  padding: 12px;
   margin-top: 10px;
+  font: inherit;
+  border-width: 0.5px;
 }
 
 .notification-btn:hover {
