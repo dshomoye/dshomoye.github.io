@@ -96,7 +96,8 @@ const PushNotification = () => {
             notify.show("An eror occured", "error")
           }
         })
-        .catch(() => {
+        .catch((error) => {
+          console.log(error)
           notify.show(
             "An error occured setting up push notification",
             "warning"
