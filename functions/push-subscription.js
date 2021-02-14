@@ -70,9 +70,7 @@ exports.handler = async function(event) {
   switch (method) {
     case "POST":
       try {
-        const eventData = JSON.parse(event.body)
-        const { endpoint, data } = eventData
-        const addResponse = await addSubscription(data)
+        const addResponse = await addSubscription(JSON.parse(event.body))
         console.log("New Subscription added for: ", endpoint)
         return addResponse
       } catch (error) {
