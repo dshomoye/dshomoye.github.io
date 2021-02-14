@@ -87,7 +87,6 @@ const PushNotification = () => {
           })
           console.log("saving subs ")
           const subSaved = await saveSubscriptionToServer(pushSubscription)
-          console.log("sub saved: ", subSaved)
           if (subSaved) {
             setSubscribed(true)
             localStorage.setItem("PUSH_NOTIFICATION_SUBSCRIBED", "1")
