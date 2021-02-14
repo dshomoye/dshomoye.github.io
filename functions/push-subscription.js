@@ -24,7 +24,10 @@ const addSubscription = async (subscription) => {
     subscription
   }
   try {
-    await client.request(query, variables)
+    const {status, errors} = await client.rawRequest(query, variables)
+    if(status >= 400) {
+      throw new Error(`Failed to add subscription: ${errors.toString()}`)
+    }
     const welcomeMsg = JSON.stringify({
       title: "Awesome!",
       message: "Push Notifications are now enabled.",
@@ -37,8 +40,7 @@ const addSubscription = async (subscription) => {
       }),
     }
   } catch (error) {
-    console.error(error)
-    console.error("error adding subsription: ")
+    console.error("error adding subsription: ", error)
     return {
       statusCode: 500,
       body: `${error}`,
