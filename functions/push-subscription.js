@@ -29,7 +29,7 @@ const addSubscription = async (subscription) => {
       title: "Awesome!",
       message: "Push Notifications are now enabled.",
     })
-    const sent = await pushToSubscription(JSON.parse(data), welcomeMsg)
+    const sent = await pushToSubscription(JSON.parse(subscription), welcomeMsg)
     return {
       statusCode: 201,
       body: JSON.stringify({
