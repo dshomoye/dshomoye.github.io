@@ -37,7 +37,8 @@ const addSubscription = async (subscription) => {
       }),
     }
   } catch (error) {
-    console.error("error adding subsription: ", error)
+    console.error(error)
+    console.error("error adding subsription: ")
     return {
       statusCode: 500,
       body: `${error}`,
@@ -71,7 +72,7 @@ exports.handler = async function(event) {
     case "POST":
       try {
         const addResponse = await addSubscription(JSON.parse(event.body))
-        console.log("New Subscription added for: ", endpoint)
+        console.log("New Subscription added.")
         return addResponse
       } catch (error) {
         console.error("Error saving subscription ", error)
