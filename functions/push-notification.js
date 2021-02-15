@@ -1,11 +1,12 @@
 const { GraphQLClient } = require("graphql-request")
 const webpush = require("web-push")
 
-const faunadbEndpoint = "https://graphql.fauna.com/graphql"
-const faunaKey = process.env.FAUNADB_KEY
-const graphQLClient = new GraphQLClient(faunadbEndpoint, {
+const hasuraEndpoint = "https://dshomoye.hasura.app/v1/graphql"
+const hasuraAdminKey = process.env.HASURA_ADMIN_KEY
+
+const client = new GraphQLClient(hasuraEndpoint, {
   headers: {
-    authorization: `Bearer ${faunaKey}`,
+    "x-hasura-admin-secret": hasuraAdminKey,
   },
 })
 
@@ -30,16 +31,14 @@ const isAuthenticated = event => {
 }
 
 const getAllSubscriptions = async () => {
-  const query = `query {
-    allPushNotificationSubscriptions{
-      data {
-        subscriptionData
-      }
+  const query = `query MyQuery {
+    push_subscriptions {
+      subscription
     }
   }`
   try {
-    const data = await graphQLClient.request(query)
-    const subscriptions = data.allPushNotificationSubscriptions.data
+    const data = await  client.request(query)
+    const subscriptions = data.push_subscriptions
     return subscriptions
   } catch (error) {
     console.error("error getting subs ", error)
@@ -73,8 +72,7 @@ exports.handler = async event => {
     case "POST":
       const subscriptions = await getAllSubscriptions()
       const promises = subscriptions.map(async subscription => {
-        const subData = JSON.parse(subscription.subscriptionData)
-        return await sendPushMsg(subData, event.body)
+        return await sendPushMsg(subscription.subscription, event.body)
       })
       const result = await Promise.all(promises)
       const failed = result.filter(success => !success).length

@@ -4,14 +4,10 @@ import { notify } from "react-notify-toast"
 const subscriptionUrl = "/.netlify/functions/push-subscription"
 
 const saveSubscriptionToServer = async subscription => {
-  const body = JSON.stringify({
-    endpoint: subscription.endpoint,
-    data: JSON.stringify(subscription),
-  })
   try {
     const saveResponse = await fetch(subscriptionUrl, {
       method: "POST",
-      body: body,
+      body: JSON.stringify(subscription),
     })
     if (saveResponse.status === 201) {
       return true
@@ -89,6 +85,7 @@ const PushNotification = () => {
               "BIzWFRNmUmy6ztKkoYNJOaDudQOrbhK5zHDmeCSDX6m3L5yVd5f6Bv3xMPf6A5Cf2-X4pPULKYjL7-ddmLRKcBA"
             ),
           })
+          console.log("saving subs ")
           const subSaved = await saveSubscriptionToServer(pushSubscription)
           if (subSaved) {
             setSubscribed(true)
@@ -98,7 +95,8 @@ const PushNotification = () => {
             notify.show("An eror occured", "error")
           }
         })
-        .catch(() => {
+        .catch((error) => {
+          console.log(error)
           notify.show(
             "An error occured setting up push notification",
             "warning"

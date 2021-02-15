@@ -1,36 +1,42 @@
 const { GraphQLClient } = require("graphql-request")
 const { pushToSubscription } = require("./push-notification")
 
-const faunadbEndpoint = "https://graphql.fauna.com/graphql"
-const faunaKey = process.env.FAUNADB_KEY
+const hasuraEndpoint = "https://dshomoye.hasura.app/v1/graphql"
+const hasuraAdminKey = process.env.HASURA_ADMIN_KEY
 
-const graphQLClient = new GraphQLClient(faunadbEndpoint, {
+const client = new GraphQLClient(hasuraEndpoint, {
   headers: {
-    authorization: `Bearer ${faunaKey}`,
+    "x-hasura-admin-secret": hasuraAdminKey,
   },
 })
 
-const addSubscription = async (endpoint, data) => {
-  const query = `mutation addSubscription {
-        createPushNotificationSubscription(data: {
-          endpoint: "${endpoint}"
-          subscriptionData: ${JSON.stringify(data)}
-        }) {
-          _id
-        }
-      }`
+const addSubscription = async (subscription) => {
+  const query =  `mutation MyMutation($endpoint: String, $subscription: jsonb) {
+    insert_push_subscriptions_one(object: {endpoint: $endpoint, subscription: $subscription}) {
+      endpoint
+      created_at
+      subscription
+      updated_at
+    }
+  }`
+  const variables = {
+    endpoint: subscription.endpoint,
+    subscription
+  }
   try {
-    const res = await graphQLClient.request(query)
-    const id = res.createPushNotificationSubscription._id
+    const {status, errors} = await client.rawRequest(query, variables)
+    console.log('status, error ', status, errors)
+    if(status >= 300) {
+      throw new Error(`Failed to add subscription: ${errors.toString()}`)
+    }
     const welcomeMsg = JSON.stringify({
       title: "Awesome!",
       message: "Push Notifications are now enabled.",
     })
-    const sent = await pushToSubscription(JSON.parse(data), welcomeMsg)
+    const sent = await pushToSubscription(subscription, welcomeMsg)
     return {
       statusCode: 201,
       body: JSON.stringify({
-        id: id,
         sent,
       }),
     }
@@ -44,13 +50,13 @@ const addSubscription = async (endpoint, data) => {
 }
 
 const removeSubscription = async endpoint => {
-  const query = `mutation delSub {
-    deletePushNotificationByEndpoint(endpoint: "${endpoint}"){
-      count
+  const query = `mutation MyMutation {
+    delete_push_subscriptions_by_pk(endpoint: "${endpoint}") {
+      updated_at
     }
   }`
   try {
-    await graphQLClient.request(query)
+    await client.request(query)
     return {
       statusCode: 204,
     }
@@ -68,10 +74,8 @@ exports.handler = async function(event) {
   switch (method) {
     case "POST":
       try {
-        const eventData = JSON.parse(event.body)
-        const { endpoint, data } = eventData
-        const addResponse = await addSubscription(endpoint, data)
-        console.log("New Subscription added for: ", endpoint)
+        const addResponse = await addSubscription(JSON.parse(event.body))
+        console.log("New Subscription handled.")
         return addResponse
       } catch (error) {
         console.error("Error saving subscription ", error)

@@ -48,6 +48,11 @@ blockquote {
   color: var(--quote);
   border-left: 0.5em solid gray;
   padding-left: 1rem;
+  margin: 0;
+}
+
+h2, h3 {
+  margin: 1.5em 0 0.5em;
 }
 
 ul, ol {

@@ -3,7 +3,7 @@ title: How I Built This
 date: 2020-02-18
 description: Take a look under the hood.
 bannerImage: unsplash_mac_w_code.jpg
-lastUpdated: 2021-02-06T19:00:00Z
+lastUpdated: 2021-02-15
 tags:
 - technology
 
@@ -70,7 +70,7 @@ Getting right to it, the major piece of this puzzle is `Gatsby`. This is a reall
 
 ### Media (Sirv)
 
-I have moved out of Digital Ocean. I primarily have more words than pictures (although, maybe I could save more time by reversing that?). Anyway, digital ocean spaces aren't free. And for a side project whose main value to me, is something to tinker with, I didn't quite like paying for the digital ocean space. It was up to 50Gb, and I just don't need it. Sirv is limited to 500MB on the free plan, but that will suffice for, well, very long. I will gladly support a good service (in fact, its taken me this long to leave the server because I liked supporting them). My main motivation, was actually not the cost, it was because I really wanted to serve progressive images to devices based on screen sizes. [Sirv](sirv.com) does this for you, all with just a query parameter on the url to the image! Being free, was just the icing on top. It took me 15 minutes, to migrate all media and just update the root url for all media. I'm happier now. I don't have to bother with any local optimizations. Creating images of 240, 600, 1200px just doesn't sound very fun. It's all server-side. Its the kind of plug-and-play I like to see. Lets me focus on what matters to me.
+I have moved out of Digital Ocean. I primarily have more words than pictures (although, maybe I could save more time by reversing that?). Anyway, digital ocean spaces aren't free. And for a side project whose main value to me, is something to tinker with, I didn't quite like paying for the digital ocean space. It was up to 50Gb, and I just don't need it. Sirv is limited to 500MB on the free plan, but that will suffice for, well, very long. I will gladly support a good service (in fact, its taken me this long to leave the server because I liked supporting them). My main motivation, was actually not the cost, it was because I really wanted to serve progressive images to devices based on screen sizes. [Sirv](https://sirv.com) does this for you, all with just a query parameter on the url to the image! Being free, was just the icing on top. It took me 15 minutes, to migrate all media and just update the root url for all media. I'm happier now. I don't have to bother with any local optimizations. Creating images of 240, 600, 1200px just doesn't sound very fun. It's all server-side. Its the kind of plug-and-play I like to see. Lets me focus on what matters to me.
 
 ### Github Pages
 
@@ -93,4 +93,7 @@ I have decided to remove ticksel analytics from my site. Even though it's a priv
 
 ### Goatcounter
 
-I use goatcounter, an even leaner alternative to `Ticksel`. I really don't **need** analytics here. But, getting hit count, is kind of nice, making it easy to know what might need to be updated. I _love_ [goatcounter](goatcounter.com), and, it thankfully doesn't get blocked by adblockers; unlike Ticksel, which even though was simple, it evidently wasn't simple enough.
+I use goatcounter, an even leaner alternative to `Ticksel`. I really don't **need** analytics here. But, getting hit count, is kind of nice, making it easy to know what might need to be updated. I _love_ [goatcounter](https://goatcounter.com), and, it thankfully doesn't get blocked by adblockers; unlike Ticksel, which even though was simple, it evidently wasn't simple enough.
+
+### Hasura/Heroku
+I recently moved to postgres(on Heroku) as the backend. I conntected [hasura](https://hasura.io). At the moment, this changes nothing, it's essentially a swap for FaunaDB but if I wanted to test an idea out, and it required a database, having this set up will make implementation easier.

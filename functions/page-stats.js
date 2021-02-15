@@ -75,7 +75,6 @@ exports.handler = async event => {
       hostname,
       eventData.action === "remove_like" ? -1 : 1
     )
-    console.log("update page res: ", res)
     return {
       statusCode: 200,
       body: JSON.stringify(res[0]),
