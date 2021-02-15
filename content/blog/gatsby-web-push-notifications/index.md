@@ -3,7 +3,7 @@ title: "Web Push Notifications in Gatsby."
 date: "2020-03-15"
 description: "How I added notifications to this Gatsby blog using service workers and Netlify functions."
 bannerImage: "notification-request.gif"
-lastUpdated: "2021-02-14"
+lastUpdated: "2021-02-15"
 tags:
   - "technology"
 ---
@@ -96,7 +96,7 @@ The subscription is stored as-is. This is easy since postgres supports json/json
 Storing a json string is also valid. This is what I was doing with FaunaDB.
 
 The `endpoint` is always unique for each subscription (per browser); it's perfect as the primary key/id.
-A unique ID is necessary for finding and deleting subscriptions when a user unsubscribes. 
+A unique ID is necessary for finding and deleting subscriptions when a user unsubscribes. In my case, the table storing subscriptions essentially has two columns - one for the subscription data itself (json) and a column for the endpoint.
 
 
 ## (Lambda Powered) Netlify Functions
@@ -105,7 +105,7 @@ I created two Netlify functions ([push-subscription](https://github.com/dshomoye
 ). Netlify functions are basically AWS Lambda functions so if you have experience with that, it’s the same. Create an event handler for HTTP requests -> Process the event -> Send a response.
 
 I use a package called `graph-request` for making graphql requests to hasura, same as I did with Fauna.
-So all that had to be done was respond to POST and DELETE requests and then sending the appropriate query to the GraphQL endpoint.
+So all I needed was respond to POST and DELETE requests and then sending the appropriate query to the GraphQL endpoint.
 Here is what the handler for creating new subscriptions looks like:
 
 ```js
