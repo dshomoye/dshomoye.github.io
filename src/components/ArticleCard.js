@@ -31,13 +31,13 @@ const ArticleCard = ({ title, slug, date, excerpt, tags, fluid, src }) => {
       </div>
       {fluid && (
         <Link to={slug} className="article-item banner-container">
-          <Image className="banner-image" fluid={fluid} />
+          <Image className="banner-image" fluid={fluid} durationFadeIn={100} />
         </Link>
       )}
       {
         src && (
         <Link to={slug} className="article-item banner-container">
-          <img src={src} alt={title} className="banner-image"/>
+          <img data-src={src} alt={title} className="banner-image lazyload"/>
         </Link>
         )
       }
