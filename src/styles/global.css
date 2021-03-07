@@ -165,6 +165,11 @@ a {
   object-fit: cover;
 }
 
+.article-image {
+  /* Safari is not respecting this, only works with important :/ */
+  border-radius: 15px 15px 0 0 !important;
+}
+
 @media (min-width: 600px) {
   .home-article-banner {
     min-height: 300px;
@@ -180,6 +185,11 @@ a {
 
   .banner-image {
     border-radius: 0 15px 15px 0;
+  }
+  
+  .article-image {
+    /* same same */
+    border-radius: 0 15px 15px 0 !important;
   }
 }
 

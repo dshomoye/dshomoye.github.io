@@ -1,14 +1,9 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image";
+import { StaticImage } from "gatsby-plugin-image";
 
 const Bio = () => {
   const data = useStaticQuery(graphql`query BioQuery {
-  avatar: file(absolutePath: {regex: "/damola.png/"}) {
-    childImageSharp {
-      gatsbyImageData(width: 50, height: 50, layout: FIXED)
-    }
-  }
   site {
     siteMetadata {
       author
@@ -26,8 +21,8 @@ const Bio = () => {
         alignItems: `center`,
       }}
     >
-      <GatsbyImage
-        image={data.avatar.childImageSharp.gatsbyImageData}
+      <StaticImage
+        src="../../content/assets/damola.png"
         alt={author}
         style={{
           marginRight: `0.7rem`,
@@ -35,6 +30,8 @@ const Bio = () => {
           minWidth: 50,
           borderRadius: `100%`,
         }}
+        width={50}
+        height={50}
         imgStyle={{
           borderRadius: `50%`,
         }} />

@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image";
+import { StaticImage } from "gatsby-plugin-image";
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -11,7 +11,6 @@ class NotFoundPage extends React.Component {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const author = data.site.siteMetadata.author
-    const imageSharp = data.avatar.childImageSharp.gatsbyImageData
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -23,8 +22,8 @@ class NotFoundPage extends React.Component {
             data-sal-easing="ease"
             data-sal-duration="700"
           >
-            <GatsbyImage
-              image={imageSharp}
+            <StaticImage
+              src="../../content/assets/damola.png"
               alt={author}
               style={{
                 minWidth: 50,
@@ -76,11 +75,6 @@ export const pageQuery = graphql`{
     siteMetadata {
       title
       author
-    }
-  }
-  avatar: file(absolutePath: {regex: "/damola.png/"}) {
-    childImageSharp {
-      gatsbyImageData(width: 150, height: 150, layout: FIXED)
     }
   }
 }

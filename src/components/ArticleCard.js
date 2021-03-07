@@ -1,10 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
 import TagPills from "./TagPills"
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image"
 
 const ArticleCard = ({ title, slug, date, excerpt, tags, fluid, src }) => {
-
   return (
     <article
       className="card-article flex"
@@ -31,18 +30,21 @@ const ArticleCard = ({ title, slug, date, excerpt, tags, fluid, src }) => {
       </div>
       {fluid && (
         <Link to={slug} className="article-item banner-container">
-          <GatsbyImage image={fluid} className="banner-image" durationFadeIn={100} />
+          <GatsbyImage
+            image={fluid}
+            className="banner-image"
+            durationFadeIn={100}
+            imgClassName="article-image"
+          />
         </Link>
       )}
-      {
-        src && (
+      {src && (
         <Link to={slug} className="article-item banner-container">
-          <img data-src={src} alt={title} className="banner-image lazyload"/>
+          <img data-src={src} alt={title} className="banner-image lazyload" />
         </Link>
-        )
-      }
+      )}
     </article>
-  );
+  )
 }
 
 export default ArticleCard
