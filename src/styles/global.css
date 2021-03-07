@@ -11,6 +11,12 @@ body {
   --shadow: #000000;
   font-family: "Varela Round", sans-serif;
   font-display: swap;
+  /* deckgo code  */
+  --deckgo-highlight-code-padding	: 5px 16px;
+  --deckgo-highlight-code-font-size: 1.13rem;
+  --deckgo-highlight-code-line-padding: 50px;
+  --deckgo-highlight-code-white-space: pre;
+  --deckgo-highlight-code-line-height: 1.5;
 }
 
 body.dark {
@@ -179,10 +185,6 @@ a {
 
 .gatsby-highlight {
   font-size: 0.7em;
-}
-
-code.language-text {
-  font-size: 0.8em;
 }
 
 .blue-pill {

@@ -7,15 +7,22 @@ const LikeButton = ({ pathname, hostname }) => {
   const payload = { pathname, hostname }
 
   useEffect(() => {
-    fetch("/.netlify/functions/page-stats", {
-      method: "POST",
-      body: JSON.stringify({
-        action: "get_likes",
-        payload,
-      }),
-    }).then(res => {
-      res.json().then(r => setLikes(r.likes))
-    })
+    const f = async () => {
+      try {
+        const res = await fetch("/.netlify/functions/page-stats", {
+          method: "POST",
+          body: JSON.stringify({
+            action: "get_likes",
+            payload,
+          }),
+        })
+        const r = await res.json()
+        setLikes(r.likes)
+      } catch {
+        setLikes(0)
+      }
+    }
+    f()
   }, [])
 
   const toggle = () => {

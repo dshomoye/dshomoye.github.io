@@ -12,6 +12,9 @@ import SEO from "../components/seo"
 import TagPills from "../components/TagPills"
 import LikeButton from "../components/LikeButton"
 
+import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
+deckDeckGoHighlightElement();
+
 class BlogPostTemplate extends React.Component {
   constructor(props) {
     super(props)

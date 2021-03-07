@@ -1,4 +1,3 @@
-import "prismjs/themes/prism-tomorrow.css"
 import "lazysizes"
 import "lazysizes/plugins/unveilhooks/ls.unveilhooks"
 import "./src/styles/global.css"

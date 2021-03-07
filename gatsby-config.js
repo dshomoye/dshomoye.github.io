@@ -48,7 +48,12 @@ module.exports = {
               directory: `${__dirname}`,
             },
           },
-          `gatsby-remark-prismjs`,
+          {
+            resolve: `gatsby-remark-highlight-code`,
+            options: {
+              theme: 'one-dark',
+            }
+          },
           `gatsby-remark-smartypants`,
         ],
       },
