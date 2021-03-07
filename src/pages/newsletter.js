@@ -1,9 +1,10 @@
 /* eslint-disable */
-import React, { useState } from "react"
+import React, { useState, Suspense, lazy } from "react"
 import Layout from "../components/layout"
 import { graphql, Link } from "gatsby";
-import {BiMailSend} from "react-icons/bi"
-import Lottie from "react-lottie"
+import { BiMailSend } from "react-icons/bi"
+const Lottie = lazy(() => import("react-lottie"))
+
 import checkedAnimationData from "../lotties/checked_done.json"
 
 import SEO from "../components/seo"
@@ -24,6 +25,7 @@ const Newsletter = ({ ...props }) => {
   // 0: notSubmit, 1: submitting, 2: submitted, 3: failed
   const [submit, setSubmit] = useState(0)
   const [formData, setFormData] = useState({})
+  const isSSR = typeof window === "undefined"
 
   const handleChange = e => {
     setFormData({
@@ -72,7 +74,7 @@ const Newsletter = ({ ...props }) => {
           </label>
         </p>
         <input type="hidden" name="form-name" value="subscription" />
-        <h1 style={{marginTop: 0}}>Get notified of new updates! <BiMailSend style={{marginBottom: "-8px"}}/></h1>
+        <h1 style={{ marginTop: 0 }}>Get notified of new updates! <BiMailSend style={{ marginBottom: "-8px" }} /></h1>
       </div>
       <div className="form-item">
         <label htmlFor="email" className="input-label">
@@ -112,10 +114,11 @@ const Newsletter = ({ ...props }) => {
   const confirmation = (
     <>
       <h1>Thanks!</h1>
-      <p>
-        <Lottie options={defaultOptions} height={250} width={250} /> Email
-        subscription confirmed.
+      {!isSSR && <Suspense fallback={<p>Email Subscription confirmed.</p>}>
+        <p>
+          <Lottie options={defaultOptions} height={250} width={250} /> Email subscription confirmed.
       </p>
+      </Suspense>}
       <p>
         <Link to="/"> Return Home. </Link>
       </p>
