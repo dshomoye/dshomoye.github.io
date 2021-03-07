@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react";
+import {AiOutlineLike} from "react-icons/ai"
 
 const LikeButton = ({ pathname, hostname }) => {
   const [likes, setLikes] = useState("...")
@@ -61,7 +62,7 @@ const LikeButton = ({ pathname, hostname }) => {
       className={`like-btn ${liked && "like-btn-liked"}`}
       onClick={toggle}
     >
-      <span style={{ margin: "0 0.5rem" }}>👍🏾</span> {likes}
+      <span style={{ margin: "0 0.5rem" }}>{<AiOutlineLike />}</span> {likes}
     </button>
   )
 }

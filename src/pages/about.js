@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import Image from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -11,7 +11,7 @@ class NotFoundPage extends React.Component {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const author = data.site.siteMetadata.author
-    const imageSharp = data.avatar.childImageSharp.fixed
+    const imageSharp = data.avatar.childImageSharp.gatsbyImageData
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -23,8 +23,8 @@ class NotFoundPage extends React.Component {
             data-sal-easing="ease"
             data-sal-duration="700"
           >
-            <Image
-              fixed={imageSharp}
+            <GatsbyImage
+              image={imageSharp}
               alt={author}
               style={{
                 minWidth: 50,
@@ -32,8 +32,7 @@ class NotFoundPage extends React.Component {
               }}
               imgStyle={{
                 borderRadius: `50%`,
-              }}
-            />
+              }} />
           </div>
           <article
             className="card-article about-card"
@@ -66,26 +65,23 @@ class NotFoundPage extends React.Component {
           <LikeButton />
         </div>
       </Layout>
-    )
+    );
   }
 }
 
 export default NotFoundPage
 
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-        author
-      }
-    }
-    avatar: file(absolutePath: { regex: "/damola.png/" }) {
-      childImageSharp {
-        fixed(width: 150, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
-      }
+export const pageQuery = graphql`{
+  site {
+    siteMetadata {
+      title
+      author
     }
   }
+  avatar: file(absolutePath: {regex: "/damola.png/"}) {
+    childImageSharp {
+      gatsbyImageData(width: 150, height: 150, layout: FIXED)
+    }
+  }
+}
 `

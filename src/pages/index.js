@@ -25,8 +25,8 @@ class BlogIndex extends React.Component {
             n => n.node.relativePath === node.frontmatter.bannerImage
           )
           if (imageNode) {
-            if(imageNode.node.childImageSharp?.fluid) {
-              fluid = imageNode.node.childImageSharp.fluid
+            if(imageNode.node.childImageSharp?.gatsbyImageData) {
+              fluid = imageNode.node.childImageSharp.gatsbyImageData
             } else {
               imageSrc = imageNode.node.publicURL
             }
@@ -47,53 +47,50 @@ class BlogIndex extends React.Component {
           }
         })}
       </Layout>
-    )
+    );
   }
 }
 
 export default BlogIndex
 
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
+export const pageQuery = graphql`{
+  site {
+    siteMetadata {
+      title
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            description
-            bannerImage
-            tags
-          }
-          parent {
-            ... on File {
-              sourceInstanceName
-            }
-          }
+  }
+  allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
+    edges {
+      node {
+        excerpt
+        fields {
+          slug
         }
-      }
-    }
-    allFile(filter: { extension: { ne: "md" } }) {
-      edges {
-        node {
-          relativePath
-          publicURL
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          description
+          bannerImage
+          tags
+        }
+        parent {
+          ... on File {
+            sourceInstanceName
           }
         }
       }
     }
   }
+  allFile(filter: {extension: {ne: "md"}}) {
+    edges {
+      node {
+        relativePath
+        publicURL
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH)
+        }
+      }
+    }
+  }
+}
 `

@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import TagPills from "./TagPills"
-import Image from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const ArticleCard = ({ title, slug, date, excerpt, tags, fluid, src }) => {
 
@@ -31,7 +31,7 @@ const ArticleCard = ({ title, slug, date, excerpt, tags, fluid, src }) => {
       </div>
       {fluid && (
         <Link to={slug} className="article-item banner-container">
-          <Image className="banner-image" fluid={fluid} durationFadeIn={100} />
+          <GatsbyImage image={fluid} className="banner-image" durationFadeIn={100} />
         </Link>
       )}
       {
@@ -42,7 +42,7 @@ const ArticleCard = ({ title, slug, date, excerpt, tags, fluid, src }) => {
         )
       }
     </article>
-  )
+  );
 }
 
 export default ArticleCard

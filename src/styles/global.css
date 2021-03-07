@@ -239,6 +239,11 @@ a {
   margin-top: -35px;
 }
 
+.about-image {
+  width: 150px;
+  margin: auto;
+}
+
 .banner-container {
   order: -1;
 }
