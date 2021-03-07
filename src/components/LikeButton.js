@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import {AiOutlineLike} from "react-icons/ai"
+import React, { useEffect, useState } from "react"
+import { AiOutlineLike } from "react-icons/ai"
 
 const LikeButton = ({ pathname, hostname }) => {
   const [likes, setLikes] = useState("...")
@@ -29,7 +29,7 @@ const LikeButton = ({ pathname, hostname }) => {
   const toggle = () => {
     if (!Number.isInteger(likes)) return
     if (!liked) {
-      setLikes(l => l + 1)
+      setLikes((l) => l + 1)
       setLiked(true)
       fetch("/.netlify/functions/page-stats", {
         method: "POST",
@@ -40,7 +40,7 @@ const LikeButton = ({ pathname, hostname }) => {
       })
     } else {
       setLiked(false)
-      setLikes(l => {
+      setLikes((l) => {
         if (l > 0) {
           return l - 1
         }

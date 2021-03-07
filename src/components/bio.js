@@ -1,16 +1,17 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image";
+import { StaticImage } from "gatsby-plugin-image"
 
 const Bio = () => {
-  const data = useStaticQuery(graphql`query BioQuery {
-  site {
-    siteMetadata {
-      author
+  const data = useStaticQuery(graphql`
+    query BioQuery {
+      site {
+        siteMetadata {
+          author
+        }
+      }
     }
-  }
-}
-`)
+  `)
 
   const { author } = data.site.siteMetadata
   return (
@@ -34,12 +35,16 @@ const Bio = () => {
         height={50}
         imgStyle={{
           borderRadius: `50%`,
-        }} />
+        }}
+      />
       <p style={{ marginBottom: 0 }}>
-        By <Link to="/about"><strong>{author}</strong></Link>
+        By{" "}
+        <Link to="/about">
+          <strong>{author}</strong>
+        </Link>
       </p>
     </div>
-  );
+  )
 }
 
 export default Bio

@@ -15,22 +15,25 @@ const NotFoundPage = (props) => {
     <Layout location={props.location} title={siteTitle}>
       <SEO title="404: Not Found" />
       <Link to="/">
-        {!isSSR && <Suspense fallback={<h3>Page was not found...</h3>}>
-          <Lottie options={{
-            loop: true,
-            autoplay: true,
-            animationData,
-            rendererSettings: {
-              preserveAspectRatio: "xMidYMid slice",
-            },
-          }} />
-        </Suspense>}
+        {!isSSR && (
+          <Suspense fallback={<h3>Page was not found...</h3>}>
+            <Lottie
+              options={{
+                loop: true,
+                autoplay: true,
+                animationData,
+                rendererSettings: {
+                  preserveAspectRatio: "xMidYMid slice",
+                },
+              }}
+            />
+          </Suspense>
+        )}
         <p>This page is not real, you imagined it.</p>
         <p>Go Home.</p>
       </Link>
     </Layout>
   )
-
 }
 
 export default NotFoundPage

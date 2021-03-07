@@ -11,7 +11,7 @@ const client = new GraphQLClient(hasuraEndpoint, {
 })
 
 const addSubscription = async (subscription) => {
-  const query =  `mutation MyMutation($endpoint: String, $subscription: jsonb) {
+  const query = `mutation MyMutation($endpoint: String, $subscription: jsonb) {
     insert_push_subscriptions_one(object: {endpoint: $endpoint, subscription: $subscription}) {
       endpoint
       created_at
@@ -21,12 +21,12 @@ const addSubscription = async (subscription) => {
   }`
   const variables = {
     endpoint: subscription.endpoint,
-    subscription
+    subscription,
   }
   try {
-    const {status, errors} = await client.rawRequest(query, variables)
-    console.log('status, error ', status, errors)
-    if(status >= 300) {
+    const { status, errors } = await client.rawRequest(query, variables)
+    console.log("status, error ", status, errors)
+    if (status >= 300) {
       throw new Error(`Failed to add subscription: ${errors.toString()}`)
     }
     const welcomeMsg = JSON.stringify({
@@ -49,7 +49,7 @@ const addSubscription = async (subscription) => {
   }
 }
 
-const removeSubscription = async endpoint => {
+const removeSubscription = async (endpoint) => {
   const query = `mutation MyMutation {
     delete_push_subscriptions_by_pk(endpoint: "${endpoint}") {
       updated_at
@@ -69,7 +69,7 @@ const removeSubscription = async endpoint => {
   }
 }
 
-exports.handler = async function(event) {
+exports.handler = async function (event) {
   const method = event.httpMethod
   switch (method) {
     case "POST":

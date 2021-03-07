@@ -33,8 +33,8 @@ module.exports = {
           {
             resolve: "gatsby-remark-component",
             options: {
-              components: ["media-box"]
-            }
+              components: ["media-box"],
+            },
           },
           {
             resolve: `gatsby-remark-autolink-headers`,
@@ -51,8 +51,8 @@ module.exports = {
           {
             resolve: `gatsby-remark-highlight-code`,
             options: {
-              theme: 'one-dark',
-            }
+              theme: "one-dark",
+            },
           },
           `gatsby-remark-smartypants`,
         ],
@@ -106,8 +106,10 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
-              const blogPosts = allMarkdownRemark.edges.filter((edge => edge.node.parent.sourceInstanceName === "blog"))
-              return blogPosts.map(edge => {
+              const blogPosts = allMarkdownRemark.edges.filter(
+                (edge) => edge.node.parent.sourceInstanceName === "blog"
+              )
+              return blogPosts.map((edge) => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
@@ -157,6 +159,6 @@ module.exports = {
     },
     {
       resolve: "gatsby-plugin-sitemap",
-    }
+    },
   ],
 }

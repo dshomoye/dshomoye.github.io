@@ -22,10 +22,10 @@ class BlogIndex extends React.Component {
           let fluid
           let imageSrc
           const imageNode = images.find(
-            n => n.node.relativePath === node.frontmatter.bannerImage
+            (n) => n.node.relativePath === node.frontmatter.bannerImage
           )
           if (imageNode) {
-            if(imageNode.node.childImageSharp?.gatsbyImageData) {
+            if (imageNode.node.childImageSharp?.gatsbyImageData) {
               fluid = imageNode.node.childImageSharp.gatsbyImageData
             } else {
               imageSrc = imageNode.node.publicURL
@@ -47,50 +47,51 @@ class BlogIndex extends React.Component {
           }
         })}
       </Layout>
-    );
+    )
   }
 }
 
 export default BlogIndex
 
-export const pageQuery = graphql`{
-  site {
-    siteMetadata {
-      title
+export const pageQuery = graphql`
+  {
+    site {
+      siteMetadata {
+        title
+      }
     }
-  }
-  allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
-    edges {
-      node {
-        excerpt
-        fields {
-          slug
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            description
+            bannerImage
+            tags
+          }
+          parent {
+            ... on File {
+              sourceInstanceName
+            }
+          }
         }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
-          bannerImage
-          tags
-        }
-        parent {
-          ... on File {
-            sourceInstanceName
+      }
+    }
+    allFile(filter: { extension: { ne: "md" } }) {
+      edges {
+        node {
+          relativePath
+          publicURL
+          childImageSharp {
+            gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
           }
         }
       }
     }
   }
-  allFile(filter: {extension: {ne: "md"}}) {
-    edges {
-      node {
-        relativePath
-        publicURL
-        childImageSharp {
-          gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
-        }
-      }
-    }
-  }
-}
 `

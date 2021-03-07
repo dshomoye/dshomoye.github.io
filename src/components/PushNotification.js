@@ -3,7 +3,7 @@ import { notify } from "react-notify-toast"
 
 const subscriptionUrl = "/.netlify/functions/push-subscription"
 
-const saveSubscriptionToServer = async subscription => {
+const saveSubscriptionToServer = async (subscription) => {
   try {
     const saveResponse = await fetch(subscriptionUrl, {
       method: "POST",
@@ -18,7 +18,7 @@ const saveSubscriptionToServer = async subscription => {
   }
 }
 
-const removeSubscriptionFromServer = async subscriptionEndpoint => {
+const removeSubscriptionFromServer = async (subscriptionEndpoint) => {
   try {
     const delResponse = await fetch(subscriptionUrl, {
       method: "DELETE",
@@ -62,7 +62,7 @@ const PushNotification = () => {
     notify.hide()
     const hasPermission = await hasNotificationPermission()
     if (pushSupported() && "serviceWorker" in navigator && hasPermission) {
-      const urlBase64ToUint8Array = base64String => {
+      const urlBase64ToUint8Array = (base64String) => {
         const padding = "=".repeat((4 - (base64String.length % 4)) % 4)
         const base64 = (base64String + padding)
           .replace(/-/g, "+")
@@ -78,7 +78,7 @@ const PushNotification = () => {
       }
       setWorking(true)
       navigator.serviceWorker.ready
-        .then(async swRegistration => {
+        .then(async (swRegistration) => {
           const pushSubscription = await swRegistration.pushManager.subscribe({
             userVisibleOnly: true,
             applicationServerKey: urlBase64ToUint8Array(
@@ -113,7 +113,7 @@ const PushNotification = () => {
     if (pushSupported() && subscribed) {
       setWorking(true)
       navigator.serviceWorker.ready
-        .then(async swRegistration => {
+        .then(async (swRegistration) => {
           const subscription = await swRegistration.pushManager.getSubscription()
           await subscription.unsubscribe()
           removeSubscriptionFromServer(subscription.endpoint).then(() => {
@@ -121,7 +121,7 @@ const PushNotification = () => {
             notify.show("Push notifications disabled", "success")
           })
         })
-        .catch(e => {
+        .catch((e) => {
           //NOOP
         })
       setSubscribed(false)
@@ -139,7 +139,7 @@ const PushNotification = () => {
   useEffect(() => {
     //always update sw
     if (pushSupported() && "serviceWorker" in navigator) {
-      navigator.serviceWorker.ready.then(swRegistration =>
+      navigator.serviceWorker.ready.then((swRegistration) =>
         swRegistration.update()
       )
     }

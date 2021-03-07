@@ -1,4 +1,4 @@
-self.addEventListener("push", event => {
+self.addEventListener("push", (event) => {
   const notifcationOptions = { title: "Damola's Blog" }
   if (event.data) {
     notifcationOptions.message = event.data.text()
@@ -19,7 +19,7 @@ self.addEventListener("push", event => {
   )
 })
 
-self.addEventListener("notificationclick", event => {
+self.addEventListener("notificationclick", (event) => {
   event.notification.close()
   const url = "https://dshomoye.dev"
   clients.openWindow(url)
