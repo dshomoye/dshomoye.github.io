@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { AiOutlineLike } from "react-icons/ai"
 
 const LikeButton = ({ pathname, hostname }) => {
   const [likes, setLikes] = useState("...")
@@ -7,21 +8,28 @@ const LikeButton = ({ pathname, hostname }) => {
   const payload = { pathname, hostname }
 
   useEffect(() => {
-    fetch("/.netlify/functions/page-stats", {
-      method: "POST",
-      body: JSON.stringify({
-        action: "get_likes",
-        payload,
-      }),
-    }).then(res => {
-      res.json().then(r => setLikes(r.likes))
-    })
+    const f = async () => {
+      try {
+        const res = await fetch("/.netlify/functions/page-stats", {
+          method: "POST",
+          body: JSON.stringify({
+            action: "get_likes",
+            payload,
+          }),
+        })
+        const r = await res.json()
+        setLikes(r.likes)
+      } catch {
+        setLikes(0)
+      }
+    }
+    f()
   }, [])
 
   const toggle = () => {
     if (!Number.isInteger(likes)) return
     if (!liked) {
-      setLikes(l => l + 1)
+      setLikes((l) => l + 1)
       setLiked(true)
       fetch("/.netlify/functions/page-stats", {
         method: "POST",
@@ -32,7 +40,7 @@ const LikeButton = ({ pathname, hostname }) => {
       })
     } else {
       setLiked(false)
-      setLikes(l => {
+      setLikes((l) => {
         if (l > 0) {
           return l - 1
         }
@@ -54,7 +62,7 @@ const LikeButton = ({ pathname, hostname }) => {
       className={`like-btn ${liked && "like-btn-liked"}`}
       onClick={toggle}
     >
-      <span style={{ margin: "0 0.5rem" }}>👍🏾</span> {likes}
+      <span style={{ margin: "0 0.5rem" }}>{<AiOutlineLike />}</span> {likes}
     </button>
   )
 }

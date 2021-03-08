@@ -4,9 +4,9 @@ date: 2020-01-26
 description: Finally starting a blog, finally.
 lastUpdated: 2021-01-05T05:00:00Z
 tags:
-- misc
-
+  - misc
 ---
+
 So I'm taking yet another stab at my blog. I really want to have a way or narrating my thoughts, experiences and anything that I find interesting enough to write about, and since I have dedicated to the no-Facebook life, I have very limited options left. Perhaps, this _is_ the only option considering the amount of freedom I wish to have. So here it is.
 Which reminds me, I should have post(s) on _my_ experience living in 2020 without any (Facebook powered) social media. So lookout for that.
 

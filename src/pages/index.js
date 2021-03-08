@@ -22,11 +22,11 @@ class BlogIndex extends React.Component {
           let fluid
           let imageSrc
           const imageNode = images.find(
-            n => n.node.relativePath === node.frontmatter.bannerImage
+            (n) => n.node.relativePath === node.frontmatter.bannerImage
           )
           if (imageNode) {
-            if(imageNode.node.childImageSharp?.fluid) {
-              fluid = imageNode.node.childImageSharp.fluid
+            if (imageNode.node.childImageSharp?.gatsbyImageData) {
+              fluid = imageNode.node.childImageSharp.gatsbyImageData
             } else {
               imageSrc = imageNode.node.publicURL
             }
@@ -54,7 +54,7 @@ class BlogIndex extends React.Component {
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query {
+  {
     site {
       siteMetadata {
         title
@@ -88,9 +88,7 @@ export const pageQuery = graphql`
           relativePath
           publicURL
           childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
           }
         }
       }

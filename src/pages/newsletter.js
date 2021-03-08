@@ -1,15 +1,15 @@
 /* eslint-disable */
-import React, { useState } from "react"
+import React, { useState, Suspense, lazy } from "react"
 import Layout from "../components/layout"
-import { graphql, Link } from "gatsby";
-import {BiMailSend} from "react-icons/bi"
-import Lottie from "react-lottie"
+import { graphql, Link } from "gatsby"
+import { BiMailSend } from "react-icons/bi"
+const Lottie = lazy(() => import("react-lottie"))
+
 import checkedAnimationData from "../lotties/checked_done.json"
 
 import SEO from "../components/seo"
 import "../styles/Newsletter.css"
-import { encodeFormData } from "../utils";
-
+import { encodeFormData } from "../utils"
 
 const defaultOptions = {
   loop: false,
@@ -24,15 +24,16 @@ const Newsletter = ({ ...props }) => {
   // 0: notSubmit, 1: submitting, 2: submitted, 3: failed
   const [submit, setSubmit] = useState(0)
   const [formData, setFormData] = useState({})
+  const isSSR = typeof window === "undefined"
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     })
   }
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     setSubmit(1)
     e.preventDefault()
     const form = e.target
@@ -47,7 +48,7 @@ const Newsletter = ({ ...props }) => {
       .then(() => {
         setSubmit(2)
       })
-      .catch(error => {
+      .catch((error) => {
         setSubmit(3)
       })
   }
@@ -68,11 +69,15 @@ const Newsletter = ({ ...props }) => {
       <div className="form-heading">
         <p class="hidden">
           <label>
-            Don’t fill this out if you're human: <input name="bot-field" onChange={handleChange} />
+            Don’t fill this out if you're human:{" "}
+            <input name="bot-field" onChange={handleChange} />
           </label>
         </p>
         <input type="hidden" name="form-name" value="subscription" />
-        <h1 style={{marginTop: 0}}>Get notified of new updates! <BiMailSend style={{marginBottom: "-8px"}}/></h1>
+        <h1 style={{ marginTop: 0 }}>
+          Get notified of new updates!{" "}
+          <BiMailSend style={{ marginBottom: "-8px" }} />
+        </h1>
       </div>
       <div className="form-item">
         <label htmlFor="email" className="input-label">
@@ -112,10 +117,14 @@ const Newsletter = ({ ...props }) => {
   const confirmation = (
     <>
       <h1>Thanks!</h1>
-      <p>
-        <Lottie options={defaultOptions} height={250} width={250} /> Email
-        subscription confirmed.
-      </p>
+      {!isSSR && (
+        <Suspense fallback={<p>Email Subscription confirmed.</p>}>
+          <p>
+            <Lottie options={defaultOptions} height={250} width={250} /> Email
+            subscription confirmed.
+          </p>
+        </Suspense>
+      )}
       <p>
         <Link to="/"> Return Home. </Link>
       </p>

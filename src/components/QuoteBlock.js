@@ -6,9 +6,7 @@ const QuoteBlock = () => {
   useEffect(() => {
     const getQuote = async () => {
       try {
-        const quoteResponse = await fetch(
-          "https://api.quotable.io/random"
-        )
+        const quoteResponse = await fetch("https://api.quotable.io/random")
         const quoteData = await quoteResponse.json()
         setQuote({
           author: quoteData.author,
@@ -26,7 +24,7 @@ const QuoteBlock = () => {
     <>
       <hr />
       <p style={{ fontSize: "small" }}>
-        <link rel="preconnect" href="https://api.quotable.io"/>
+        <link rel="preconnect" href="https://api.quotable.io" />
         <strong> {quote.author}: </strong> {quote.text}
       </p>
     </>

@@ -45,7 +45,7 @@ const updatePageLike = async (pathname, hostname, by = 1) => {
   return res.update_page_stats.returning
 }
 
-exports.handler = async event => {
+exports.handler = async (event) => {
   const eventData = JSON.parse(event.body)
   if (eventData.action === "get_likes") {
     const { pathname, hostname } = eventData.payload

@@ -11,6 +11,12 @@ body {
   --shadow: #000000;
   font-family: "Varela Round", sans-serif;
   font-display: swap;
+  /* deckgo code  */
+  --deckgo-highlight-code-padding	: 5px 16px;
+  --deckgo-highlight-code-font-size: 1.13rem;
+  --deckgo-highlight-code-line-padding: 50px;
+  --deckgo-highlight-code-white-space: pre;
+  --deckgo-highlight-code-line-height: 1.5;
 }
 
 body.dark {
@@ -159,6 +165,11 @@ a {
   object-fit: cover;
 }
 
+.article-image {
+  /* Safari is not respecting this, only works with important :/ */
+  border-radius: 15px 15px 0 0 !important;
+}
+
 @media (min-width: 600px) {
   .home-article-banner {
     min-height: 300px;
@@ -175,14 +186,15 @@ a {
   .banner-image {
     border-radius: 0 15px 15px 0;
   }
+  
+  .article-image {
+    /* same same */
+    border-radius: 0 15px 15px 0 !important;
+  }
 }
 
 .gatsby-highlight {
   font-size: 0.7em;
-}
-
-code.language-text {
-  font-size: 0.8em;
 }
 
 .blue-pill {
@@ -235,6 +247,11 @@ code.language-text {
 .about-card {
   padding: 2rem;
   margin-top: -35px;
+}
+
+.about-image {
+  width: 150px;
+  margin: auto;
 }
 
 .banner-container {

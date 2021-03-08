@@ -64,9 +64,9 @@ For notifying on the status of the subscription, I decided to use `react-notify-
 
 ## Database
 
-There are many options for a database for storing subscriptions. I used FaunaDB and it worked out fine. I didn't want to keep working with FQL (Fauna's query language): 
-I just recently migrated to Hasura at [hasura.io](https://hasura.io). This is slightly less straightfoward to set up (hasura is fronting a postgres db running on heroku). 
-I do find it easier to work with hasua's UI and graphql engine (for me) than FQL. 
+There are many options for a database for storing subscriptions. I used FaunaDB and it worked out fine. I didn't want to keep working with FQL (Fauna's query language):
+I just recently migrated to Hasura at [hasura.io](https://hasura.io). This is slightly less straightfoward to set up (hasura is fronting a postgres db running on heroku).
+I do find it easier to work with hasua's UI and graphql engine (for me) than FQL.
 
 Some options to consider for a database:
 
@@ -76,11 +76,12 @@ Some options to consider for a database:
 - dynamodb
 
 Really, any kind of persistent data store that can satisfy the following will suffice:
-- Storing the subscription data, 
-- fetching all subscriptions (when sending notifications)
-- pulling an individual subscription by its id. 
 
-The *shape* (JavaScript object) of the subscriptions is:
+- Storing the subscription data,
+- fetching all subscriptions (when sending notifications)
+- pulling an individual subscription by its id.
+
+The _shape_ (JavaScript object) of the subscriptions is:
 
 ```js
 {
@@ -92,12 +93,12 @@ The *shape* (JavaScript object) of the subscriptions is:
   }
 }
 ```
-The subscription is stored as-is. This is easy since postgres supports json/jsonb. 
+
+The subscription is stored as-is. This is easy since postgres supports json/jsonb.
 Storing a json string is also valid. This is what I was doing with FaunaDB.
 
 The `endpoint` is always unique for each subscription (per browser); it's perfect as the primary key/id.
 A unique ID is necessary for finding and deleting subscriptions when a user unsubscribes. In my case, the table storing subscriptions essentially has two columns - one for the subscription data itself (json) and a column for the endpoint.
-
 
 ## (Lambda Powered) Netlify Functions
 

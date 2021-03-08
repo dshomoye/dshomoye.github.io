@@ -1,13 +1,14 @@
 ---
 title: You may not need React
 date: 2021-02-07
-description: 'Interactive web pages can be created with libraries that are simpler
-  than React: alpineJS, Svelte; or even no library at all: vanillaJS. '
+description:
+  "Interactive web pages can be created with libraries that are simpler
+  than React: alpineJS, Svelte; or even no library at all: vanillaJS. "
 bannerImage: alpine.png
 tags:
-- technology
-
+  - technology
 ---
+
 I think React is currently the [_de facto_ UI library](https://trends.google.com/trends/explore?cat=31&q=Vue.js,React,Angular) for web development. And for good reason. It’s _relatively_ high-performance and easy to learn, and more importantly, has a large ecosystem around it. Just about anything you want to create, there's a good chance someone's made it, and has it available as a package. But React is not perfect and not always the right choice. This is an exploration of libraries I’ve used and I consider to be, in certain cases, better alternatives.
 
 ### Going React…less?
@@ -17,17 +18,17 @@ I still primarily use react, I am confidently productive writing in the hooks/fu
 For the most basic "sample" app: this is what a react component that has a counter looks like:
 
 ```js
-import { useState } from "react";
+import { useState } from "react"
 
 export default function App({ name }) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
   return (
     <div className="App">
       <p>My name is {name}</p>
       <h1>Button Clicked: {count} times</h1>
-      <button onClick={() => setCount(count => count + 1)}>Add 1</button>
+      <button onClick={() => setCount((count) => count + 1)}>Add 1</button>
     </div>
-  );
+  )
 }
 ```
 
@@ -49,14 +50,14 @@ Here's a working example of an incrementing button in vanilla js.
       <button id="click">Add 1</button>
     </div>
     <script>
-      const btn = document.getElementById("click");
-      const label = document.getElementById("label");
-      let clicked = 0;
+      const btn = document.getElementById("click")
+      const label = document.getElementById("label")
+      let clicked = 0
 
       btn.addEventListener("click", () => {
-        clicked += 1;
-        label.innerText = `Button clicked :${clicked} times`;
-      });
+        clicked += 1
+        label.innerText = `Button clicked :${clicked} times`
+      })
     </script>
   </body>
 </html>
@@ -89,9 +90,10 @@ This is a working example of a stateful component (click counter). This, just li
 ```html
 <html>
   <head>
-    <script 
+    <script
       src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
-      defer></script>
+      defer
+    ></script>
   </head>
   <body>
     <div x-data="clicks()" id="click-counter">
@@ -104,10 +106,10 @@ This is a working example of a stateful component (click counter). This, just li
       return {
         clicked: 0,
         get text() {
-          return `Button Clicked ${this.clicked} times`;
+          return `Button Clicked ${this.clicked} times`
         },
-        increment: () => this.clicked += 1
-      };
+        increment: () => (this.clicked += 1),
+      }
     }
   </script>
 </html>
@@ -123,15 +125,15 @@ For example, to create a stateful component in svelte looks like:
 
 ```html
 <script>
-	count = 0 // declare state
-	export name = ""; // this is a prop
-	const increment = () => count += 1;
+  count = 0 // declare state
+  export name = ""; // this is a prop
+  const increment = () => count += 1;
 </script>
 
 <div>
-	<p>My name is {name}</p>
-	<p>count: {count} </p>
-  <button on:click={increment}>Add 1</button>
+  <p>My name is {name}</p>
+  <p>count: {count}</p>
+  <button on:click="{increment}">Add 1</button>
 </div>
 ```
 

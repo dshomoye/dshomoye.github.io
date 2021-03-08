@@ -12,6 +12,9 @@ import SEO from "../components/seo"
 import TagPills from "../components/TagPills"
 import LikeButton from "../components/LikeButton"
 
+import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader"
+deckDeckGoHighlightElement()
+
 class BlogPostTemplate extends React.Component {
   constructor(props) {
     super(props)
@@ -20,7 +23,7 @@ class BlogPostTemplate extends React.Component {
     this.closeGalleryModal = this.closeGalleryModal.bind(this)
   }
 
-  setAndOpenGallery (index) {
+  setAndOpenGallery(index) {
     if (index !== null) {
       this.setState({
         galleryIndex: index,
@@ -29,7 +32,7 @@ class BlogPostTemplate extends React.Component {
     }
   }
 
-  closeGalleryModal () {
+  closeGalleryModal() {
     this.setState({
       ...this.state,
       galleryModalIsOpen: false,
@@ -71,8 +74,8 @@ class BlogPostTemplate extends React.Component {
             <header>
               <h1
                 style={{
-                  marginTop: '2rem',
-                  marginBottom: '2rem',
+                  marginTop: "2rem",
+                  marginBottom: "2rem",
                 }}
               >
                 {post.frontmatter.title}
@@ -80,7 +83,7 @@ class BlogPostTemplate extends React.Component {
               <h2
                 style={{
                   fontSize: "1rem",
-                  marginBottom: '2*/9rem'
+                  marginBottom: "2*/9rem",
                 }}
               >
                 {post.frontmatter.description}
@@ -102,8 +105,11 @@ class BlogPostTemplate extends React.Component {
                 marginBottom: `1.5rem`,
               }}
             />
-            <div style={{width: "100%", textAlign: "center"}}>
-              <LikeButton pathname={this.props.path} hostname={this.props.location.hostname}/>
+            <div style={{ width: "100%", textAlign: "center" }}>
+              <LikeButton
+                pathname={this.props.path}
+                hostname={this.props.location.hostname}
+              />
             </div>
             <footer>
               <Bio />
