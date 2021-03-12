@@ -148,9 +148,10 @@ const PushNotification = () => {
   if (!pushSupported()) {
     return null
   }
-  const btnText = subscribed
+  let btnText = subscribed
     ? "Unsubscribe from push notifications"
     : "Enable push notifications"
+  btnText = working ? '...' : btnText
   const callback = subscribed ? unsubscribe : createSubscription
 
   return (
