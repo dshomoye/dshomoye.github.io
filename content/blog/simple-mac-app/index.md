@@ -1,8 +1,8 @@
 ---
-title: "Bootstrapping a Simple Mac app is … not simple"
-date: "2021-03-10"
+title: "Bootstrapping a simple Mac app can be hard."
+date: "2021-03-11"
 description: "There is a lot of options for writing a Mac GUI app. I tested a few of them, this is a recap of how it went."
-bannerImage: "pywebview.png"
+bannerImage: "finder.png"
 tags:
   - "technology"
 ---
