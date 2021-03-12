@@ -23,6 +23,7 @@ const ThemeSwitch = () => {
               checked={theme === "dark"}
               id="themeswitch"
               aria-label="themeswitch"
+              tabIndex={0}
             />
             <span className="slider round"></span> <br />
           </label>

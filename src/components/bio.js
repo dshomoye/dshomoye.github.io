@@ -40,7 +40,7 @@ const Bio = () => {
       <p style={{ marginBottom: 0 }}>
         By{" "}
         <Link to="/about">
-          <strong>{author}</strong>
+          <strong tabIndex={0}>{author}</strong>
         </Link>
       </p>
     </div>

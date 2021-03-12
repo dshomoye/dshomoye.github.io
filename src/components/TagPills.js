@@ -27,7 +27,7 @@ const TagPills = ({ tagNames }) => {
     return (
       <div className="post-tag-pill" key={index}>
         <Link to={`/tags/${tagName}`} className="tag-link">
-          <p className={`post-tag ${pillMap[tagName].class}`}>
+          <p className={`post-tag ${pillMap[tagName].class}`} tabIndex={0}>
             {pillMap[tagName].icon} {tagName}
           </p>
         </Link>
