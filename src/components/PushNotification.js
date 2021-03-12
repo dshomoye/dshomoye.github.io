@@ -85,14 +85,15 @@ const PushNotification = () => {
               "BIzWFRNmUmy6ztKkoYNJOaDudQOrbhK5zHDmeCSDX6m3L5yVd5f6Bv3xMPf6A5Cf2-X4pPULKYjL7-ddmLRKcBA"
             ),
           })
-          console.log("saving subs ")
           const subSaved = await saveSubscriptionToServer(pushSubscription)
           if (subSaved) {
             setSubscribed(true)
             localStorage.setItem("PUSH_NOTIFICATION_SUBSCRIBED", "1")
             notify.show("Push subscription confirmed", "success")
+            setWorking(false)
           } else {
             notify.show("An eror occured", "error")
+            setWorking(false)
           }
         })
         .catch((error) => {
@@ -101,11 +102,11 @@ const PushNotification = () => {
             "An error occured setting up push notification",
             "warning"
           )
+          setWorking(false)
         })
     } else {
       notify.show("Notifications not allowed.", "error")
     }
-    setWorking(false)
   }
 
   const unsubscribe = async () => {
@@ -119,14 +120,14 @@ const PushNotification = () => {
           removeSubscriptionFromServer(subscription.endpoint).then(() => {
             localStorage.setItem("PUSH_NOTIFICATION_SUBSCRIBED", "0")
             notify.show("Push notifications disabled", "success")
+            setWorking(false)
           })
         })
         .catch((e) => {
-          //NOOP
+          setWorking(false)
         })
       setSubscribed(false)
     }
-    setWorking(false)
   }
 
   useEffect(() => {
