@@ -152,11 +152,16 @@ const PushNotification = () => {
   let btnText = subscribed
     ? "Unsubscribe from push notifications"
     : "Enable push notifications"
-  btnText = working ? 'busy...' : btnText
+  btnText = working ? "busy..." : btnText
   const callback = subscribed ? unsubscribe : createSubscription
 
   return (
-    <button className="notification-btn" onClick={callback} disabled={working}>
+    <button
+      className="notification-btn"
+      onClick={callback}
+      disabled={working}
+      tabIndex={0}
+    >
       {btnText}
     </button>
   )
