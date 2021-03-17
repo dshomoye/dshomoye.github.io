@@ -15,7 +15,7 @@ This might sound counter-intuitive. Personally, I don't avoid tracking in and of
 
 > Scrobble: To publish one's music-listening habits to the Internet via software, in order to track when and how often certain songs are played. [Wiki](https://en.wiktionary.org/wiki/scrobble)
 
-I want scrobbling, for **everything**. Digital events (watching a movie/show, reading a book ...) and anything else I want. Unfortunately, currently, only LastFM offers a way to scrobble (they coined the term); only music streams are supported; and it's always public. 
+I want scrobbling, for **everything**. Digital events (watching a movie/show, reading a book ...) and anything else I want. Unfortunately, currently, only LastFM offers a way to scrobble <sup>[1](#notes)</sup> (they coined the term); only music streams are supported; and it's always public. 
 
 ### Centralization: 
 Scrobbling is not a catch-all for any service that lets your log your streams from your music player. It's sending your streams *to LastFM*. If Last FM changes anything about their service, or it goes out, there's no where else to go. So if scrobbling will ever be cool again, it has be an open/generalized concept. Something anyone can implement. For example, I must be able to scrobble (my Netflix watch history, Spotify streams etc) to one scrobbling service, and then later on, choose to migrate to a, maybe self-hosted version? - and it would all continue to work.
@@ -26,7 +26,7 @@ I want this fictional scrobble service to allow users to choose *who* they want 
 ## But Why?
 
 ### Power to the people
-Letting user's *own* their data, I think, is a great way to disrupt the targeted ad-economy. I don't hate ads. I appreciate the value of marketing. But there's just this thin (or maybe not so thin) line that whenever is crossed in an ad makes rather uneasy. *Creepy*. Those ads are usually more annoying than "influencing" me. I don't have control over *how* granular I want ads I see are. It's either random ads or targeted ads. It'll be much better if each person gets decide what part of their life is public and monetized and what they want to keep to themselves, for however long they want.
+Letting user's *own* their data, I think, might be a way to disrupt targeted ads. I don't hate ads. I appreciate the value of marketing. But there's just this thin (or maybe not so thin) line that when is crossed in an ad makes rather uneasy. *Creepy*. Those ads are usually more annoying than "influencing" me. I don't have control over *how* granular I want ads I see are. It's either random ads or targeted ads. It'll be much better if each person gets decide what part of their life is public and monetized and what they want to keep to themselves, for however long they want.
 
 ### Time Machine. 
 This is a harder sell but it is my main motivation for this idea. I want to have a reference when someone asks me the last good movie I saw on Hulu and I can't, for the life of me, remember.
@@ -36,9 +36,11 @@ I mean, how cool would it be to have a stream of my activities like:
 - worked on blog post draft at ...
 - Watched Paradise PD (~~don't~~ watch this show) on Netflix....
 
-And I would have that stream auto-populated and visible to me. I could have "books read" set to auto share. This is pretty much like an automated journal. But, having it be a "standard" format everybody does it would be awesome. I can see friend's "music streams" regardless of their provider. Or books read even if it's a ~~bootlegged~~ epub. I can get a summary of my month, year; life in review. Or of someone else's, if they've chosen to share
+And I would have that stream auto-populated and visible to me. I could have "books read" set to auto share. This is pretty much like an automated journal. But, having it be a "standard" format everybody does it would be awesome. I can see friend's "music streams" regardless of their provider. Or books read, even if it's a ~~bootlegged~~ epub. I can get a summary of my month, year; life in review. Or of someone else's, if they've chosen to share
 
 It’s hard to get people to willingly and *explicitly* volunteer what they eat, watch, listen to, where they go to, all be put together in …some tech-thing. Of course, with a good amount of trust built up, some people will. On the flip side, a lot of us are currently *implicitly* giving all this data away. If we could put together what the popular apps/services have on us - what I’ve listed here would be insignificant. So maybe, in a way: This is sorta kinda probable? One can dream. 
 
 
 
+## Misc.
+1) There are alternative stream scrobbling, like [wavy.fm](https://wavy.fm) with *less* functionality and mostly the same issues as LastFM. LastFM is **THE** scrobbling service.
