@@ -9,7 +9,7 @@ tags:
   - technology
 ---
 
-I think React is currently the [_de facto_ UI library](https://trends.google.com/trends/explore?cat=31&q=Vue.js,React,Angular) for web development. And for good reason. It’s _relatively_ high-performance and easy to learn, and more importantly, has a large ecosystem around it. Just about anything you want to create, there's a good chance someone's made it, and has it available as a package. But React is not perfect and not always the right choice. This is an exploration of libraries I’ve used and I consider to be, in certain cases, better alternatives.
+I think React is currently the [_default_ UI library](https://trends.google.com/trends/explore?cat=31&q=Vue.js,React,Angular) for web development. And for good reason. It’s _relatively_ high-performance and easy to learn, and more importantly, has a large ecosystem around it. Just about anything you want to create, there's a good chance someone's made it, and has it available as a package. But React is not perfect and not always the right choice. This is an exploration of libraries I’ve used and I consider to be, in certain cases, better alternatives.
 
 ### Going React…less?
 

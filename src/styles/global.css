@@ -2,8 +2,8 @@
 
 body {
   --bg: white;
-  --textNormal: #222;
-  --textTitle: #222;
+  --textNormal: rgb(60, 60, 60);
+  --textTitle: rgb(60, 60, 60);
   --textLink: rgb(16, 16, 54);
   --hr: hsla(0, 0%, 0%, 0.2);
   --quote: #474747;
@@ -23,7 +23,7 @@ body.dark {
   -webkit-font-smoothing: antialiased;
 
   --bg: rgb(29, 28, 28);
-  --textNormal: rgba(255, 255, 255, 0.88);
+  --textNormal: rgb(199, 199, 199);
   --textTitle: white;
   --textLink: yellow;
   --quote: #ababab;
