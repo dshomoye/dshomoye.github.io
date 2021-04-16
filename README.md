@@ -5,6 +5,10 @@
 
 [Live version](https://dshomoye.dev), running `gatsby` branch.
 
+- Running on Netlify with a couple lambda functions serving as the backend
+- Postgres on Heroku with Hasura
+- a longer-than-I’d-like list of [dependencies](package.json) (thanks Gatsby! /s)
+
 ## Development
 Must have `gatsby-cli` installed to run the package scripts
 
