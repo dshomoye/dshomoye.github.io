@@ -1,7 +1,6 @@
 ## My Gatsby powered blog.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/428bfc02-50ae-4481-adf2-50765cddb5f6/deploy-status)](https://app.netlify.com/sites/dshomoye/deploys)
-![Gatsby GH Pages Publish](https://github.com/dshomoye/dshomoye.github.io/workflows/Gatsby%20GH%20Pages%20Publish/badge.svg)
 
 [Live version](https://dshomoye.dev), running `gatsby` branch.
 
