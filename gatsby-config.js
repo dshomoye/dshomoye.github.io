@@ -10,6 +10,7 @@ module.exports = {
     social: {
       twitter: `dhamoh_6`,
     },
+    keywords: ['blog', 'tech', 'gatsby', 'travel', 'jamstack']
   },
   plugins: [
     {
