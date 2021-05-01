@@ -1,6 +1,7 @@
 name: Gatsby GH Pages Publish
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - gatsby
