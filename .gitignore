@@ -72,8 +72,3 @@ yarn-error.log
 .netlify
 functions/package-lock.json
 package-lock.json
-
-
-#local configs
-.obsidian/
-content/blog/.com.greenworldsoft.syncfolderspro
