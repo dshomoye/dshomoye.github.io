@@ -10,12 +10,11 @@ const ThemeSwitch = () => {
         <div
           style={{
             fontSize: "0.7em",
-            display: "flex",
             alignItems: "center",
             justifyContent: "center",
           }}
         >
-          {theme === "dark" ? "" : "Join the..."}
+          <p className="switchText">{theme === "dark" ? "...Dark Side" : "Join the..."}</p>
           <label className="switch">
             <input
               type="checkbox"
@@ -27,7 +26,6 @@ const ThemeSwitch = () => {
             />
             <span className="slider round"></span> <br />
           </label>
-          {theme === "dark" ? "...Dark Side" : ""}
         </div>
       )}
     </ThemeToggler>
