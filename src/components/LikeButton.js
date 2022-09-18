@@ -1,6 +1,16 @@
 import React, { useEffect, useState } from "react"
 import { AiOutlineLike } from "react-icons/ai"
 
+const forceInt = (n) => {
+  if (typeof n === "number") {
+    return n
+  }
+  if (typeof n === "string") {
+    return parseInt(n)
+  }
+  return 0
+}
+
 const LikeButton = ({ pathname, hostname }) => {
   const [likes, setLikes] = useState("...")
   const [liked, setLiked] = useState(false)
@@ -18,7 +28,7 @@ const LikeButton = ({ pathname, hostname }) => {
           }),
         })
         const r = await res.json()
-        setLikes(r.likes)
+        setLikes(forceInt(r.likes))
       } catch {
         setLikes(0)
       }
@@ -27,7 +37,6 @@ const LikeButton = ({ pathname, hostname }) => {
   }, [])
 
   const toggle = () => {
-    if (!Number.isInteger(likes)) return
     if (!liked) {
       setLikes((l) => l + 1)
       setLiked(true)
