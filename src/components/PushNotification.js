@@ -76,9 +76,9 @@ const PushNotification = () => {
         }
         return outputArray
       }
-      setWorking(true)
       navigator.serviceWorker.ready
-        .then(async (swRegistration) => {
+      .then(async (swRegistration) => {
+          setWorking(true)
           const pushSubscription = await swRegistration.pushManager.subscribe({
             userVisibleOnly: true,
             applicationServerKey: urlBase64ToUint8Array(
@@ -103,7 +103,7 @@ const PushNotification = () => {
             "warning"
           )
           setWorking(false)
-        })
+        }).finally(() => setWorking(false))
     } else {
       notify.show("Notifications not allowed.", "error")
     }
