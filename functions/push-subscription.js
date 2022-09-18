@@ -23,7 +23,13 @@ exports.handler = async function (event) {
     case "POST":
       try {
         const addResponse = await addSubscription(JSON.parse(event.body))
-        return addResponse
+        return {
+          statusCode: 201,
+          body: JSON.stringify({
+            message: "saved",
+            sent: addResponse
+          })
+        }
       } catch (error) {
         console.error("Error saving subscription ", error)
         return {
@@ -34,9 +40,11 @@ exports.handler = async function (event) {
     case "DELETE":
       try {
         const eventData = JSON.parse(event.body)
-        const delResponse = await removeSubscription(eventData.endpoint)
+        await removeSubscription(eventData.endpoint)
         console.log("Successfully unsubsribed: ", eventData.endpoint)
-        return delResponse
+        return {
+          statusCode: 204
+        }
       } catch (error) {
         console.error("Failed to delete subscription ", error)
         return {
