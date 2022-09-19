@@ -1,14 +1,5 @@
-const { GraphQLClient } = require("graphql-request")
 const webpush = require("web-push")
-
-const hasuraEndpoint = "https://dshomoye.hasura.app/v1/graphql"
-const hasuraAdminKey = process.env.HASURA_ADMIN_KEY
-
-const client = new GraphQLClient(hasuraEndpoint, {
-  headers: {
-    "x-hasura-admin-secret": hasuraAdminKey,
-  },
-})
+const { get, list } = require("./kvstoreclient")
 
 const vapidPrivateKey = process.env.VAPID_PRIVATE_KEY
 const vapidPublicKey =
@@ -30,20 +21,18 @@ const isAuthenticated = (event) => {
   return false
 }
 
-const getAllSubscriptions = async () => {
-  const query = `query MyQuery {
-    push_subscriptions {
-      subscription
+const allSubscriptions = async () => {
+  /** @type {string[]} */
+  const allKeys = await list(`dshomoye.dev:push-subscriptions:`)
+  const promises = allKeys.map(async (k) => {
+    const r = await get(k)
+    if (typeof r === "string") {
+      return JSON.parse(r)
     }
-  }`
-  try {
-    const data = await client.request(query)
-    const subscriptions = data.push_subscriptions
-    return subscriptions
-  } catch (error) {
-    console.error("error getting subs ", error)
-    return []
-  }
+    return r
+  })
+  const result = await Promise.all(promises)
+  return result
 }
 
 const sendPushMsg = async (subscription, message) => {
@@ -70,7 +59,7 @@ exports.handler = async (event) => {
   }
   switch (method) {
     case "POST":
-      const subscriptions = await getAllSubscriptions()
+      const subscriptions = await allSubscriptions()
       const promises = subscriptions.map(async (subscription) => {
         return await sendPushMsg(subscription.subscription, event.body)
       })
@@ -86,7 +75,7 @@ exports.handler = async (event) => {
     default:
       return {
         statusCode: 400,
-        body: `{"error": "Unsupportd method"}`,
+        body: `{"error": "Unsupported method"}`,
       }
   }
 }
