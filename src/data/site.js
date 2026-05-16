@@ -1,8 +1,8 @@
 export const site = {
-  title: "Damola Shomoye",
-  eyebrow: "Quiet Technical Notebook",
-  author: "Adedamola Shomoye",
-  description: "Writing on software, tools, media, and personal systems.",
+  title: "damola's blog",
+  eyebrow: "damola's blog",
+  author: "Damola Shomoye",
+  description: "Random thoughts on everything.",
   url: "https://www.dshomoye.dev",
   github: "https://github.com/dshomoye",
   email: "email@dshomoye.dev",

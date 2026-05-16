@@ -41,9 +41,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background:
-    radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 32rem),
-    var(--bg);
+  background: var(--bg);
 }
 
 body,
@@ -129,11 +127,11 @@ a:hover {
 
 .hero h1 {
   margin: 0;
-  max-width: 12ch;
+  max-width: 13ch;
   font-family: var(--serif);
-  font-size: clamp(4.1rem, 10vw, 7.2rem);
+  font-size: clamp(3.1rem, 7vw, 5rem);
   font-weight: 500;
-  line-height: 0.92;
+  line-height: 1;
   letter-spacing: 0;
 }
 
@@ -175,7 +173,7 @@ a:hover {
   gap: clamp(1rem, 3vw, 2rem);
   align-items: baseline;
   min-height: 4.9rem;
-  padding: 0 0 1.05rem;
+  padding: 1.2rem 0 1.35rem;
   border-bottom: 1px solid var(--rule);
 }
 
