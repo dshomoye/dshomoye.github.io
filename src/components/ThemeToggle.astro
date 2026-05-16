@@ -1,0 +1,13 @@
+<button class="plain-button" type="button" data-theme-toggle aria-label="Toggle theme">
+  Theme
+</button>
+
+<script>
+  const toggle = document.querySelector("[data-theme-toggle]")
+  toggle?.addEventListener("click", () => {
+    const next = document.documentElement.classList.toggle("dark")
+      ? "dark"
+      : "light"
+    localStorage.setItem("theme", next)
+  })
+</script>

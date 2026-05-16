@@ -1,9 +1,9 @@
 const fetch = require("node-fetch")
 
 const KVstoreEndpoint = "https://kvstore.dmlas.workers.dev"
-console.log("key ", process.env.PRESHARED_KEY)
 const headers = {
   PRESHARED_KEY: process.env.PRESHARED_KEY,
+  "Content-Type": "application/json",
 }
 
 const get = async (key) => {
@@ -61,4 +61,3 @@ exports.get = get
 exports.put = put
 exports.clear = clear
 exports.list = list
-
