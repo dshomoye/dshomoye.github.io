@@ -1,5 +1,3 @@
-const fetch = require("node-fetch")
-
 const KVstoreEndpoint = "https://kvstore.dmlas.workers.dev"
 const headers = {
   PRESHARED_KEY: process.env.PRESHARED_KEY,
