@@ -1,0 +1,100 @@
+---
+import ThemeToggle from "../components/ThemeToggle.astro"
+import { site } from "../data/site.js"
+import "../styles/site.css"
+
+const {
+  title = site.title,
+  description = site.description,
+  image,
+  type = "website",
+} = Astro.props
+
+const canonical = new URL(Astro.url.pathname, site.url).toString()
+const pageTitle = title === site.title ? site.title : `${title} | ${site.title}`
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="author" content={site.author} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" />
+    <title>{pageTitle}</title>
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonical} />
+    {image && <meta property="og:image" content={image} />}
+    <meta name="twitter:card" content={image ? "summary_large_image" : "summary"} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <script is:inline>
+      const savedTheme = localStorage.getItem("theme")
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
+      if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+        document.documentElement.classList.add("dark")
+      }
+    </script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="site-mark" href="/" aria-label={site.title}>
+          <span class="site-dot" aria-hidden="true"></span>
+          <span>{site.eyebrow}</span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="/about/">About</a>
+          <a href="/rss.xml">RSS</a>
+          <a href={site.github}>GitHub</a>
+          <ThemeToggle />
+        </nav>
+      </header>
+
+      <main>
+        <slot />
+      </main>
+
+      <footer class="site-footer">
+        <span>© 2022-{new Date().getFullYear()} Damola Shomoye</span>
+        <span class="footer-links">
+          <a href="/rss.xml">RSS</a>
+          <span aria-hidden="true">·</span>
+          <a href={site.github}>GitHub</a>
+        </span>
+      </footer>
+    </div>
+    <script>
+      const bucketRoot = "https://dshomoye.sirv.com"
+
+      class MediaBoxElement extends HTMLElement {
+        connectedCallback() {
+          if (this.dataset.enhanced) return
+          this.dataset.enhanced = "1"
+          const src = this.getAttribute("src") || ""
+          const type = this.getAttribute("type") || "image"
+          const name = this.getAttribute("name") || this.getAttribute("caption") || ""
+          const noBorder = this.getAttribute("noborder") === "true"
+          const mediaSrc = /^https?:\/\//.test(src) || src.startsWith("/")
+            ? src
+            : `${bucketRoot}/${src.replace(/^\/+/, "")}`
+          const className = noBorder ? "" : "styled-media"
+          const media = type === "video"
+            ? `<video class="${className}" src="${mediaSrc}" controls></video>`
+            : `<img class="${className}" src="${mediaSrc}" alt="${name}" loading="lazy" />`
+          this.innerHTML = `<a href="${mediaSrc}"><figure>${media}${name ? `<figcaption>${name}</figcaption>` : ""}</figure></a>`
+        }
+      }
+
+      if (!customElements.get("media-box")) {
+        customElements.define("media-box", MediaBoxElement)
+      }
+    </script>
+  </body>
+</html>

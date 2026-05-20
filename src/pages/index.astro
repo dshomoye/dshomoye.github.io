@@ -1,0 +1,35 @@
+---
+import ArticleArchive from "../components/ArticleArchive.astro"
+import BaseLayout from "../layouts/BaseLayout.astro"
+import { site } from "../data/site.js"
+import { getAllPosts } from "../lib/posts.js"
+
+const posts = await getAllPosts()
+---
+
+<BaseLayout title={site.title} description={site.description}>
+  <section class="hero">
+    <h1>{site.title}</h1>
+    <p>{site.description}</p>
+  </section>
+
+  {posts.length > 0 ? (
+    <ArticleArchive posts={posts} />
+  ) : (
+    <section class="page">
+      <p>
+        No posts were found. Initialize the private <code>content</code> submodule
+        before building the production site.
+      </p>
+    </section>
+  )}
+
+  <aside class="thinking-box">
+    <span class="thinking-icon" aria-hidden="true">✎</span>
+    <p>
+      <strong>Recently thinking about</strong>
+      Tech, life, futurism (utopias <em>and</em> dystopias) and whatever my
+      mind decides to wander on.
+    </p>
+  </aside>
+</BaseLayout>

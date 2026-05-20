@@ -1,0 +1,26 @@
+---
+import ArticleArchive from "../../components/ArticleArchive.astro"
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import { getAllPosts, getAllTags } from "../../lib/posts.js"
+
+export async function getStaticPaths() {
+  const posts = await getAllPosts()
+  return getAllTags(posts).map((tag) => ({
+    params: { tag },
+    props: {
+      tag,
+      posts: posts.filter((post) => post.data.tags.includes(tag)),
+    },
+  }))
+}
+
+const { tag, posts } = Astro.props
+---
+
+<BaseLayout title={`${tag} posts`} description={`Posts tagged ${tag}.`}>
+  <section class="hero">
+    <h1>{tag}</h1>
+    <p>{posts.length} post{posts.length === 1 ? "" : "s"} filed under this tag.</p>
+  </section>
+  <ArticleArchive posts={posts} />
+</BaseLayout>

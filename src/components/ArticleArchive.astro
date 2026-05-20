@@ -1,0 +1,33 @@
+---
+import TagPill from "./TagPill.astro"
+import { formatDate, getPostUrl, getPostsByYear } from "../lib/posts.js"
+
+const { posts } = Astro.props
+const postsByYear = getPostsByYear(posts)
+---
+
+<section class="archive" aria-label="Post archive">
+  {[...postsByYear.entries()].map(([year, yearPosts]) => (
+    <section class="archive-year">
+      <h2 class="archive-year-label">{year}</h2>
+      <div class="post-list">
+        {yearPosts.map((post) => (
+          <article class="post-row">
+            <time class="post-date" datetime={formatDate(post.data.date, "short")}>
+              {formatDate(post.data.date, "short")}
+            </time>
+            <div>
+              <h3 class="post-title">
+                <a href={getPostUrl(post)}>{post.data.title}</a>
+              </h3>
+              {post.data.description && (
+                <p class="post-description">{post.data.description}</p>
+              )}
+            </div>
+            {post.data.tags?.[0] && <TagPill tag={post.data.tags[0]} />}
+          </article>
+        ))}
+      </div>
+    </section>
+  ))}
+</section>

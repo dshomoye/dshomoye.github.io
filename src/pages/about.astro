@@ -1,0 +1,49 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"
+import { site } from "../data/site.js"
+---
+
+<BaseLayout title="About" description={`About ${site.author}.`}>
+  <section class="page">
+    <header class="page-header">
+      <p class="page-kicker">About</p>
+      <h1 class="page-title">About Me</h1>
+    </header>
+    <div class="content about-card">
+      <img
+        class="portrait"
+        data-portrait
+        src="/assets/damola.png"
+        alt={site.author}
+        loading="lazy"
+      />
+      <div class="portrait portrait-fallback" hidden aria-hidden="true">DS</div>
+      <div>
+        <p>
+          I’m a software engineer who primarily writes JavaScript and Python,
+          with occasional detours through Go, Rust, and whatever else seems worth
+          learning or mildy interesting.
+
+          If prompting is engineering, then I'm pretty good at that too.
+        </p>
+        <p>
+          I grew up in Nigeria, spend way too much time computers more than is probably
+          sensible, and keep trying to make the web feel a little less terrible. At least I was. 
+          Then I think I gave up, or I forgot about it? Really, what's the difference, right?
+        </p>
+        <p></p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  document.querySelectorAll("[data-portrait]").forEach((image) => {
+    const showFallback = () => {
+      image.setAttribute("hidden", "")
+      image.nextElementSibling?.removeAttribute("hidden")
+    }
+    image.addEventListener("error", showFallback)
+    if (image.complete && image.naturalWidth === 0) showFallback()
+  })
+</script>

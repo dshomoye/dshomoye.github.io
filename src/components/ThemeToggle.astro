@@ -1,0 +1,23 @@
+<button class="plain-button" type="button" data-theme-toggle aria-label="Toggle theme">
+  Dark mode
+</button>
+
+<script>
+  const toggle = document.querySelector("[data-theme-toggle]")
+  const syncLabel = () => {
+    if (!toggle) return
+    const isDark = document.documentElement.classList.contains("dark")
+    toggle.textContent = isDark ? "Light mode" : "Dark mode"
+    toggle.setAttribute("aria-label", `Switch to ${isDark ? "light" : "dark"} theme`)
+  }
+
+  syncLabel()
+
+  toggle?.addEventListener("click", () => {
+    const next = document.documentElement.classList.toggle("dark")
+      ? "dark"
+      : "light"
+    localStorage.setItem("theme", next)
+    syncLabel()
+  })
+</script>

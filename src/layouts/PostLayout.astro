@@ -1,0 +1,48 @@
+---
+import BaseLayout from "./BaseLayout.astro"
+import LikeButton from "../components/LikeButton.astro"
+import TagPill from "../components/TagPill.astro"
+import { formatDate, getPostUrl } from "../lib/posts.js"
+import { site } from "../data/site.js"
+
+const { post, previous, next } = Astro.props
+const description = post.data.description || site.description
+const url = getPostUrl(post)
+---
+
+<BaseLayout title={post.data.title} description={description} type="article">
+  <article class="page">
+    <header class="page-header">
+      <h1 class="page-title">{post.data.title}</h1>
+      {description && <p class="hero-description">{description}</p>}
+      <div class="post-meta">
+        <span>{formatDate(post.data.date)}</span>
+        {post.data.lastUpdated && (
+          <span>Updated {formatDate(post.data.lastUpdated)}</span>
+        )}
+      </div>
+      {post.data.tags.length > 0 && (
+        <div class="tag-list" aria-label="Tags">
+          {post.data.tags.map((tag) => <TagPill tag={tag} />)}
+        </div>
+      )}
+    </header>
+
+    <section class="content">
+      <slot />
+    </section>
+
+    <div class="post-actions">
+      <LikeButton pathname={url} />
+    </div>
+
+    <nav class="pager" aria-label="Post navigation">
+      <span>
+        {previous && <a href={getPostUrl(previous)}>← {previous.data.title}</a>}
+      </span>
+      <span>
+        {next && <a href={getPostUrl(next)}>{next.data.title} →</a>}
+      </span>
+    </nav>
+  </article>
+</BaseLayout>
